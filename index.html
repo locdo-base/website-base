@@ -198,57 +198,426 @@
       </div>
     </div>
 
-    <!-- Mega Menu Dropdown -->
-    <div id="mega-menu-dropdown" class="hidden absolute left-1/2 -translate-x-1/2 top-full mt-2 w-full max-w-4xl bg-white/95 backdrop-blur-xl border border-slate-200 rounded-2xl shadow-2xl p-6 z-50 transition-all duration-200 animate-in fade-in slide-in-from-top-2">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-left">
-        <div>
-          <div class="flex items-center gap-2 mb-3">
-            <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
-            <h4 class="font-bold text-slate-900 text-sm">Base Work+</h4>
+        <!-- Mega Menu Dropdown -->
+    <div id="mega-menu-dropdown" class="hidden absolute left-1/2 -translate-x-1/2 top-full mt-3 w-full max-w-6xl bg-white/98 backdrop-blur-2xl border border-slate-200/90 rounded-[32px] shadow-[0_25px_70px_rgba(15,23,42,0.18)] p-6 sm:p-8 lg:p-10 z-50 transition-all duration-300 animate-in fade-in slide-in-from-top-3">
+      <!-- 4 Main Product Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8 text-left">
+        
+        <!-- COLUMN 1: BASE WORK -->
+        <div class="flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <!-- Header -->
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#0068FF] text-white flex items-center justify-center shrink-0 shadow-sm shadow-blue-500/25">
+                <span class="material-symbols-outlined text-xl">bar_chart</span>
+              </div>
+              <div>
+                <h3 class="font-extrabold text-slate-900 text-base leading-snug">Base Work</h3>
+                <p class="text-[11px] text-slate-500 leading-snug mt-0.5">Digital Workspace cho toàn bộ công việc và tài chính</p>
+              </div>
+            </div>
+
+            <!-- List of 7 Items -->
+            <div class="space-y-3 pt-1">
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[14px]">check</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition">Task</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Giao việc theo kết quả.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[14px]">check</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition">Request</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Đề xuất – phê duyệt.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-sky-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition">Workflow</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Quy trình tuyến tính.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-indigo-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[14px]">description</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition">Docs</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Tài liệu doanh nghiệp.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-cyan-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[14px]">table_chart</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition">Dataset</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Bảng dữ liệu dùng chung.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-purple-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[14px]">draw</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition">E-Sign</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Ký số Viettel CA, VNPT.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-blue-700 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[14px]">grid_view</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition">Project</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Dự án, WBS, cột mốc.</p>
+                </div>
+              </a>
+            </div>
           </div>
-          <p class="text-xs text-slate-500 mb-3">Quản trị công việc & quy trình số</p>
-          <ul class="space-y-2 text-xs text-slate-700">
-            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Wework</span> - Quản lý dự án</a></li>
-            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Workflow</span> - Quy trình tự động</a></li>
-            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Request</span> - Xử lý phê duyệt</a></li>
-            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Office</span> - Quản lý văn bản</a></li>
-          </ul>
+
+          <!-- Bottom Column Link -->
+          <div class="pt-2 border-t border-slate-100">
+            <a href="/#platform" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#0068FF] hover:text-[#0052cc] transition">
+              <span>Khám phá Base Work</span>
+              <span class="font-mono text-sm">→</span>
+            </a>
+          </div>
         </div>
-        <div>
-          <div class="flex items-center gap-2 mb-3">
-            <span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span>
-            <h4 class="font-bold text-slate-900 text-sm">Base HRM+</h4>
+
+        <!-- COLUMN 2: BASE CRM -->
+        <div class="flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <!-- Header -->
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#5B50E5] text-white flex items-center justify-center shrink-0 shadow-sm shadow-indigo-500/25">
+                <span class="material-symbols-outlined text-xl">trending_up</span>
+              </div>
+              <div>
+                <h3 class="font-extrabold text-slate-900 text-base leading-snug">Base CRM</h3>
+                <p class="text-[11px] text-slate-500 leading-snug mt-0.5">Trọn phễu khách hàng, từ tiếp thị tới chăm sóc sau bán</p>
+              </div>
+            </div>
+
+            <!-- List of 7 Items -->
+            <div class="space-y-3 pt-1">
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  P
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition">Prospector</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Hội thoại đa kênh.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[13px]">view_stream</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition">Lead</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Phễu marketing → sales.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-fuchsia-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  A
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition">Ads Manager</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Hiệu quả quảng cáo.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[14px]">star</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition">Event</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Sự kiện như một #Service.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-purple-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[13px]">mic</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition">Live</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Livestream bán hàng.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  $
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition">Sales</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Pipeline đến closed-won.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-blue-700 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  D
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition">DMS</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Phân phối, đại lý.</p>
+                </div>
+              </a>
+            </div>
           </div>
-          <p class="text-xs text-slate-500 mb-3">Quản trị nhân sự toàn diện</p>
-          <ul class="space-y-2 text-xs text-slate-700">
-            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base HRM</span> - Hồ sơ nhân sự</a></li>
-            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Timeoff</span> - Quản lý nghỉ phép</a></li>
-            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Checkin</span> - Chấm công thông minh</a></li>
-            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Payroll</span> - Tính lương tự động</a></li>
-          </ul>
+
+          <!-- Bottom Column Link -->
+          <div class="pt-2 border-t border-slate-100">
+            <a href="/#platform" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#5B50E5] hover:text-[#4338CA] transition">
+              <span>Khám phá Base CRM</span>
+              <span class="font-mono text-sm">→</span>
+            </a>
+          </div>
         </div>
-        <div>
-          <div class="flex items-center gap-2 mb-3">
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
-            <h4 class="font-bold text-slate-900 text-sm">Base Info+</h4>
+
+        <!-- COLUMN 3: BASE HRM -->
+        <div class="flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <!-- Header -->
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#059669] text-white flex items-center justify-center shrink-0 shadow-sm shadow-emerald-500/25">
+                <span class="material-symbols-outlined text-xl">groups</span>
+              </div>
+              <div>
+                <h3 class="font-extrabold text-slate-900 text-base leading-snug">Base HRM</h3>
+                <p class="text-[11px] text-slate-500 leading-snug mt-0.5">Employee Happiness cho trọn vòng đời một người đi làm</p>
+              </div>
+            </div>
+
+            <!-- List of 7 Items -->
+            <div class="space-y-3 pt-1">
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-indigo-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[13px]">person</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition">HRIS</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Hồ sơ, hợp đồng, BHXH.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-cyan-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[13px]">schedule</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition">Timesheet</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Chấm công, ca, nghỉ phép.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  P
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition">Payroll</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Lương, thuế TNCN.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-amber-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[13px]">change_history</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition">Careers</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Lộ trình nghề nghiệp.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[13px]">school</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition">Academy</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Đào tạo nội bộ.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[13px]">campaign</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition">Townhall</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Thư lãnh đạo, sự kiện.</p>
+                </div>
+              </a>
+
+              <a href="/#platform" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-pink-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[13px]">military_tech</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition">Award</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Ghi nhận & vinh danh.</p>
+                </div>
+              </a>
+            </div>
           </div>
-          <p class="text-xs text-slate-500 mb-3">Thông tin & Giao tiếp nội bộ</p>
-          <ul class="space-y-2 text-xs text-slate-700">
-            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Inside</span> - Mạng xã hội nội bộ</a></li>
-            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Message</span> - Chat doanh nghiệp</a></li>
-            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Notice</span> - Thông báo điều hành</a></li>
-            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Meeting</span> - Quản lý phòng họp</a></li>
-          </ul>
+
+          <!-- Bottom Column Link -->
+          <div class="pt-2 border-t border-slate-100">
+            <a href="/#platform" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#059669] hover:text-[#047857] transition">
+              <span>Khám phá Base HRM</span>
+              <span class="font-mono text-sm">→</span>
+            </a>
+          </div>
         </div>
-        <div class="bg-blue-50/70 p-4 rounded-xl border border-blue-100">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="material-symbols-outlined text-blue-600 text-lg">smart_toy</span>
-            <h4 class="font-bold text-blue-900 text-sm">Base AI & Agents</h4>
+
+        <!-- COLUMN 4: AI & AGENTS -->
+        <div class="flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <!-- Header -->
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#EA580C] text-white flex items-center justify-center shrink-0 shadow-sm shadow-orange-500/25">
+                <span class="material-symbols-outlined text-xl">smart_toy</span>
+              </div>
+              <div>
+                <h3 class="font-extrabold text-slate-900 text-base leading-snug">AI & Agents</h3>
+                <p class="text-[11px] text-slate-500 leading-snug mt-0.5">Tầng AI vận hành xuyên cả ba bộ, mở ra ô bộc Agentic</p>
+              </div>
+            </div>
+
+            <!-- List of 6 Items -->
+            <div class="space-y-3 pt-1">
+              <a href="/#features" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-purple-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[13px]">auto_awesome</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-orange-600 transition">Agents</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Trợ lý AI cho từng phòng ban.</p>
+                </div>
+              </a>
+
+              <a href="/#features" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-fuchsia-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[13px]">code</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-orange-600 transition">Studio</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Vibe-code ứng dụng nội bộ.</p>
+                </div>
+              </a>
+
+              <a href="/#features" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  A
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-orange-600 transition">Atlas</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Bản đồ dữ liệu doanh nghiệp.</p>
+                </div>
+              </a>
+
+              <a href="/#features" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[13px]">hub</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-orange-600 transition">Architecture</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Thiết kế bộ máy bằng AI.</p>
+                </div>
+              </a>
+
+              <a href="/#features" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  <span class="material-symbols-outlined text-[13px]">psychology</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-orange-600 transition">Knowledge</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Tri thức có nguồn.</p>
+                </div>
+              </a>
+
+              <a href="/#features" class="flex items-start gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-slate-50 transition group">
+                <div class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-xs">
+                  +
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-orange-600 transition">AI Workspace</h4>
+                  <p class="text-[11px] text-slate-500 leading-tight">Không gian làm việc với AI.</p>
+                </div>
+              </a>
+            </div>
           </div>
-          <p class="text-xs text-blue-700/80 mb-3">Thế hệ Agentic OS mới giúp tự động hóa quy trình với AI đa tác nhân.</p>
-          <a href="#features" class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-800">
-            Tìm hiểu Agentic OS <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-          </a>
+
+          <!-- Bottom Column Link -->
+          <div class="pt-2 border-t border-slate-100">
+            <a href="/#features" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#EA580C] hover:text-[#C2410C] transition">
+              <span>Xem thư viện Agent</span>
+              <span class="font-mono text-sm">→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BOTTOM FULL-WIDTH STRIP: PLATFORM · BASE CORE & COMMON -->
+      <div class="mt-8 pt-6 border-t border-slate-100">
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/80 border border-slate-200/80 flex flex-col xl:flex-row items-center justify-between gap-4">
+          <!-- Left Icon & Label -->
+          <div class="flex items-center gap-3 shrink-0">
+            <div class="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-purple-500/20">
+              <span class="material-symbols-outlined text-xl">view_in_ar</span>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-xs sm:text-sm">Platform · Base Core &amp; Common</h4>
+              <p class="text-[11px] text-slate-500">Có sẵn trong mọi gói, không tính tiền</p>
+            </div>
+          </div>
+
+          <!-- Center Pills -->
+          <div class="flex flex-wrap items-center justify-center gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 font-medium shadow-2xs">Account</span>
+            <span class="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 font-medium shadow-2xs">Workforce</span>
+            <span class="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 font-medium shadow-2xs">Chat</span>
+            <span class="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 font-medium shadow-2xs">Mail</span>
+            <span class="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 font-medium shadow-2xs">Drive</span>
+            <span class="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 font-medium shadow-2xs">Sysadmin</span>
+            <span class="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 font-medium shadow-2xs">Datasets</span>
+            <span class="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 font-medium shadow-2xs">Automation</span>
+            <span class="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 font-medium shadow-2xs">Form</span>
+            <span class="px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 font-medium shadow-2xs">E-Sign</span>
+          </div>
+
+          <!-- Right Action -->
+          <div class="shrink-0">
+            <a href="/#platform" class="inline-flex items-center gap-1 text-xs font-bold text-purple-600 hover:text-purple-800 transition">
+              <span>Tìm hiểu Platform</span>
+              <span class="font-mono text-sm">→</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
