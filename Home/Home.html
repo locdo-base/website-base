@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base.vn - Hệ điều hành cho doanh nghiệp trong kỷ nguyên AI</title>
+  <meta name="description" content="Base Agentic OS - Nền tảng quản trị và vận hành doanh nghiệp toàn diện. Nơi con người, phần mềm và AI Agent cùng phối hợp nhất quán để tạo ra kết quả đột phá.">
+  <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/aida-public/AB6AXuAWccaJMdjviWQoBAYm5n8f8duzlpjW_9zgnBkxd_ius0PKxAzhZLmANstlQ0gbX7uYHFnQZnoFIXxu0vJDN72SeX9jYc5Qc_vdWqBEYS9mih-XArsEGVveBkoShPpI3s7fcn4m_7ik3peBapZLqhYfXapQYbFKBMfycAnLCc0U-8LPvdFi_Pg5ZMHYLIZV6d4ZYiqOGOD_A1_MakivqEi_L27M93orj6LRWGHidporG0O3G9Mn6iNNNmjCfJ3Bzsfq">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+              300: '#cbd5e1',
+              400: '#94a3b8',
+              500: '#64748b',
+              600: '#475569',
+              700: '#334155',
+              800: '#1e293b',
+              900: '#0f172a',
+              950: '#020617',
+              blue: '#1F62E8',
+              blueHover: '#0F4FD6'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace']
+          },
+          boxShadow: {
+            'brand': '0 8px 24px rgba(31, 98, 232, 0.25)',
+            'brand-lg': '0 14px 34px rgba(31, 98, 232, 0.32)',
+            'glass': '0 8px 32px 0 rgba(15, 23, 42, 0.08)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style id="base-design-system-tokens">
+    :root {
+      --brand-primary: #1F62E8;
+      --brand-primary-hover: #0F4FD6;
+      --brand-tint-bg: #EAF1FC;
+      --brand-tint-border: #CFE3FF;
+      --color-ink: #0A0F1E;
+      --color-secondary: #475569;
+      --color-tertiary: #94A3B8;
+      --gradient-spectrum: linear-gradient(90deg, #1F62E8 0%, #7152DB 50%, #F0627F 100%);
+      --gradient-spectrum-light: linear-gradient(90deg, #7BAEF8 0%, #A48CF6 50%, #FF8DA6 100%);
+      --gradient-night-glow: radial-gradient(90% 120% at 50% 0%, #1F62E8 0%, #0E1630 55%, #0A0F1E 100%);
+      --gradient-aurora: radial-gradient(120% 140% at 80% 0%, #7BAEF8 0%, #1F62E8 45%, #0A3AA8 100%);
+      --bg-slate-split: #F7F9FC;
+    }
+
+    * {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #0f172a;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined' !important;
+      font-weight: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: 'liga';
+    }
+
+    .ai-gradient-text {
+      background: linear-gradient(90deg, #1F62E8 0%, #7152DB 50%, #F0627F 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+    }
+
+    .ai-gradient-text-light {
+      background: linear-gradient(90deg, #7BAEF8 0%, #A48CF6 50%, #FF8DA6 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+    }
+
+    .btn-brand-primary {
+      background-color: #1F62E8 !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 8px 20px rgba(31,98,232,0.28) !important;
+      border-radius: 9999px !important;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .btn-brand-primary:hover {
+      background-color: #0F4FD6 !important;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(31,98,232,0.35) !important;
+    }
+
+    .badge-primary-tint {
+      background-color: #EAF1FC !important;
+      border-color: #CFE3FF !important;
+      color: #1F62E8 !important;
+      border-radius: 9999px !important;
+    }
+
+    /* Subtle custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* Toast animation */
+    #toast {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #toast.toast-show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #toast.toast-hide {
+      transform: translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="font-sans text-brand-900 bg-white selection:bg-brand-900 selection:text-white min-h-screen relative">
+
+  <!-- BEGIN: Navigation Header -->
+  <header class="sticky top-0 z-50 pt-3 pb-2 px-4 sm:px-6 lg:px-8 transition-all duration-300" id="main-header">
+    <div class="mx-auto flex items-center justify-between bg-white/95 backdrop-blur-md rounded-full border border-slate-200/80 shadow-md hover:shadow-lg py-2.5 max-w-5xl px-5 transition-all">
+      <!-- Logo -->
+      <div class="flex items-center shrink-0">
+        <a class="flex items-center focus:outline-none group" href="#">
+          <img alt="BASE.VN" class="h-7 w-auto object-contain transition-transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWccaJMdjviWQoBAYm5n8f8duzlpjW_9zgnBkxd_ius0PKxAzhZLmANstlQ0gbX7uYHFnQZnoFIXxu0vJDN72SeX9jYc5Qc_vdWqBEYS9mih-XArsEGVveBkoShPpI3s7fcn4m_7ik3peBapZLqhYfXapQYbFKBMfycAnLCc0U-8LPvdFi_Pg5ZMHYLIZV6d4ZYiqOGOD_A1_MakivqEi_L27M93orj6LRWGHidporG0O3G9Mn6iNNNmjCfJ3Bzsfq">
+        </a>
+      </div>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center justify-center text-sm font-medium text-slate-700 space-x-1">
+        <a class="px-3.5 py-1.5 rounded-full text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" href="#platform">Nền tảng</a>
+        <a class="px-3.5 py-1.5 rounded-full text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" href="#industries">Giải pháp</a>
+        <div class="relative">
+          <button id="btn-products-menu" type="button" class="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors focus:outline-none cursor-pointer">
+            <span>Sản phẩm</span>
+            <span class="material-symbols-outlined text-[16px] transition-transform duration-200" id="mega-arrow">expand_more</span>
+          </button>
+        </div>
+        <a class="px-3.5 py-1.5 rounded-full text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" href="/bang-gia">Bảng giá</a>
+        <a class="px-3.5 py-1.5 rounded-full text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" href="#resources">Tài nguyên</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center space-x-2.5 shrink-0">
+        <a class="hidden sm:inline-flex text-xs md:text-sm font-semibold text-slate-700 hover:text-blue-600 hover:border-slate-300 border border-slate-200 bg-white px-4 md:px-5 py-2 rounded-full transition-all shadow-xs cursor-pointer" href="#login" onclick="openDemoModal(event, 'Đăng nhập')">Đăng nhập</a>
+        <button class="inline-flex items-center justify-center text-xs md:text-sm font-semibold text-white px-4 sm:px-6 py-2 rounded-full shadow-sm hover:opacity-95 transition-all transform hover:-translate-y-0.5 cursor-pointer" onclick="openDemoModal(event, 'Đăng ký Demo')" style="background-color: rgb(31, 98, 232); box-shadow: rgba(31, 98, 232, 0.28) 0px 8px 20px;">
+          Đăng ký Demo
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none cursor-pointer" aria-label="Menu">
+          <span class="material-symbols-outlined text-[24px]" id="mobile-menu-icon">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mega Menu Dropdown -->
+    <div id="mega-menu-dropdown" class="hidden absolute left-1/2 -translate-x-1/2 top-full mt-2 w-full max-w-4xl bg-white/95 backdrop-blur-xl border border-slate-200 rounded-2xl shadow-2xl p-6 z-50 transition-all duration-200 animate-in fade-in slide-in-from-top-2">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-left">
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+            <h4 class="font-bold text-slate-900 text-sm">Base Work+</h4>
+          </div>
+          <p class="text-xs text-slate-500 mb-3">Quản trị công việc & quy trình số</p>
+          <ul class="space-y-2 text-xs text-slate-700">
+            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Wework</span> - Quản lý dự án</a></li>
+            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Workflow</span> - Quy trình tự động</a></li>
+            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Request</span> - Xử lý phê duyệt</a></li>
+            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Office</span> - Quản lý văn bản</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span>
+            <h4 class="font-bold text-slate-900 text-sm">Base HRM+</h4>
+          </div>
+          <p class="text-xs text-slate-500 mb-3">Quản trị nhân sự toàn diện</p>
+          <ul class="space-y-2 text-xs text-slate-700">
+            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base HRM</span> - Hồ sơ nhân sự</a></li>
+            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Timeoff</span> - Quản lý nghỉ phép</a></li>
+            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Checkin</span> - Chấm công thông minh</a></li>
+            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Payroll</span> - Tính lương tự động</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
+            <h4 class="font-bold text-slate-900 text-sm">Base Info+</h4>
+          </div>
+          <p class="text-xs text-slate-500 mb-3">Thông tin & Giao tiếp nội bộ</p>
+          <ul class="space-y-2 text-xs text-slate-700">
+            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Inside</span> - Mạng xã hội nội bộ</a></li>
+            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Message</span> - Chat doanh nghiệp</a></li>
+            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Notice</span> - Thông báo điều hành</a></li>
+            <li><a href="#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Meeting</span> - Quản lý phòng họp</a></li>
+          </ul>
+        </div>
+        <div class="bg-blue-50/70 p-4 rounded-xl border border-blue-100">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="material-symbols-outlined text-blue-600 text-lg">smart_toy</span>
+            <h4 class="font-bold text-blue-900 text-sm">Base AI & Agents</h4>
+          </div>
+          <p class="text-xs text-blue-700/80 mb-3">Thế hệ Agentic OS mới giúp tự động hóa quy trình với AI đa tác nhân.</p>
+          <a href="#features" class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-800">
+            Tìm hiểu Agentic OS <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden mt-2 mx-auto max-w-md bg-white/98 backdrop-blur-xl border border-slate-200 rounded-2xl shadow-xl p-5 transition-all">
+      <nav class="flex flex-col space-y-3 text-sm font-medium text-slate-700">
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100 text-slate-800 flex items-center justify-between" href="#platform">
+          <span>Nền tảng</span><span class="material-symbols-outlined text-[18px] text-slate-400">chevron_right</span>
+        </a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100 text-slate-800 flex items-center justify-between" href="#industries">
+          <span>Giải pháp (60+ Lĩnh vực)</span><span class="material-symbols-outlined text-[18px] text-slate-400">chevron_right</span>
+        </a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100 text-slate-800 flex items-center justify-between" href="#same-language">
+          <span>AI & Con người</span><span class="material-symbols-outlined text-[18px] text-slate-400">chevron_right</span>
+        </a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100 text-slate-800 flex items-center justify-between" href="#features">
+          <span>Kiến trúc Agent đa tầng</span><span class="material-symbols-outlined text-[18px] text-slate-400">chevron_right</span>
+        </a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100 text-slate-800 flex items-center justify-between" href="#mcp-protocol">
+          <span>Chuẩn kết nối MCP</span><span class="material-symbols-outlined text-[18px] text-slate-400">chevron_right</span>
+        </a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100 text-slate-800 flex items-center justify-between" href="/bang-gia">
+          <span>Bảng giá & Chi phí</span><span class="material-symbols-outlined text-[18px] text-slate-400">chevron_right</span>
+        </a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100 text-slate-800 flex items-center justify-between" href="#resources">
+          <span>Tài nguyên</span><span class="material-symbols-outlined text-[18px] text-slate-400">chevron_right</span>
+        </a>
+        <div class="pt-3 border-t border-slate-200 flex flex-col gap-2">
+          <button onclick="openDemoModal(event, 'Đăng nhập')" class="w-full text-center py-2.5 rounded-full border border-slate-200 text-slate-700 font-semibold text-sm hover:bg-slate-50 cursor-pointer">
+            Đăng nhập
+          </button>
+          <button onclick="openDemoModal(event, 'Đăng ký Demo')" class="w-full text-center py-2.5 rounded-full bg-blue-600 text-white font-semibold text-sm shadow-brand hover:bg-blue-700 cursor-pointer">
+            Đăng ký Demo ngay
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- END: Navigation Header -->
+
+<main>
+<!-- BEGIN: HeroSection -->
+<section class="py-12 md:py-20 overflow-hidden bg-[#FAFCFF]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <!-- Left Column: Copy & Actions -->
+      <div class="lg:col-span-6 space-y-6">
+        <!-- Agentic OS Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#D4E3FC] bg-[#EEF4FF] text-xs font-bold uppercase tracking-wider text-[#1F62E8] shadow-xs">
+          <span class="w-2 h-2 rounded-full bg-[#1F62E8]"></span>
+          AGENTIC OS
+        </div>
+
+        <!-- H1 Headline -->
+        <h1 class="text-4xl sm:text-5xl lg:text-[58px] font-extrabold text-[#0D111A] tracking-tight leading-[1.14]">
+          Hệ điều hành cho<br>
+          doanh nghiệp trong<br>
+          <span class="bg-gradient-to-r from-[#1F62E8] via-[#7C3AED] to-[#EC4899] bg-clip-text text-transparent drop-shadow-xs">kỷ nguyên AI</span>
+        </h1>
+
+        <!-- Subtitle Paragraph -->
+        <p class="text-base sm:text-lg text-[#5A6882] leading-relaxed max-w-xl font-normal">
+          Nơi con người, phần mềm và AI Agent cùng hiểu một ngữ cảnh, nói chung một ngôn ngữ và phối hợp nhất quán để tạo ra kết quả.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap items-center gap-3.5 pt-2">
+          <!-- Black Pill: Đăng Ký Demo -->
+          <a class="inline-flex items-center justify-center px-7 py-3.5 text-sm sm:text-base font-bold text-white bg-[#0D111A] hover:bg-black rounded-full transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 cursor-pointer" href="#demo" onclick="openDemoModal(event, 'Đăng ký Demo')">
+            <span>Đăng Ký Demo</span>
+            <span class="ml-2 font-mono text-base font-normal">→</span>
+          </a>
+          <!-- White Pill: Xem bảng giá -->
+          <a class="inline-flex items-center justify-center px-7 py-3.5 text-sm sm:text-base font-bold text-[#0D111A] bg-white border border-[#E2E8F0] hover:border-slate-300 hover:bg-slate-50 rounded-full transition-all shadow-xs cursor-pointer" href="/bang-gia">
+            <span>Xem bảng giá</span>
+            <span class="ml-2 font-mono text-base font-normal">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive AI Prediction Dashboard Window -->
+      <div class="lg:col-span-6">
+        <div class="bg-white rounded-[28px] border border-[#E2E8F0] shadow-2xl overflow-hidden" style="box-shadow: 0 25px 60px -15px rgba(31, 98, 232, 0.12), 0 0 0 1px rgba(226, 232, 240, 0.8);">
+          <!-- Window Topbar -->
+          <div class="bg-white px-6 py-3.5 flex items-center justify-between border-b border-slate-100 select-none">
+            <div class="flex items-center space-x-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-[#FB923C]"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-[#22C55E]"></div>
+            </div>
+            <div class="text-[12px] text-[#94A3B8] font-normal tracking-wide">workspace / dự án dự báo nhu cầu</div>
+            <div class="w-8"></div>
+          </div>
+
+          <!-- Window Body Content -->
+          <div class="p-6 sm:p-7 space-y-5 bg-white">
+            <!-- Row 1: Model status & action -->
+            <div class="flex items-center justify-between pb-1">
+              <div>
+                <h3 class="font-bold text-lg text-[#0D111A]">Dự báo nhu cầu</h3>
+                <div class="flex items-center gap-2 text-xs text-[#94A3B8] mt-1">
+                  <span class="font-normal text-slate-500">Model: <span class="font-mono text-slate-600">F-112</span></span>
+                  <span class="text-slate-300">•</span>
+                  <span class="text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full font-medium text-[11px] border border-[#BBF7D0]">Trạng thái: Hoạt động</span>
+                </div>
+              </div>
+              <button id="btn-run-model" onclick="handleRunModel(event)" class="px-5 py-2 rounded-full text-xs font-bold bg-[#1F62E8] hover:bg-[#0F4FD6] text-white shadow-sm shadow-blue-500/25 transition-all flex items-center gap-1.5 cursor-pointer">
+                <span id="btn-run-model-text">Chạy mô hình</span>
+              </button>
+            </div>
+
+            <!-- Row 2: 3 Stats Cards -->
+            <div class="grid grid-cols-3 gap-3.5">
+              <div class="border border-[#E2E8F0] rounded-2xl p-4 bg-[#F8FAFD]">
+                <span class="text-[11px] text-[#64748B] uppercase font-bold tracking-wider block">ĐỘ CHÍNH XÁC</span>
+                <p id="stat-accuracy" class="text-2xl sm:text-[28px] font-extrabold text-[#1F62E8] mt-1 tracking-tight">94.8%</p>
+              </div>
+              <div class="border border-[#E2E8F0] rounded-2xl p-4 bg-[#F8FAFD]">
+                <span class="text-[11px] text-[#64748B] uppercase font-bold tracking-wider block">ĐỘ TRỄ</span>
+                <p id="stat-latency" class="text-2xl sm:text-[28px] font-extrabold text-[#0D111A] mt-1 tracking-tight">48ms</p>
+              </div>
+              <div class="border border-[#E2E8F0] rounded-2xl p-4 bg-[#F8FAFD]">
+                <span class="text-[11px] text-[#64748B] uppercase font-bold tracking-wider block">PHIÊN BẢN</span>
+                <p class="text-2xl sm:text-[28px] font-extrabold text-[#1F62E8] mt-1 font-mono tracking-tight">v12</p>
+              </div>
+            </div>
+
+            <!-- Row 3: 30-Day Performance Chart -->
+            <div class="border border-[#E2E8F0] rounded-2xl p-4 sm:p-5 bg-white">
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="font-bold text-[#1C2333] text-[13px]">Hiệu suất 30 ngày qua</span>
+                <div class="flex gap-1 text-[11px]">
+                  <span class="px-3 py-0.5 border border-[#E2E8F0] rounded-full bg-[#F8FAFC] text-[#94A3B8] font-normal text-[11px]">Cập nhật: 1 phút trước</span>
+                </div>
+              </div>
+              <!-- Bar Chart with 12 Columns -->
+              <div id="chart-bars" class="h-28 sm:h-32 flex items-end justify-between gap-2 sm:gap-2.5 pt-4 px-1">
+                <div class="w-full bg-[#DBEAFE] h-[28%] rounded-t-md hover:opacity-90 transition-all cursor-pointer" title="Ngày 1: 34k"></div>
+                <div class="w-full bg-[#CBD5E1] h-[42%] rounded-t-md hover:opacity-90 transition-all cursor-pointer" title="Ngày 3: 52k"></div>
+                <div class="w-full bg-[#CBD5E1] h-[38%] rounded-t-md hover:opacity-90 transition-all cursor-pointer" title="Ngày 6: 48k"></div>
+                <div class="w-full bg-[#BFDBFE] h-[58%] rounded-t-md hover:opacity-90 transition-all cursor-pointer" title="Ngày 9: 72k"></div>
+                <div class="w-full bg-[#93C5FD] h-[50%] rounded-t-md hover:opacity-90 transition-all cursor-pointer" title="Ngày 12: 64k"></div>
+                <div class="w-full bg-[#93C5FD] h-[68%] rounded-t-md hover:opacity-90 transition-all cursor-pointer" title="Ngày 15: 84k"></div>
+                <div class="w-full bg-[#60A5FA] h-[62%] rounded-t-md hover:opacity-90 transition-all cursor-pointer" title="Ngày 18: 78k"></div>
+                <div class="w-full bg-[#60A5FA] h-[84%] rounded-t-md hover:opacity-90 transition-all cursor-pointer" title="Ngày 21: 104k"></div>
+                <div class="w-full bg-[#3B82F6] h-[66%] rounded-t-md hover:opacity-90 transition-all cursor-pointer" title="Ngày 24: 82k"></div>
+                <div class="w-full bg-[#2563EB] h-[88%] rounded-t-md hover:opacity-90 transition-all cursor-pointer" title="Ngày 27: 112k"></div>
+                <div class="w-full bg-[#1D4ED8] h-[92%] rounded-t-md hover:opacity-90 transition-all cursor-pointer" title="Ngày 29: 118k"></div>
+                <div class="w-full bg-[#1E40AF] h-[98%] rounded-t-md hover:opacity-90 transition-all cursor-pointer" title="Ngày 30: 126k"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END: HeroSection -->
+
+<!-- BEGIN: SocialProof -->
+<section class="py-10 bg-[#FAFCFF] border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <!-- Metric Counter Badge -->
+    <div class="flex items-center justify-center flex-wrap gap-2.5 mb-8">
+      <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-[#0F172A] text-white font-extrabold text-sm sm:text-base shadow-sm">12,000+</span>
+      <span class="text-sm sm:text-base font-semibold text-slate-800">doanh nghiệp đã chuyển mình cùng <span class="text-[#1F62E8] font-bold">Base</span></span>
+    </div>
+
+    <!-- Client Logo Cards (Pill shape) -->
+    <div class="flex items-center justify-center flex-wrap gap-3 sm:gap-3.5">
+      <!-- 1. Vietjet Air -->
+      <div class="flex items-center gap-2.5 px-4 py-2 bg-white border border-[#E2E8F0] rounded-2xl shadow-xs hover:border-[#1F62E8]/40 hover:shadow-sm transition">
+        <svg class="w-4 h-4 text-[#E11D48] shrink-0" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M2.5 19h19l-7-14-3 5-3-2z"/>
+        </svg>
+        <span class="text-xs sm:text-sm font-bold text-slate-800">Vietjet Air</span>
+      </div>
+
+      <!-- 2. 247 Express -->
+      <div class="flex items-center gap-2.5 px-4 py-2 bg-white border border-[#E2E8F0] rounded-2xl shadow-xs hover:border-[#1F62E8]/40 hover:shadow-sm transition">
+        <span class="w-5 h-5 rounded-md bg-[#F97316] text-white font-black text-[10px] flex items-center justify-center shrink-0">247</span>
+        <span class="text-xs sm:text-sm font-bold text-slate-800">247 Express</span>
+      </div>
+
+      <!-- 3. VTVcab -->
+      <div class="flex items-center gap-2.5 px-4 py-2 bg-white border border-[#E2E8F0] rounded-2xl shadow-xs hover:border-[#1F62E8]/40 hover:shadow-sm transition">
+        <span class="w-5 h-5 rounded-md bg-[#1D4ED8] text-white font-black text-[9px] flex items-center justify-center shrink-0">VTV</span>
+        <span class="text-xs sm:text-sm font-bold text-slate-800">VTVcab</span>
+      </div>
+
+      <!-- 4. PetroVietnam -->
+      <div class="flex items-center gap-2.5 px-4 py-2 bg-white border border-[#E2E8F0] rounded-2xl shadow-xs hover:border-[#1F62E8]/40 hover:shadow-sm transition">
+        <svg class="w-4 h-4 text-[#059669] shrink-0" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+        </svg>
+        <span class="text-xs sm:text-sm font-bold text-slate-800">PetroVietnam</span>
+      </div>
+
+      <!-- 5. Jollibee -->
+      <div class="flex items-center gap-2.5 px-4 py-2 bg-white border border-[#E2E8F0] rounded-2xl shadow-xs hover:border-[#1F62E8]/40 hover:shadow-sm transition">
+        <span class="w-5 h-5 rounded-full bg-[#DC2626] text-white font-bold text-xs flex items-center justify-center shrink-0">🐝</span>
+        <span class="text-xs sm:text-sm font-bold text-slate-800">Jollibee</span>
+      </div>
+
+      <!-- 6. Cộng Cà Phê -->
+      <div class="flex items-center gap-2.5 px-4 py-2 bg-white border border-[#E2E8F0] rounded-2xl shadow-xs hover:border-[#1F62E8]/40 hover:shadow-sm transition">
+        <span class="w-5 h-5 rounded-full bg-[#15803D] text-[#FDE047] text-xs flex items-center justify-center font-bold shrink-0">★</span>
+        <span class="text-xs sm:text-sm font-bold text-slate-800">Cộng Cà Phê</span>
+      </div>
+
+      <!-- 7. VPBank -->
+      <div class="flex items-center gap-2.5 px-4 py-2 bg-white border border-[#E2E8F0] rounded-2xl shadow-xs hover:border-[#1F62E8]/40 hover:shadow-sm transition">
+        <svg class="w-4 h-4 text-[#059669] shrink-0" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/>
+        </svg>
+        <span class="text-xs sm:text-sm font-bold text-slate-800">VPBank</span>
+      </div>
+
+      <!-- 8. Bamboo Airways -->
+      <div class="flex items-center gap-2.5 px-4 py-2 bg-white border border-[#E2E8F0] rounded-2xl shadow-xs hover:border-[#1F62E8]/40 hover:shadow-sm transition">
+        <svg class="w-4 h-4 text-[#10B981] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+        <span class="text-xs sm:text-sm font-bold text-slate-800">Bamboo</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END: SocialProof -->
+<!-- BEGIN: FeatureSectionAppEcosystem -->
+<section class="bg-[#F0F4FF] relative overflow-hidden py-12" id="platform"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="max-w-3xl text-center mx-auto mb-6"><h2 class="text-3xl sm:text-4xl text-[#0D111A] tracking-tight font-bold">Một hệ sinh thái ứng dụng, <span class="bg-gradient-to-r from-[#0053F2] via-[#0068FF] to-[#00F0FF] bg-clip-text text-transparent font-extrabold drop-shadow-xs">vận hành liền mạch</span></h2><p class="text-base text-[#5A6882] mt-3">Từ CRM đến HRM, từ quản trị dự án đến AI Agents — tất cả kết nối trong cùng một nền tảng theo chuẩn thiết kế Base Design System.</p></div><div class="rounded-2xl overflow-hidden"><div class="border-[#E2E5F1] px-4 flex flex-col items-center gap-5 justify-center bg-transparent py-2"><div class="bg-white border border-[#D1D7E8] rounded-full p-1.5 shadow-sm inline-flex items-center gap-1"><button class="bg-[#0068FF] text-white rounded-full px-5 py-2 text-sm font-semibold flex items-center gap-2 shadow-sm"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><rect height="8" rx="1.5" width="3" x="4" y="8"></rect><rect height="16" rx="1.5" width="3" x="10.5" y="4"></rect><rect height="6" rx="1.5" width="3" x="17" y="10"></rect></svg>Base Work</button><button class="text-[#424655] hover:text-[#0068FF] px-4 py-2 text-sm font-medium rounded-full flex items-center gap-2 transition"><svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>Base CRM</button><button class="text-[#424655] hover:text-[#0068FF] px-4 py-2 text-sm font-medium rounded-full flex items-center gap-2 transition"><svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Base HRM</button><button class="text-[#424655] hover:text-[#0068FF] px-4 py-2 text-sm font-medium rounded-full flex items-center gap-2 transition"><svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><rect height="12" rx="2" width="16" x="4" y="8"></rect><path d="M12 4v4"></path><circle cx="9" cy="14" fill="currentColor" r="1.5"></circle><circle cx="15" cy="14" fill="currentColor" r="1.5"></circle></svg>AI &amp; Agents</button><button class="text-[#424655] hover:text-[#0068FF] px-4 py-2 text-sm font-medium rounded-full flex items-center gap-2 transition"><svg class="w-4 h-4 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>Platform</button></div><div class="flex flex-wrap items-center justify-center gap-3 w-full"><button class="bg-white border-2 border-[#0068FF]/30 shadow-sm rounded-full px-4 py-2 flex items-center gap-2.5 transition hover:shadow-md"><div class="w-6 h-6 rounded-lg grid grid-cols-2 gap-0.5 p-0.5 shrink-0"><div class="bg-[#FF5F56] rounded-sm"></div><div class="bg-[#0068FF] rounded-sm"></div><div class="bg-[#FFBD2E] rounded-sm"></div><div class="bg-[#27C93F] rounded-sm"></div></div><span class="text-sm font-bold text-[#131b2e]">BPM</span><span class="w-2 h-2 rounded-full bg-[#EA580C]"></span></button><button class="bg-white border border-[#E2E5F1] shadow-sm rounded-full px-4 py-2 flex items-center gap-2.5 hover:border-[#0068FF]/40 transition"><div class="w-6 h-6 rounded-full bg-[#0068FF] flex items-center justify-center text-white shrink-0"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="8" r="2.5"></circle><circle cx="7" cy="16" r="2.5"></circle><circle cx="17" cy="16" r="2.5"></circle></svg></div><span class="text-sm font-medium text-[#313B53]">Project</span><span class="w-2 h-2 rounded-full bg-[#EA580C]"></span></button><button class="bg-white border border-[#E2E5F1] shadow-sm rounded-full px-4 py-2 flex items-center gap-2.5 hover:border-[#0068FF]/40 transition"><div class="w-6 h-6 rounded-lg bg-gradient-to-tr from-[#0068FF] to-[#00C06D] flex items-center justify-center text-white font-bold text-xs shrink-0"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="2"></path><path d="M9 6v12"></path></svg></div><span class="text-sm font-medium text-[#313B53]">E-Office</span><span class="w-2 h-2 rounded-full bg-[#EA580C]"></span></button><button class="bg-white border border-[#E2E5F1] shadow-sm rounded-full px-4 py-2 flex items-center gap-2.5 hover:border-[#0068FF]/40 transition"><div class="w-6 h-6 rounded-full bg-[#008240] flex items-center justify-center text-white shrink-0"><svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div><span class="text-sm font-medium text-[#313B53]">Request</span><span class="w-2 h-2 rounded-full bg-[#EA580C]"></span></button><button class="bg-white border border-[#E2E5F1] shadow-sm rounded-full px-4 py-2 flex items-center gap-2.5 hover:border-[#0068FF]/40 transition"><div class="w-6 h-6 rounded-lg bg-[#5aa2ff] flex items-center justify-center text-white shrink-0"><svg class="w-3.5 h-3.5 stroke-current fill-none" stroke-width="2" viewBox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg></div><span class="text-sm font-medium text-[#313B53]">Meeting</span><span class="w-2 h-2 rounded-full bg-[#EA580C]"></span></button><a class="text-sm font-semibold text-[#0068FF] hover:underline flex items-center gap-1 ml-2 transition" href="#all-apps">Tất cả 15 ứng dụng →</a></div></div><div class="max-w-6xl mx-auto bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-2xl overflow-hidden text-slate-800 font-sans select-none mt-4"><div class="grid grid-cols-1 lg:grid-cols-12 bg-slate-50/50"><div class="lg:col-span-4 p-5 sm:p-6 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-200/80 bg-white"><div class="space-y-4"><div class="space-y-1.5"><div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-blue-600 text-[10px] font-bold tracking-wider uppercase font-mono"><span class="text-xs">📊</span> BASE WORK · BPM</div><h3 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight leading-snug">Một đề nghị mua hàng đi qua quy trình, người, phần mềm và Agent cùng làm.</h3></div><div class="space-y-4 pt-2"><div class="flex items-start gap-3.5 p-1.5 rounded-xl hover:bg-slate-50 transition"><div class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm mt-0.5"><span class="material-symbols-outlined text-[14px]">check</span></div><div class="text-xs space-y-1"><div class="font-bold text-slate-900 text-[12px] leading-tight">Trần Minh Tuấn <span class="text-[10px] text-slate-400 font-normal">· TP Mua hàng</span></div><p class="text-slate-600 leading-relaxed text-[11px]">Tạo đề nghị mua 120 vòng bi SKF 6205 cho dây chuyền 2.</p></div></div><div class="flex items-start gap-3.5 p-1.5 rounded-xl hover:bg-slate-50 transition"><div class="relative shrink-0 mt-0.5"><img alt="Agent Vận hành" class="w-7 h-7 rounded-full object-cover shadow-sm ring-1 ring-slate-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu7059vFc210oN20WfgYc9qfVPOgFrH7R2B-cForzKU33jrgIKMEtiPb8tJs9D6o-Qdrc3TF83pIFqMS620_CiHxdhIFNmlF-ZU1tSAuu2x1A7RMZCRp8b6NhyX4J9zBrn12X0y7n_D-9xR780Vwubcb3J7zBiBvyRh0Ex3wSE8Q8MSoESqGTM52zlvVL49B2r0wXrZ8CqjAxSFzfz83DNdrhtcZj9ISkuLpB4TM5nRZdx4JzzK_M"><span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-orange-500 ring-2 ring-white"></span></div><div class="text-xs space-y-1"><div class="font-bold text-slate-900 text-[12px] leading-tight flex items-center gap-1.5">Agent Vận hành <span class="text-[10px] text-emerald-700 font-medium">· AI Agent</span></div><p class="text-slate-600 leading-relaxed text-[11px]">Kiểm tồn kho, hỏi 3 nhà cung cấp và điền báo giá vào phiếu.</p></div></div><div class="flex items-start gap-3.5 p-1.5 rounded-xl hover:bg-slate-50 transition"><div class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm mt-0.5"><span class="material-symbols-outlined text-[14px]">check</span></div><div class="text-xs space-y-1"><div class="font-bold text-slate-900 text-[12px] leading-tight">Base BPM <span class="text-[10px] text-slate-400 font-normal">· Phần mềm</span></div><p class="text-slate-600 leading-relaxed text-[11px]"><span class="" style="white-space: pre-wrap;">Tự động xác định cấp phê duyệt phù hợp với giá trị hợp đồng.</span></p></div></div><div class="flex items-start gap-3.5 p-1.5 rounded-xl hover:bg-slate-50 transition"><div class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm mt-0.5"><span class="material-symbols-outlined text-[14px]">check</span></div><div class="text-xs space-y-1"><div class="font-bold text-slate-900 text-[12px] leading-tight">Phạm Thu Hà <span class="text-[10px] text-slate-400 font-normal">· Giám đốc Vận hành</span></div><p class="text-slate-600 leading-relaxed text-[11px]"><span class="" style="white-space: pre-wrap;">Phê duyệt mọi lúc, trên mọi thiết bị, kèm ghi chú yêu cầu rõ ràng.</span></p></div></div><div class="relative bg-white border border-slate-200 rounded-xl p-3.5 shadow-sm border-b-2 border-b-blue-600"><div class="flex items-start gap-3.5"><div class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm mt-0.5">5</div><div class="text-xs space-y-1"><div class="font-bold text-slate-900 text-[12px] leading-tight">Base E-Sign <span class="text-[10px] text-blue-600 font-semibold">· Phần mềm</span></div><p class="text-slate-600 leading-relaxed text-[11px]"><span class="" style="white-space: pre-wrap;">Hợp đồng được ký số ngay trên quy trình, tự động chuyển tiếp sang bước nhận hàng.</span></p></div></div></div></div></div><div class="pt-4 border-t border-slate-100"><a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-md shadow-blue-500/25 transition-all transform hover:-translate-y-0.5" href="#explore">Khám phá Base Work <span class="font-mono text-sm">→</span></a></div></div><div class="lg:col-span-8 flex flex-col bg-white"><div class="bg-slate-50 border-b border-slate-200 px-4 py-2 flex items-center justify-between gap-4 text-xs"><div class="flex items-center space-x-1.5"><div class="w-2.5 h-2.5 rounded-full bg-[#FF5F56]"></div><div class="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]"></div><div class="w-2.5 h-2.5 rounded-full bg-[#27C93F]"></div></div><div class="flex items-center gap-2 text-slate-500 font-mono text-[11px] truncate"><span class="w-2 h-2 rounded-full bg-blue-600"></span>bpm.base.vn · Quy trình · Đề nghị mua hàng</div><div class="flex items-center gap-2 shrink-0"><div class="hidden sm:flex items-center bg-white border border-slate-200 rounded-full px-2.5 py-0.5 text-[11px] text-slate-400 gap-1.5 shadow-xs"><span class="material-symbols-outlined text-[13px]">search</span><span class="">Tìm kiếm...</span></div><div class="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center text-[9px] font-bold font-mono">TH</div></div></div><div class="flex-1 grid grid-cols-12"><div class="col-span-3 border-r border-slate-200/80 bg-slate-50/60 p-2.5 space-y-3 text-xs font-medium"><div class="flex items-center gap-2 px-1.5 py-0.5"><div class="w-4 h-4 rounded-md grid grid-cols-2 gap-0.5 p-0.5 bg-white border border-slate-200"><div class="bg-[#FF5F56] rounded-[2px]"></div><div class="bg-[#0068FF] rounded-[2px]"></div><div class="bg-[#FFBD2E] rounded-[2px]"></div><div class="bg-[#27C93F] rounded-[2px]"></div></div><span class="font-bold text-slate-900 text-xs">Base BPM</span></div><div class="space-y-0.5"><div class="flex items-center justify-between px-2 py-1 rounded-lg text-slate-600 hover:bg-slate-100 transition"><span class="flex items-center gap-1.5 text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>Việc của tôi</span><span class="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-slate-200 text-slate-600 font-semibold">6</span></div><div class="flex items-center justify-between px-2 py-1 rounded-lg bg-blue-600 text-white font-semibold shadow-xs"><span class="flex items-center gap-1.5 text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-white"></span>Quy trình</span></div><div class="flex items-center justify-between px-2 py-1 rounded-lg text-slate-600 hover:bg-slate-100 transition"><span class="flex items-center gap-1.5 text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>Phiếu đang...</span><span class="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-slate-200 text-slate-600 font-semibold">53</span></div><div class="flex items-center px-2 py-1 rounded-lg text-slate-600 hover:bg-slate-100 transition gap-1.5 text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>Báo cáo</div><div class="flex items-center px-2 py-1 rounded-lg text-slate-600 hover:bg-slate-100 transition gap-1.5 text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>Cài đặt</div></div><div class="pt-4 mt-auto px-1.5"><div class="flex items-center gap-1.5 text-[10px] text-slate-500 font-medium"><span class="w-3.5 h-3.5 rounded bg-slate-900 text-white font-bold flex items-center justify-center text-[8px]">A</span> ACME Corp</div></div></div><div class="col-span-9 p-3 sm:p-4 bg-slate-50/30 relative flex flex-col justify-between overflow-hidden canvas-grid-pattern"><div class="flex items-center justify-between pb-2 border-b border-slate-200/80"><div class="flex items-center gap-2"><span class="font-bold text-slate-900 text-xs sm:text-sm">Đề nghị mua hàng</span><span class="text-[9px] font-mono px-1.5 py-0.5 rounded border border-slate-200 bg-white text-slate-500">MH-QT.01</span></div><div class="flex items-center gap-1.5"><div class="hidden sm:flex items-center bg-white border border-slate-200 rounded-lg p-0.5 text-[11px] text-slate-600"><button class="px-1.5 py-0.5 rounded hover:bg-slate-100">Pipeline</button><button class="px-1.5 py-0.5 rounded hover:bg-slate-100">Kanban</button><button class="px-1.5 py-0.5 rounded bg-blue-50 text-blue-600 font-bold border border-blue-200">Workflow</button></div><button class="px-2 py-0.5 rounded-lg text-[11px] font-semibold bg-blue-600 text-white hover:bg-blue-700 shadow-sm flex items-center gap-1">+ Tạo phiếu</button></div></div><div class="relative py-3 flex flex-col items-center gap-2.5"><div class="absolute right-0 top-0 w-60 bg-white/95 backdrop-blur-md rounded-xl border border-slate-200 shadow-lg p-2.5 text-xs space-y-1.5 z-20"><div class="flex items-center justify-between text-[9px] font-bold text-slate-400 uppercase font-mono tracking-wider"><span class="">PHIẾU ĐANG THEO DÕI</span><span class="material-symbols-outlined text-[12px] text-slate-400">schedule</span></div><div class="border-b border-slate-100 pb-1.5"><h5 class="font-bold text-slate-900 text-[11px]">PR-0153 · Vòng bi SKF 6205</h5><p class="text-[9px] text-slate-500">120 cái · Dây chuyền 2 · 47.850.000 đ</p><div class="mt-1 h-1 w-full bg-emerald-100 rounded-full overflow-hidden"><div class="h-full bg-emerald-600 w-4/5 rounded-full"></div></div><div class="text-[9px] font-semibold text-emerald-700 mt-0.5">Đã ký · chuyển nhận hàng</div></div><div class="space-y-0.5 pt-0.5"><div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span><span class="font-bold text-slate-900 text-[10px]">Base E-Sign</span><span class="text-[9px] text-slate-400 font-mono">15:10</span></div><p class="text-[9px] text-slate-600 pl-3 leading-tight">Hợp đồng Thiên Long <strong>đã ký số</strong></p></div></div><div class="relative bg-white border border-slate-200 rounded-xl px-4 py-2 shadow-xs w-64 flex items-center justify-between hover:border-blue-400 transition"><div class="flex items-center gap-2.5"><div class="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-600 flex items-center justify-center font-bold text-xs"><span class="material-symbols-outlined text-[12px]">check</span></div><div><div class="font-bold text-slate-900 text-xs">Tạo đề nghị mua hàng</div><div class="text-[9px] text-blue-600 font-medium">Biểu mẫu · <span class="text-slate-500">TP Mua hàng</span></div></div></div><span class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-slate-900 text-white font-mono text-[9px] font-bold flex items-center justify-center shadow-xs">53</span></div><div class="w-px h-3 bg-slate-300"></div><div class="relative bg-white border border-slate-200 rounded-xl px-4 py-2 shadow-xs w-64 flex items-center justify-between hover:border-blue-400 transition"><div class="flex items-center gap-2.5"><div class="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-600 flex items-center justify-center font-bold text-xs"><span class="material-symbols-outlined text-[12px]">check</span></div><div><div class="font-bold text-slate-900 text-xs">Kiểm kho &amp; lấy báo giá</div><div class="text-[9px] text-orange-600 font-medium">AI Agent · <span class="text-slate-500">SLA 24h</span></div></div></div><span class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-red-500 text-white font-mono text-[9px] font-bold flex items-center justify-center shadow-xs">3</span></div><div class="w-px h-3 bg-slate-300"></div><div class="relative bg-white border border-slate-200 rounded-xl px-4 py-2 shadow-xs w-64 flex items-center justify-between hover:border-blue-400 transition"><div class="flex items-center gap-2.5"><div class="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-600 flex items-center justify-center font-bold text-xs"><span class="material-symbols-outlined text-[12px]">check</span></div><div><div class="font-bold text-slate-900 text-xs">Phân cấp duyệt</div><div class="text-[9px] text-orange-600 font-medium">Rẽ nhánh · <span class="text-slate-500">tự động</span></div></div></div><span class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-slate-900 text-white font-mono text-[9px] font-bold flex items-center justify-center shadow-xs">1</span></div><div class="w-full flex items-center justify-center gap-2 pt-0.5"><div class="px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-500 text-[9px] font-mono">&lt; 20 triệu</div><div class="px-2 py-0.5 rounded-full bg-blue-50 border border-blue-300 text-blue-600 text-[9px] font-mono font-bold shadow-xs">20 – 150 triệu</div><div class="px-2 py-0.5 rounded-full bg-amber-50 border border-amber-300 text-amber-700 text-[9px] font-mono">&gt; 150 triệu</div></div><div class="grid grid-cols-3 gap-2 w-full max-w-lg"><div class="opacity-50 border border-dashed border-slate-300 rounded-lg p-2 bg-white text-center space-y-0.5"><span class="material-symbols-outlined text-slate-400 text-xs">check_circle</span><div class="text-[9px] font-bold text-slate-700">TP Mua hàng</div><div class="text-[8px] text-slate-400">chưa có phiếu</div></div><div class="relative bg-white border-2 border-emerald-500 rounded-lg p-2 shadow-sm text-left space-y-1"><span class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-slate-900 text-white font-mono text-[9px] font-bold flex items-center justify-center">4</span><div class="flex items-center justify-between"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-emerald-600 text-xs">check_circle</span><div><div class="text-[9px] font-bold text-slate-900 leading-tight">GĐ Vận hành duyệt</div><div class="text-[8px] text-emerald-700 font-medium">Phê duyệt</div></div></div><img alt="avatar" class="w-4 h-4 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdIkKRZznZVTkqkv90lYFNo6mv8prBlq-vzpNZAso3Ws97fmfls1wi6lSgkJbD-1kcfPg0k9j41d75BCFl88fQWw7aCIZgvsS-8n1Qpr0FEroqk8Rw2Ly8tguDKcdHv-chQjmcLTBnwhT42XPsqLjADXj8HyEolRapCVzh5J_Bhf_YlIQM4fhaI81QQaxi8OBRpMfGzucEOgefmCxBcvYtkeYmCk56B_pWLNCscFh3OAK5wxH9AP8"></div><div class="flex items-center gap-1 pt-0.5"><button class="flex-1 py-0.5 rounded bg-emerald-600 text-white font-bold text-[8px] shadow-xs flex items-center justify-center gap-0.5"><span class="material-symbols-outlined text-[10px]">check</span> Đã duyệt</button><button class="flex-1 py-0.5 rounded border border-dashed border-red-400 text-red-500 font-semibold text-[8px] hover:bg-red-50">Từ chối</button></div></div><div class="opacity-50 border border-dashed border-slate-300 rounded-lg p-2 bg-white text-center space-y-0.5"><span class="material-symbols-outlined text-slate-400 text-xs">check_circle</span><div class="text-[9px] font-bold text-slate-700">Ban TGĐ duyệt</div><div class="text-[8px] text-slate-400">2 người</div></div></div><div class="w-px h-3 bg-emerald-500"></div><div class="relative bg-white border-2 border-blue-600 rounded-xl px-4 py-2 shadow-md w-64 flex items-center justify-between ring-2 ring-blue-50"><div class="flex items-center gap-2.5"><div class="w-5 h-5 rounded-lg bg-blue-50 border border-blue-300 text-blue-600 flex items-center justify-center font-bold text-xs"><span class="material-symbols-outlined text-[12px]">edit</span></div><div><div class="font-bold text-slate-900 text-xs">Ký hợp đồng với NCC</div><div class="text-[9px] text-blue-600 font-semibold">Ký điện tử · <span class="text-slate-500 font-normal">Base E-Sign</span></div></div></div><span class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-slate-900 text-white font-mono text-[9px] font-bold flex items-center justify-center shadow-xs">2</span></div></div></div></div></div></div></div></div></div></section><section class="bg-white relative overflow-hidden py-12" id="industries"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<!-- Section Header -->
+<div class="text-center max-w-3xl mx-auto mb-6">
+<div class="text-blue-600 font-semibold text-lg md:text-xl mb-2">Linh hoạt đáp ứng</div>
+<h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight flex items-center justify-center flex-wrap gap-2.5">
+<span class="px-3.5 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-blue-600 font-bold text-2xl lg:text-3xl shadow-sm">60+</span>
+<span class="">lĩnh vực trên một nền tảng duy nhất</span>
+</h2>
+</div>
+<!-- Industry Navigation Tabs -->
+<div class="flex items-center justify-center overflow-x-auto no-scrollbar py-2 mb-8">
+<div class="flex items-center gap-2.5 bg-slate-50/70 p-1.5 rounded-full border border-slate-200/80 shadow-sm">
+<!-- Active: Sản xuất -->
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-600 text-white font-semibold text-xs md:text-sm shadow-md transition transform hover:-translate-y-0.5">
+<span class="material-symbols-outlined text-[18px]">precision_manufacturing</span>
+<span class="">Sản xuất</span>
+</button>
+<!-- Inactive: Dược phẩm -->
+<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-white text-slate-700 hover:text-blue-600 hover:border-blue-300 border border-transparent font-medium text-xs md:text-sm transition">
+<span class="material-symbols-outlined text-[18px] text-slate-400">medication</span>
+<span class="">Dược phẩm</span>
+</button>
+<!-- Inactive: Xây dựng -->
+<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-white text-slate-700 hover:text-blue-600 hover:border-blue-300 border border-transparent font-medium text-xs md:text-sm transition">
+<span class="material-symbols-outlined text-[18px] text-slate-400">domain</span>
+<span class="">Xây dựng</span>
+</button>
+<!-- Inactive: F&B -->
+<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-white text-slate-700 hover:text-blue-600 hover:border-blue-300 border border-transparent font-medium text-xs md:text-sm transition">
+<span class="material-symbols-outlined text-[18px] text-slate-400">restaurant</span>
+<span class="">F&amp;B</span>
+</button>
+<!-- Inactive: Giáo dục -->
+<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-white text-slate-700 hover:text-blue-600 hover:border-blue-300 border border-transparent font-medium text-xs md:text-sm transition">
+<span class="material-symbols-outlined text-[18px] text-slate-400">menu_book</span>
+<span class="">Giáo dục</span>
+</button>
+<!-- Inactive: Y Tế -->
+<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-white text-slate-700 hover:text-blue-600 hover:border-blue-300 border border-transparent font-medium text-xs md:text-sm transition">
+<span class="material-symbols-outlined text-[18px] text-slate-400">local_hospital</span>
+<span class="">Y Tế</span>
+</button>
+<!-- Inactive: Nội thất -->
+<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-white text-slate-700 hover:text-blue-600 hover:border-blue-300 border border-transparent font-medium text-xs md:text-sm transition">
+<span class="material-symbols-outlined text-[18px] text-slate-400">chair</span>
+<span class="">Nội thất</span>
+</button>
+<!-- Inactive: Khác -->
+<button class="flex items-center gap-2 px-4 py-2 rounded-full bg-white text-slate-700 hover:text-blue-600 hover:border-blue-300 border border-transparent font-medium text-xs md:text-sm transition">
+<span class="material-symbols-outlined text-[18px] text-slate-400">grid_view</span>
+<span class="">Khác</span>
+</button>
+</div>
+</div>
+<!-- Two Column Content Showcase -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center"><div class="lg:col-span-6 relative flex justify-center py-2"><div class="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-[#0068FF]/30 w-full max-w-[400px] h-[380px] bg-slate-100"><img alt="Kỹ sư sản xuất tại nhà máy" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDgYD5LzNL_Ftt6O3sKCWMZXSqqxHxxm0VxEdYky9QcYJjnx0QpAfWrWYX-clDMZsumDbYALoQ_VvFBM9LRudt_FA3kTDhdvT4Y6WK-FGYT3GGwGIJTzJQaV0zrB3MCbayzkI6Nq4VsDD2AS2_-qzCojSQHWmmq1SuH_v7MMavxG2DwvmZWFxImjm56pMJjSLsmZC86_yrECzDLXAdlmD3xbjy-kFWCOV0baubvAiljTQB3ezesC0"><div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent"></div><div class="absolute top-3 right-3 z-20 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-emerald-300 shadow-md text-[10px] font-mono font-bold text-emerald-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>AI Inspection Active</div></div><div class="absolute -left-2 sm:-left-4 top-4 w-52 sm:w-56 bg-white/95 backdrop-blur-md rounded-2xl border border-blue-200 shadow-xl p-3 text-[11px] space-y-1.5 z-20"><div class="font-bold text-slate-900 text-[11px] tracking-tight border-b border-slate-100 pb-1 flex items-center justify-between"><span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>TẠO ĐỀ XUẤT</span><span class="px-1.5 py-0.5 rounded bg-blue-50 text-[8px] font-mono text-blue-600 border border-blue-200 font-bold">AI Copilot</span></div><div class="space-y-1"><div><div class="text-[9px] text-slate-400 font-medium">Tên Đề xuất</div><div class="h-4 px-1.5 bg-slate-50 rounded border border-slate-200 flex items-center text-[9px] text-slate-600 truncate">Thủy Tiên - Mua linh kiện T3</div></div><div><div class="text-[9px] text-slate-400 font-medium">Loại Đề xuất *</div><div class="h-4 px-1.5 bg-slate-50 rounded border border-slate-200 flex items-center text-[9px] text-slate-400">Vật tư phân xưởng 02</div></div><div class="p-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-[9px] text-emerald-800 flex items-center justify-between font-mono"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[10px] text-emerald-600">verified</span>Định mức: Khớp</span><span class="font-bold text-emerald-700">99.4%</span></div></div></div><div class="absolute -right-2 sm:-right-4 bottom-2 w-56 sm:w-64 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-100 shadow-xl p-3 text-[11px] space-y-2 z-20"><div class="flex items-center justify-between border-b border-slate-100 pb-1.5"><div class="flex items-center gap-1.5"><div class="w-5 h-5 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs"><span class="material-symbols-outlined text-[13px]">sync_alt</span></div><div><div class="font-bold text-slate-900 text-[11px] leading-tight">Khối kết hợp:</div><div class="text-[9px] text-slate-500">Phê duyệt thông minh</div></div></div><span class="material-symbols-outlined text-slate-400 text-xs">more_vert</span></div><div class="space-y-1"><div class="flex items-center justify-between p-1 rounded-lg bg-slate-50/80 border border-slate-100"><span class="text-slate-500 font-medium text-[9px]">Đã duyệt:</span><span class="font-semibold text-slate-800 text-[9px]">Trưởng phòng Mua hàng</span></div><div class="flex items-center justify-between p-1 rounded-lg bg-slate-50/80 border border-slate-100"><span class="text-slate-500 font-medium text-[9px]">Tự động đối soát:</span><span class="font-semibold text-emerald-700 text-[9px] font-mono">AI Auto-check ✓</span></div><div class="flex items-center justify-between p-1 rounded-lg bg-slate-50/80 border border-slate-100"><span class="text-slate-500 font-medium text-[9px]">Đang xử lý:</span><span class="font-semibold text-slate-800 text-[9px]">Chuyên viên Mua hàng</span></div></div></div></div><div class="lg:col-span-6 space-y-4"><div><h3 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Ngành Sản xuất</h3></div><div class="bg-slate-50/80 border border-slate-200/80 rounded-2xl p-4 sm:p-5 space-y-2.5 shadow-sm"><div class="flex items-start gap-2.5"><div class="w-6 h-6 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5 text-blue-600"><span class="material-symbols-outlined text-[15px]">auto_awesome</span></div><p class="text-xs text-slate-700 leading-relaxed font-normal"><strong class="text-slate-900 font-semibold">AI tối ưu hóa quy trình:</strong> Chuẩn hóa theo tiêu chuẩn ISO, tự động phát hiện nút thắt và chủ động kiểm soát tiến độ sản xuất.</p></div><div class="flex items-start gap-2.5"><div class="w-6 h-6 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5 text-blue-600"><span class="material-symbols-outlined text-[15px]">monitoring</span></div><p class="text-xs text-slate-700 leading-relaxed font-normal"><strong class="text-slate-900 font-semibold">Lập kế hoạch thông minh:</strong> Dự báo nhu cầu vật tư khoa học, liên kết đa chiều quy trình xử lý đơn hàng và xuất nhập kho tức thì.</p></div><div class="flex items-start gap-2.5"><div class="w-6 h-6 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 mt-0.5 text-blue-600"><span class="material-symbols-outlined text-[15px]">query_stats</span></div><p class="text-xs text-slate-700 leading-relaxed font-normal"><strong class="text-slate-900 font-semibold">Phân tích &amp; Cảnh báo rủi ro:</strong> Báo cáo doanh thu, chi phí, công nợ trực quan kèm dự báo dòng tiền theo thời gian thực.</p></div></div><div class="space-y-2"><div class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Khách hàng của Base</div><div class="grid grid-cols-3 gap-3"><div class="h-10 bg-white rounded-xl border border-slate-200/90 shadow-sm flex items-center justify-center p-1.5 hover:border-blue-400 transition"><span class="font-black italic text-slate-800 text-xs tracking-wider font-mono">AMECC</span></div><div class="h-10 bg-white rounded-xl border border-slate-200/90 shadow-sm flex items-center justify-center p-1.5 hover:border-blue-400 transition"><span class="font-extrabold text-slate-800 text-[11px] tracking-tight flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-blue-600">settings</span><span class="">AUTOTECH</span></span></div><div class="h-10 bg-white rounded-xl border border-slate-200/90 shadow-sm flex items-center justify-center p-1.5 hover:border-blue-400 transition"><div class="text-center"><span class="font-black text-slate-800 text-[11px] tracking-widest block leading-none">Hawee</span><span class="text-[7px] text-slate-400 font-sans block leading-none mt-0.5">Truly your partner</span></div></div></div></div><div><a class="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-white font-semibold text-xs shadow-md shadow-blue-500/25 transition transform hover:-translate-y-0.5 hover:shadow-lg" href="#contact" style="background: linear-gradient(135deg, rgb(36, 138, 246) 0%, rgb(0, 83, 242) 100%);">Tìm hiểu thêm</a></div></div></div>
+</div></section>
+<!-- END: FeatureSectionAppEcosystem -->
+<!-- BEGIN: FeatureSectionWorkflow3Steps -->
+<!-- BEGIN: SameLanguageSection -->
+<section class="relative overflow-hidden bg-[#F8FAFD] py-10" id="same-language">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Section Header -->
+<div class="max-w-3xl text-center mx-auto mb-6">
+<h2 class="text-3xl sm:text-4xl text-brand-950 tracking-tight leading-tight font-bold">Một ngôn ngữ vận hành chung cho<div class="mt-1"><span class="bg-gradient-to-r from-[#0053F2] via-[#0068FF] to-[#00F0FF] bg-clip-text text-transparent font-extrabold drop-shadow-xs">con người và AI</span></div></h2>
+<p class="text-base text-brand-600 mt-3 leading-relaxed"><span class="" style="white-space: pre-wrap;">Một nền tảng chung nơi con người và AI Agent cùng phối hợp. AI hiểu bối cảnh, dữ liệu và quy tắc để thực thi và đề xuất hành động - con người ra quyết định cuối cùng.</span></p>
+</div>
+<!-- Main Mockup Container (macOS / Web App Window) -->
+<div class="bg-white rounded-2xl border border-brand-300 shadow-xl overflow-hidden font-sans">
+<!-- Window Chrome Topbar -->
+<div class="bg-brand-100/70 border-b border-brand-200 px-4 sm:px-6 py-3 flex items-center justify-between gap-4 select-none">
+<!-- Left: Brand / Logo & Traffic lights -->
+<div class="flex items-center space-x-3">
+<div class="flex items-center space-x-1.5">
+<div class="w-3 h-3 rounded-full bg-brand-300"></div>
+<div class="w-3 h-3 rounded-full bg-brand-300"></div>
+<div class="w-3 h-3 rounded-full bg-brand-300"></div>
+</div>
+<div class="h-4 w-px bg-brand-300 hidden sm:block"></div>
+<div class="flex items-center space-x-1.5 font-bold text-sm tracking-tight text-brand-900">
+<span class="w-2 h-2 rounded-full bg-blue-600"></span>
+<span class="font-mono">base.vn</span>
+<span class="text-[11px] text-brand-500 font-mono font-normal hidden md:inline">/ workspace</span>
+</div>
+</div>
+<!-- Center: Omni-Search Bar -->
+<div class="flex-1 max-w-md hidden sm:flex items-center justify-between bg-white border border-brand-300 rounded-lg px-3 py-1.5 text-xs text-brand-500 shadow-sm">
+<div class="flex items-center gap-2">
+<span class="text-brand-400 font-mono">🔍</span>
+<span class="">Search anything...</span>
+</div>
+<kbd class="px-1.5 py-0.5 rounded bg-brand-100 text-[10px] font-mono border border-brand-200 text-brand-600">Ctrl+K</kbd>
+</div>
+<!-- Right: Hub indicator & Profile Avatar -->
+<div class="flex items-center space-x-3 text-xs">
+<span class="hidden md:inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-mono text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            15 Hubs Active
+          </span>
+<div class="w-7 h-7 rounded-full bg-brand-900 text-white flex items-center justify-center font-bold text-xs font-mono">
+            E
+          </div>
+</div>
+</div>
+<!-- Main Window Split Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-brand-200 bg-white">
+<!-- LEFT COLUMN: Conversational Agent Workspace (7 cols) -->
+<div class="lg:col-span-7 sm:p-6 flex flex-col justify-between bg-white space-y-3 p-4">
+<!-- Interactive Message Feed -->
+<div class="space-y-2.5">
+<!-- Assistant Header Tag -->
+<div class="flex items-center justify-between pb-3 border-b border-brand-100 text-xs">
+<div class="flex items-center space-x-2">
+<span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+<span class="font-bold text-brand-950 font-mono text-xs uppercase tracking-wider">Service Assistant</span>
+</div>
+<span class="text-[11px] font-mono text-brand-500">Session: #IT-7821</span>
+</div>
+<!-- User Chat Message (Right aligned blue bubble) -->
+<div class="flex justify-end">
+<div class="bg-blue-600 text-white px-4 py-2.5 rounded-2xl rounded-tr-sm text-sm font-medium shadow-sm max-w-sm">
+                I need a second monitor for my desk
+              </div>
+</div>
+<!-- Assistant Reasoning Badge -->
+<div class="flex items-center gap-2 text-xs text-brand-600 font-mono bg-brand-50 border border-brand-200 px-3 py-1.5 rounded-lg w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span class="text-emerald-700 font-semibold">Thought,</span> then worked through 4 steps in 3 services
+            </div>
+<!-- Agent Summary Response -->
+<div class="text-xs text-brand-800 leading-relaxed bg-brand-50/50 p-3.5 rounded-xl border border-brand-200">
+              Two 27" screens are orderable. The Dell is your team's standard but at <strong>$260</strong> it needs Farah. The LG is the same 4K panel and under your limit — that one you can send today.
+            </div>
+<!-- Self-approval limit warning callout -->
+<div class="bg-cyan-50 border border-cyan-300 text-cyan-800 rounded-lg p-3 text-xs space-y-1">
+<div class="flex items-center justify-between font-bold text-[11px] uppercase tracking-wide font-mono text-cyan-900">
+<span class="">Self-approval limit · $200</span>
+<span class="">Policy: IT-HW-04</span>
+</div>
+<p class="text-[11px] text-cyan-700 leading-normal">
+                Anything above goes to your cost-centre owner before IT sees it.
+              </p>
+</div>
+<!-- Option Cards Grid (Two Monitors) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+<!-- Option 1: Dell (Standard but needs Farah) -->
+<div class="p-3.5 rounded-xl border border-brand-300 bg-white space-y-2 relative shadow-sm hover:border-brand-900 transition">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-100 text-brand-800 font-bold uppercase">
+                    Team Standard
+                  </span>
+<span class="text-sm font-bold font-mono text-brand-950">$260 <span class="text-[10px] text-brand-500 font-normal">/unit</span></span>
+</div>
+<div>
+<h4 class="font-bold text-xs text-brand-950">Dell U2724D 27"</h4>
+<p class="text-[11px] text-brand-500 mt-0.5">In stock KL · 14 already deployed</p>
+</div>
+<div class="text-[11px] font-mono text-amber-700 bg-amber-50 px-2 py-1 rounded border border-amber-300 font-medium">
+                  ⚠ Needs Farah's approval
+                </div>
+</div>
+<!-- Option 2: LG (Recommended / Inside limit) -->
+<div class="p-3.5 rounded-xl border-2 border-emerald-500 bg-emerald-50/20 space-y-2 relative shadow-sm hover:shadow-md transition">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold uppercase">
+                    Recommended ✓
+                  </span>
+<span class="text-sm font-bold font-mono text-brand-950">$189 <span class="text-[10px] text-brand-500 font-normal">/unit</span></span>
+</div>
+<div>
+<h4 class="font-bold text-xs text-brand-950">LG 27UP850 27"</h4>
+<p class="text-[11px] text-brand-500 mt-0.5">In stock KL · same 4K panel</p>
+</div>
+<div class="text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2 py-1 rounded border border-emerald-300 font-semibold">
+                  ✓ Inside your limit — send today
+                </div>
+</div>
+</div>
+<!-- Considered Not Used Fold -->
+<div class="border border-brand-200 rounded-lg p-2.5 bg-brand-50/30 text-xs space-y-1.5">
+<div class="text-[10px] font-mono text-brand-500 uppercase font-bold tracking-wider">
+                CONSIDERED · NOT USED · 2
+              </div>
+<div class="flex flex-wrap gap-2 text-[11px] font-mono text-brand-600">
+<span class="px-2 py-0.5 rounded bg-white border border-brand-200">Studio Display 27" ($1,599 - Above cap)</span>
+<span class="px-2 py-0.5 rounded bg-white border border-brand-200">Budget Request (Owner access only)</span>
+</div>
+</div>
+<!-- Suggested Prompt Action Chips -->
+<div class="flex flex-wrap gap-2 pt-1">
+<button class="px-3 py-1.5 rounded-lg bg-brand-900 text-white font-medium text-xs hover:bg-brand-800 transition shadow-sm font-sans flex items-center gap-1">
+<span class="">Order the LG myself</span>
+<span class="font-mono">→</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg border border-brand-300 bg-white text-brand-700 font-medium text-xs hover:bg-brand-50 transition shadow-sm font-sans">
+                What did IT approve last quarter?
+              </button>
+</div>
+</div>
+<!-- Bottom Agent Input Bar & Telemetry -->
+<div class="space-y-2 pt-2 border-t border-brand-100">
+<div class="text-[10px] font-mono text-brand-400 leading-tight">
+              3 catalogue entries · 1 spend policy · 1 budget line read by the services under Eric's access. The assistant wrote none of these numbers.
+            </div>
+<div class="flex items-center gap-2 bg-brand-50 border border-brand-300 rounded-xl px-3 py-2">
+<input class="bg-transparent border-0 focus:outline-none text-xs text-brand-900 placeholder-brand-400 flex-1 font-sans" placeholder="Describe what you need..." readonly="" type="text" value="">
+<button class="px-3 py-1 bg-brand-900 text-white text-xs font-medium rounded-lg hover:bg-brand-800 transition font-mono">
+                Send ↵
+              </button>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Service Hubs & Knowledge Catalog (5 cols) -->
+<div class="lg:col-span-5 sm:p-6 bg-brand-50/30 flex flex-col justify-between space-y-3.5 p-4">
+<div class="space-y-3">
+<!-- Hubs Header with + New Hub Button -->
+<div class="flex items-center justify-between pb-3 border-b border-brand-200">
+<div>
+<h3 class="font-bold text-sm text-brand-950 font-mono tracking-tight uppercase">SERVICE HUBS</h3>
+<p class="text-[11px] text-brand-500 font-sans mt-0.5">Live catalog connected to autonomous agents</p>
+</div>
+<button class="px-2.5 py-1 text-xs font-mono font-medium rounded border border-brand-300 bg-white hover:bg-brand-50 text-brand-800 transition shadow-sm">
+                + New hub
+              </button>
+</div>
+<!-- Group 1: Asset Operations (IT SUPPORT) -->
+<div class="space-y-2">
+<div class="flex items-center justify-between text-[11px] font-mono font-bold text-brand-700">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded bg-brand-900"></span>
+                  Asset Operations [IT SUPPORT]
+                </span>
+<span class="text-[10px] text-brand-400 font-normal">3 services</span>
+</div>
+<div class="space-y-1.5">
+<div class="p-2 rounded-lg bg-white border border-brand-200 text-xs text-brand-700 hover:border-brand-400 transition flex items-center justify-between">
+<div>
+<span class="font-semibold text-brand-900">Laptop Request</span>
+<span class="text-[11px] text-brand-500 block">New, replacement, upgrade</span>
+</div>
+<span class="text-[10px] font-mono text-brand-400">IT-01</span>
+</div>
+<!-- Active in use item -->
+<div class="p-2 rounded-lg bg-blue-50/70 border-2 border-blue-600 text-xs text-brand-900 transition flex items-center justify-between shadow-sm">
+<div>
+<span class="font-bold text-blue-950">Monitor &amp; Peripherals</span>
+<span class="text-[11px] text-blue-700 block">Screens, docks, headsets</span>
+</div>
+<span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-blue-600 text-white uppercase">IN USE</span>
+</div>
+<div class="p-2 rounded-lg bg-white border border-brand-200 text-xs text-brand-700 hover:border-brand-400 transition flex items-center justify-between">
+<div>
+<span class="font-semibold text-brand-900">Mobile Device</span>
+<span class="text-[11px] text-brand-500 block">Phones and SIM plans</span>
+</div>
+<span class="text-[10px] font-mono text-brand-400">IT-03</span>
+</div>
+</div>
+</div>
+<!-- Group 2: Leave Operations (TIME & LEAVE) -->
+<div class="space-y-2">
+<div class="flex items-center justify-between text-[11px] font-mono font-bold text-brand-700">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded bg-emerald-600"></span>
+                  Leave Operations [TIME &amp; LEAVE]
+                </span>
+<span class="text-[10px] text-brand-400 font-normal">3 services</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-1.5 text-xs">
+<div class="p-2 rounded-lg bg-white border border-brand-200">
+<span class="font-semibold text-brand-900 block text-[11px]">Annual Leave</span>
+<span class="text-[10px] text-brand-500">Paid days</span>
+</div>
+<div class="p-2 rounded-lg bg-white border border-brand-200">
+<span class="font-semibold text-brand-900 block text-[11px]">Sick Leave</span>
+<span class="text-[10px] text-brand-500">Certified</span>
+</div>
+<div class="p-2 rounded-lg bg-white border border-brand-200">
+<span class="font-semibold text-brand-900 block text-[11px]">Work From Home</span>
+<span class="text-[10px] text-brand-500">Remote days</span>
+</div>
+</div>
+</div>
+<!-- Group 3: Pipeline Operations (SALES OPS) -->
+<div class="space-y-2">
+<div class="flex items-center justify-between text-[11px] font-mono font-bold text-brand-700">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded bg-amber-500"></span>
+                  Pipeline Operations [SALES OPS]
+                </span>
+<span class="text-[10px] text-brand-400 font-normal">4 services</span>
+</div>
+<div class="grid grid-cols-2 gap-1.5 text-[11px]">
+<div class="p-2 rounded-lg bg-white border border-brand-200 text-brand-700">
+<span class="font-semibold text-brand-900 block">SMB Pipeline</span>
+<span class="text-[10px] text-brand-500">7 stages · 1-50 seats</span>
+</div>
+<div class="p-2 rounded-lg bg-white border border-brand-200 text-brand-700">
+<span class="font-semibold text-brand-900 block">Enterprise Pipeline</span>
+<span class="text-[10px] text-brand-500">9 stages · deal desk</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column Bottom Status Pill -->
+<div class="pt-3 border-t border-brand-200 flex items-center justify-between text-[11px] font-mono text-brand-500">
+<span class="">RBAC sync: <strong>Verified</strong></span>
+<a class="text-brand-900 font-semibold hover:underline" href="#platform">View all 48 services ➔</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: SameLanguageSection --><section class="py-10 bg-white" id="features">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Header -->
+<div class="max-w-3xl mb-6 text-center mx-auto">
+<h2 class="text-3xl sm:text-4xl text-slate-900 tracking-tight font-bold">Kiến trúc Agent đa tầng cho doanh nghiệp</h2>
+<p class="text-sm text-slate-500 mt-1.5 leading-relaxed"><span class="" style="white-space: pre-wrap;">Tất cả AI Agent được <span class="" style="font-weight: bold;">xây dựng theo cùng một kiến trúc,</span> từ mô hình, công cụ, kỹ năng đến cách thực hiện công việc. Phạm vi hành động của mỗi Agent được thiết kế ngay từ đầu, thay vì được bổ sung như một lớp kiểm soát về sau.</span></p>
+</div>
+<!-- Compact Diagram Container -->
+<div class="relative w-full max-w-6xl mx-auto rounded-3xl border border-slate-200/90 bg-[#FAF8FF] shadow-lg overflow-hidden p-4 sm:p-6 lg:p-7 min-h-[580px] select-none" style="font-family: 'Afacad', 'Afacad Flux', sans-serif !important;"><style class="" data-purpose="diagram-particles">@keyframes particle-up { 0% { transform: translate(-50%, 0) scale(0.6); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translate(-50%, -190px) scale(1.1); opacity: 0; } } @keyframes particle-down { 0% { transform: translate(-50%, 0) scale(0.6); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translate(-50%, 190px) scale(1.1); opacity: 0; } } @keyframes particle-left { 0% { transform: translate(0, -50%) scale(0.6); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translate(-280px, -50%) scale(1.1); opacity: 0; } } @keyframes particle-right { 0% { transform: translate(0, -50%) scale(0.6); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translate(280px, -50%) scale(1.1); opacity: 0; } } .pulse-particle-up { animation: particle-up 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite; } .pulse-particle-down { animation: particle-down 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite; } .pulse-particle-left { animation: particle-left 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite; } .pulse-particle-right { animation: particle-right 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite; }</style>
+<!-- Subtle Background Dot / Grid -->
+<div class="absolute inset-0 opacity-40 pointer-events-none" style="background-size: 20px 20px; background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);"></div>
+<!-- SVG Background Concentric Rings & Connecting Dashed Lines scaled for ~580px height -->
+<div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+<svg class="w-full h-full min-h-[580px]" fill="none" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1200 580">
+<!-- Concentric circular orbits centered at (600, 290) -->
+<circle cx="600" cy="290" r="90" stroke="#e2e8f0" stroke-width="1.5"></circle>
+<circle cx="600" cy="290" r="150" stroke="#e2e8f0" stroke-dasharray="4 4" stroke-width="1.5"></circle>
+<circle cx="600" cy="290" r="210" stroke="#e2e8f0" stroke-width="1.5"></circle>
+<circle cx="600" cy="290" r="270" stroke="#e2e8f0" stroke-dasharray="5 5" stroke-width="1.5"></circle>
+<circle cx="600" cy="290" r="340" stroke="#f1f5f9" stroke-width="1.5"></circle>
+<!-- Connecting rays from center hub to cards & axes -->
+<line stroke="#cbd5e1" stroke-dasharray="4 4" stroke-width="1.5" x1="600" x2="600" y1="200" y2="100"></line>
+<line stroke="#cbd5e1" stroke-dasharray="4 4" stroke-width="1.5" x1="600" x2="600" y1="380" y2="470"></line>
+<line stroke="#cbd5e1" stroke-dasharray="4 4" stroke-width="1.5" x1="500" x2="220" y1="290" y2="290"></line>
+<line stroke="#cbd5e1" stroke-dasharray="4 4" stroke-width="1.5" x1="700" x2="960" y1="290" y2="290"></line>
+<!-- Smooth curved rays -->
+<path d="M 530 230 C 460 180, 420 140, 360 100" stroke="#dae2fd" stroke-dasharray="4 4" stroke-width="1.5"></path>
+<path d="M 670 230 C 740 180, 780 140, 840 100" stroke="#dae2fd" stroke-dasharray="4 4" stroke-width="1.5"></path>
+<path d="M 530 350 C 460 400, 420 440, 360 480" stroke="#dae2fd" stroke-dasharray="4 4" stroke-width="1.5"></path>
+<path d="M 670 350 C 740 400, 780 440, 840 480" stroke="#dae2fd" stroke-dasharray="4 4" stroke-width="1.5"></path>
+</svg>
+<div class="absolute inset-0 pointer-events-none hidden md:block"><div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0"><div class="pulse-particle-up absolute left-0 top-0 w-2.5 h-2.5 rounded-full bg-gradient-to-t from-[#0068FF] to-[#00F0FF] shadow-[0_0_12px_#00F0FF]" style="animation-delay: 0s;"></div><div class="pulse-particle-up absolute left-0 top-0 w-2 h-2 rounded-full bg-gradient-to-t from-indigo-400 to-cyan-300 shadow-[0_0_10px_#6366f1]" style="animation-delay: 0.8s;"></div><div class="pulse-particle-up absolute left-0 top-0 w-2.5 h-2.5 rounded-full bg-gradient-to-t from-blue-400 to-cyan-200 shadow-[0_0_12px_#38bdf8]" style="animation-delay: 1.6s;"></div><div class="pulse-particle-down absolute left-0 top-0 w-2.5 h-2.5 rounded-full bg-gradient-to-b from-[#0068FF] to-[#e11d48] shadow-[0_0_12px_#ec4899]" style="animation-delay: 0.2s;"></div><div class="pulse-particle-down absolute left-0 top-0 w-2 h-2 rounded-full bg-gradient-to-b from-purple-400 to-pink-400 shadow-[0_0_10px_#a855f7]" style="animation-delay: 1.0s;"></div><div class="pulse-particle-down absolute left-0 top-0 w-2.5 h-2.5 rounded-full bg-gradient-to-b from-blue-500 to-pink-500 shadow-[0_0_12px_#f43f5e]" style="animation-delay: 1.8s;"></div><div class="pulse-particle-left absolute left-0 top-0 w-2.5 h-2.5 rounded-full bg-gradient-to-l from-[#0068FF] to-[#10b981] shadow-[0_0_12px_#10b981]" style="animation-delay: 0.4s;"></div><div class="pulse-particle-left absolute left-0 top-0 w-2 h-2 rounded-full bg-gradient-to-l from-indigo-400 to-emerald-300 shadow-[0_0_10px_#34d399]" style="animation-delay: 1.2s;"></div><div class="pulse-particle-left absolute left-0 top-0 w-2.5 h-2.5 rounded-full bg-gradient-to-l from-blue-400 to-teal-300 shadow-[0_0_12px_#14b8a6]" style="animation-delay: 2.0s;"></div><div class="pulse-particle-right absolute left-0 top-0 w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#0068FF] to-[#818cf8] shadow-[0_0_12px_#818cf8]" style="animation-delay: 0.6s;"></div><div class="pulse-particle-right absolute left-0 top-0 w-2 h-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 shadow-[0_0_10px_#0068ff]" style="animation-delay: 1.4s;"></div><div class="pulse-particle-right absolute left-0 top-0 w-2.5 h-2.5 rounded-full bg-gradient-to-r from-blue-300 to-indigo-400 shadow-[0_0_12px_#6366f1]" style="animation-delay: 2.2s;"></div></div></div></div>
+<!-- DIAGRAM CONTENT OVERLAY -->
+<div class="relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+<!-- ========================================= -->
+<!-- TOP ROW (Card 01, Center Model, Card 02) -->
+<!-- ========================================= -->
+<div class="lg:col-span-4 flex justify-start">
+<!-- CARD 01: ASSISTANTS -->
+<div class="relative w-full max-w-[300px] bg-white rounded-xl border border-purple-200/80 shadow-sm hover:shadow-lg hover:border-purple-400 transition duration-300 p-3.5 group overflow-hidden" style="transition: 300ms ease-in-out;"><svg class="absolute inset-0 w-full h-full pointer-events-none rounded-xl z-20 overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 100"><defs><linearGradient id="beam-purple" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" stop-color="#8b5cf6" stop-opacity="0"></stop><stop offset="50%" stop-color="#a855f7" stop-opacity="0.6"></stop><stop offset="100%" stop-color="#6366f1"></stop></linearGradient><filter height="140%" id="glow-purple" width="140%" x="-20%" y="-20%"><feGaussianBlur result="blur" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs><rect class="border-beam-line opacity-85 group-hover:opacity-100" fill="none" filter="url(#glow-purple)" height="98.5" pathLength="880" rx="11" ry="11" stroke="url(#beam-purple)" stroke-width="1.8" width="98.5" x="0.75" y="0.75"></rect></svg><div class="relative z-10"><div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100"><div class="flex items-center gap-1.5"><span class="px-1.5 py-0.5 rounded bg-[#9333ea] text-white text-[11px] font-bold font-mono">01</span><span class="font-extrabold text-[12px] tracking-wider text-slate-900 font-mono uppercase">ASSISTANTS</span></div><span class="px-2 py-0.5 rounded-full bg-purple-50 text-purple-600 border border-purple-200 text-[10px] font-medium font-sans">your scope</span></div><ul class="space-y-1.5 text-[11px] text-slate-700 font-medium"><li class="flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-[9px] font-bold">✓</span><span class="">your tasks</span></li><li class="flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-[9px] font-bold">✓</span><span class="">your services</span></li><li class="flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-[9px] font-bold">✓</span><span class="">your deals</span></li><li class="flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-[9px] font-bold">✓</span><span class="">owner-only memory</span></li></ul></div></div>
+</div>
+<!-- TOP CENTER: MODEL AXIS -->
+<div class="lg:col-span-4 flex flex-col items-center justify-center space-y-1.5">
+<span class="text-[10px] font-mono tracking-widest text-slate-500 uppercase font-bold">MODEL</span>
+<div class="flex items-center gap-4 bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-xl border border-slate-200/80 shadow-xs">
+<!-- Anthropic -->
+<div class="flex flex-col items-center space-y-0.5">
+<div class="w-6 h-6 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center text-[#D97757]">
+<svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 2l2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6L12 2z"></path></svg>
+</div>
+<span class="text-[8px] font-mono font-semibold tracking-wider text-slate-500 uppercase">ANTHROPIC</span>
+</div>
+<!-- OpenAI -->
+<div class="flex flex-col items-center space-y-0.5">
+<div class="w-6 h-6 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600">
+<svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M22.28 9.37a5.99 5.99 0 0 0-.52-4.94 6.07 6.07 0 0 0-6.57-2.83 6.07 6.07 0 0 0-4.66-2.23A6.08 6.08 0 0 0 4.7 3.51a6.08 6.08 0 0 0-4.18 4.4 6.08 6.08 0 0 0 1.5 5.92 6.03 6.03 0 0 0 .52 4.94 6.07 6.07 0 0 0 6.57 2.83 6.07 6.07 0 0 0 4.66 2.23 6.08 6.08 0 0 0 5.83-4.14 6.08 6.08 0 0 0 4.18-4.4 6.08 6.08 0 0 0-1.5-5.92z"></path></svg>
+</div>
+<span class="text-[8px] font-mono font-semibold tracking-wider text-slate-500 uppercase">OPENAI</span>
+</div>
+<!-- Google -->
+<div class="flex flex-col items-center space-y-0.5">
+<div class="w-6 h-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-[#1A73E8]">
+<svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c2.8 0 5.35-1.15 7.18-3.01l-2.48-1.8A6.96 6.96 0 0 1 12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7c1.9 0 3.63.76 4.9 2l2.45-2.45A9.95 9.95 0 0 0 12 2z"></path></svg>
+</div>
+<span class="text-[8px] font-mono font-semibold tracking-wider text-slate-500 uppercase">GOOGLE</span>
+</div>
+</div>
+</div>
+<!-- TOP RIGHT: CARD 02: COPILOTS -->
+<div class="lg:col-span-4 flex justify-end">
+<div class="relative w-full max-w-[300px] bg-white rounded-xl border border-blue-200/80 shadow-sm hover:shadow-lg hover:border-blue-400 transition duration-300 p-3.5 group overflow-hidden" style="transition: 300ms ease-in-out;"><svg class="absolute inset-0 w-full h-full pointer-events-none rounded-xl z-20 overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 100"><defs><linearGradient id="beam-blue" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" stop-color="#0068ff" stop-opacity="0"></stop><stop offset="50%" stop-color="#38bdf8" stop-opacity="0.6"></stop><stop offset="100%" stop-color="#00F0FF"></stop></linearGradient><filter height="140%" id="glow-blue" width="140%" x="-20%" y="-20%"><feGaussianBlur result="blur" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs><rect class="border-beam-line opacity-85 group-hover:opacity-100" fill="none" filter="url(#glow-blue)" height="98.5" pathLength="880" rx="11" ry="11" stroke="url(#beam-blue)" stroke-width="1.8" width="98.5" x="0.75" y="0.75"></rect></svg><div class="relative z-10"><div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100"><div class="flex items-center gap-1.5"><span class="px-1.5 py-0.5 rounded bg-[#2563eb] text-white text-[11px] font-bold font-mono">02</span><span class="font-extrabold text-[12px] tracking-wider text-slate-900 font-mono uppercase">COPILOTS</span></div><span class="px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-200 text-[10px] font-medium font-sans">one service</span></div><ul class="space-y-1.5 text-[11px] text-slate-700 font-medium"><li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span><span class="">the service</span></li><li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span><span class="">its objects</span></li><li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span><span class="">the record in view</span></li><li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span><span class="">advisory only</span></li></ul></div></div>
+</div>
+<!-- ========================================= -->
+<!-- MIDDLE ROW: OPERATION, CENTER HUB, KNOWLEDGE -->
+<!-- ========================================= -->
+<!-- LEFT: OPERATION AXIS & CONNECTED CHIPS -->
+<div class="lg:col-span-4 flex flex-col items-start space-y-1.5">
+<!-- Speech bubble -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-white border border-slate-200 shadow-xs text-[11px] text-slate-700 font-medium">
+<span class="material-symbols-outlined text-[13px] text-blue-500">chat_bubble_outline</span>
+<span class="">Can we discount?</span>
+</div>
+<div class="flex items-center gap-1.5">
+<!-- Form access request pill -->
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-[10px] text-slate-700 font-mono shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+<span class="">form: <strong>access request</strong></span>
+</span>
+<!-- chat chip -->
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white border border-slate-200 text-[10px] text-slate-500 font-mono shadow-xs">
+<span class="material-symbols-outlined text-[11px]">chat</span> chat: <span class="font-bold">•••</span>
+</span>
+</div>
+<div class="flex items-center gap-1.5">
+<!-- stage: Route -->
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-[10px] text-slate-700 font-mono shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span class="">stage: <strong>Route</strong></span>
+</span>
+<!-- task: close on SLA -->
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-[10px] text-slate-700 font-mono shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
+<span class="">task: <strong>close on SLA</strong></span>
+</span>
+</div>
+</div>
+<!-- CENTER HUB: AGENT ARCHITECTURE (Compacted ~130px) -->
+<div class="lg:col-span-4 flex items-center justify-between px-1">
+<span class="text-[10px] font-mono tracking-widest text-slate-700 uppercase font-bold mr-1">OPERATION</span>
+<!-- Vibrant Glowing Orb -->
+<div class="relative flex items-center justify-center my-1 group cursor-pointer"><div class="absolute w-52 h-52 rounded-full bg-gradient-to-tr from-blue-500/25 via-indigo-500/30 to-purple-500/25 blur-xl pointer-events-none animate-pulse"></div><div class="absolute w-44 h-44 rounded-full border-2 border-blue-400/40 pointer-events-none animate-ping opacity-40 duration-1000"></div><div class="absolute w-40 h-40 rounded-full border border-purple-400/50 pointer-events-none animate-pulse"></div><div class="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-br from-indigo-300 via-purple-300 to-blue-200 shadow-2xl flex items-center justify-center transition-all duration-300 transform group-hover:scale-105" style="box-shadow: 0 0 35px rgba(99, 102, 241, 0.65), 0 0 70px rgba(168, 85, 247, 0.45), inset 0 0 20px rgba(255, 255, 255, 0.5);"><div class="w-full h-full rounded-full flex flex-col items-center justify-center text-center p-3 transition-all duration-300 group-hover:shadow-[0_0_45px_rgba(0,104,255,0.85)]" style="background: radial-gradient(circle at 35% 35%, #7094ff 0%, #5b79fc 45%, #7c3aed 100%); box-shadow: inset 0 2px 6px rgba(255,255,255,0.5), 0 8px 28px rgba(91,121,252,0.45);"><div class="w-8 h-8 rounded-xl bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center mb-1 shadow-md transition-transform duration-300 group-hover:scale-110"><svg class="w-5 h-5 text-white drop-shadow" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 1 4 4v1a3 3 0 0 1 3 3v1a3 3 0 0 1-3 3v1a4 4 0 0 1-4 4 4 4 0 0 1-4-4v-1a3 3 0 0 1-3-3v-1a3 3 0 0 1 3-3V6a4 4 0 0 1 4-4z" fill="currentColor" fill-opacity="0.15"></path><circle cx="9" cy="10" fill="currentColor" r="1.25"></circle><circle cx="15" cy="10" fill="currentColor" r="1.25"></circle><path d="M9.5 15a3.5 3.5 0 0 0 5 0"></path><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M4.93 4.93l1.41 1.41"></path><path d="M17.66 17.66l1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="M6.34 17.66l-1.41 1.41"></path><path d="M19.07 4.93l-1.41 1.41"></path></svg></div><div class="text-white font-extrabold text-xs sm:text-sm leading-tight tracking-tight drop-shadow-sm">Agent<br>Architecture</div><div class="mt-1 inline-flex items-center gap-1 px-1.5 py-0.2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-[8px] font-mono font-bold tracking-wider text-white uppercase drop-shadow-xs"><span class="w-1 h-1 rounded-full bg-emerald-400 animate-pulse"></span>AI CORE</div></div></div></div>
+<span class="text-[10px] font-mono tracking-widest text-slate-700 uppercase font-bold ml-1">KNOWLEDGE</span>
+</div>
+<!-- RIGHT: KNOWLEDGE BADGE -->
+<div class="lg:col-span-4 flex justify-end">
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 shadow-sm text-[11px] font-mono">
+<span class="material-symbols-outlined text-[14px] text-blue-600">description</span>
+<span class="text-slate-600">line - one alternative</span>
+<span class="text-slate-300">|</span>
+<span class="text-blue-600 font-bold">[ REC ] approve</span>
+</div>
+</div>
+<!-- ========================================= -->
+<!-- BOTTOM ROW (Card 03, Runtime & Card 05, Card 04) -->
+<!-- ========================================= -->
+<!-- BOTTOM LEFT: CARD 03: WORKFLOW AGENTS -->
+<div class="lg:col-span-4 flex justify-start">
+<div class="relative w-full max-w-[300px] bg-white rounded-xl border border-emerald-200/80 shadow-sm hover:shadow-lg hover:border-emerald-400 transition duration-300 p-3.5 group overflow-hidden" style="transition: 300ms ease-in-out;"><svg class="absolute inset-0 w-full h-full pointer-events-none rounded-xl z-20 overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 100"><defs><linearGradient id="beam-emerald" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" stop-color="#059669" stop-opacity="0"></stop><stop offset="50%" stop-color="#10b981" stop-opacity="0.6"></stop><stop offset="100%" stop-color="#34d399"></stop></linearGradient><filter height="140%" id="glow-emerald" width="140%" x="-20%" y="-20%"><feGaussianBlur result="blur" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs><rect class="border-beam-line opacity-85 group-hover:opacity-100" fill="none" filter="url(#glow-emerald)" height="98.5" pathLength="880" rx="11" ry="11" stroke="url(#beam-emerald)" stroke-width="1.8" width="98.5" x="0.75" y="0.75"></rect></svg><div class="relative z-10"><div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100"><div class="flex items-center gap-1.5"><span class="px-1.5 py-0.5 rounded bg-[#059669] text-white text-[11px] font-bold font-mono">03</span><span class="font-extrabold text-[12px] tracking-wider text-slate-900 font-mono uppercase">WORKFLOW AGENTS</span></div><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-medium font-sans">one task</span></div><ul class="space-y-1.5 text-[11px] text-slate-700 font-medium"><li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span><span class="">one instruction</span></li><li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span><span class="">one output shape</span></li><li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span><span class="">nothing kept</span></li><li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span><span class="">same in, same out</span></li></ul></div></div>
+</div>
+<!-- BOTTOM CENTER: RUNTIME & CARD 05 EXPERT AGENTS -->
+<div class="lg:col-span-4 flex flex-col items-center space-y-1.5">
+<span class="text-[10px] font-mono tracking-widest text-slate-500 uppercase font-bold">RUNTIME</span>
+<!-- CARD 05: EXPERT AGENTS -->
+<div class="relative w-full max-w-[300px] bg-white rounded-xl border border-pink-200/80 shadow-sm hover:shadow-lg hover:border-pink-400 transition duration-300 p-3.5 group overflow-hidden" style="transition: 300ms ease-in-out;"><svg class="absolute inset-0 w-full h-full pointer-events-none rounded-xl z-20 overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 100"><defs><linearGradient id="beam-pink" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" stop-color="#e11d48" stop-opacity="0"></stop><stop offset="50%" stop-color="#f43f5e" stop-opacity="0.6"></stop><stop offset="100%" stop-color="#ec4899"></stop></linearGradient><filter height="140%" id="glow-pink" width="140%" x="-20%" y="-20%"><feGaussianBlur result="blur" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs><rect class="border-beam-line opacity-85 group-hover:opacity-100" fill="none" filter="url(#glow-pink)" height="98.5" pathLength="880" rx="11" ry="11" stroke="url(#beam-pink)" stroke-width="1.8" width="98.5" x="0.75" y="0.75"></rect></svg><div class="relative z-10"><div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100"><div class="flex items-center gap-1.5"><span class="px-1.5 py-0.5 rounded bg-[#e11d48] text-white text-[11px] font-bold font-mono">05</span><span class="font-extrabold text-[12px] tracking-wider text-slate-900 font-mono uppercase">EXPERT AGENTS</span></div><span class="px-2 py-0.5 rounded-full bg-pink-50 text-pink-600 border border-pink-200 text-[10px] font-medium font-sans">the platform</span></div><ul class="space-y-1.5 text-[11px] text-slate-700 font-medium"><li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span><span class="">legal</span></li><li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span><span class="">tax</span></li><li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span><span class="">security</span></li><li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span><span class="">hired, with a budget</span></li></ul></div></div>
+</div>
+<!-- BOTTOM RIGHT: CARD 04: DESKTOP AGENTS -->
+<div class="lg:col-span-4 flex justify-end">
+<div class="relative w-full max-w-[300px] bg-white rounded-xl border border-amber-200/80 shadow-sm hover:shadow-lg hover:border-amber-400 transition duration-300 p-3.5 group overflow-hidden" style="transition: 300ms ease-in-out;"><svg class="absolute inset-0 w-full h-full pointer-events-none rounded-xl z-20 overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 100"><defs><linearGradient id="beam-amber" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" stop-color="#ea580c" stop-opacity="0"></stop><stop offset="50%" stop-color="#f59e0b" stop-opacity="0.6"></stop><stop offset="100%" stop-color="#fb923c"></stop></linearGradient><filter height="140%" id="glow-amber" width="140%" x="-20%" y="-20%"><feGaussianBlur result="blur" stdDeviation="2"></feGaussianBlur><feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs><rect class="border-beam-line opacity-85 group-hover:opacity-100" fill="none" filter="url(#glow-amber)" height="98.5" pathLength="880" rx="11" ry="11" stroke="url(#beam-amber)" stroke-width="1.8" width="98.5" x="0.75" y="0.75"></rect></svg><div class="relative z-10"><div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100"><div class="flex items-center gap-1.5"><span class="px-1.5 py-0.5 rounded bg-[#ea580c] text-white text-[11px] font-bold font-mono">04</span><span class="font-extrabold text-[12px] tracking-wider text-slate-900 font-mono uppercase">DESKTOP AGENTS</span></div><span class="px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-[10px] font-medium font-sans">your machine</span></div><ul class="space-y-1.5 text-[11px] text-slate-700 font-medium"><li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span><span class="">your apps and tabs</span></li><li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span><span class="">a browser it drives</span></li><li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span><span class="">code it runs</span></li><li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span><span class="">keys stay local</span></li></ul></div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: FeatureSectionWorkflow3Steps -->
+<!-- BEGIN: IndustrySolutionsSection (Redesigned: Tech HUD & Interactive Slider Architecture) -->
+<!-- END: IndustrySolutionsSection -->
+<!-- END: UseCasesSection -->
+<!-- BEGIN: IntegrationSection -->
+<section class="py-24 relative overflow-hidden font-sans bg-[#F0F4FF]" id="mcp-protocol"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center max-w-3xl mx-auto flex flex-col items-center"><div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#0068FF] text-xs font-semibold uppercase tracking-wider mb-6 shadow-xs"><span class="w-2 h-2 rounded-full bg-[#0068FF]"></span>MCP READY</div><h2 class="text-3xl sm:text-4xl text-[#0D111A] tracking-tight leading-tight mb-4 font-bold"><span class="" style="white-space: pre-wrap;">Một chuẩn kết nối chung, mở rộng cho </span><div class="mt-1"><span class="bg-gradient-to-r from-[#0053F2] via-[#0068FF] to-[#00F0FF] bg-clip-text text-transparent font-extrabold drop-shadow-xs" style="white-space: pre-wrap;">mọi AI và hệ sinh thái</span></div></h2><p class="text-sm sm:text-base text-slate-500 leading-relaxed max-w-2xl"><span class="" style="white-space: pre-wrap;">Mọi dịch vụ trên Base kết nối qua MCP, mở ra khả năng tích hợp tức thì với các AI và công cụ bên ngoài. AI có thể hiểu và sử dụng bối cảnh, dữ liệu, tri thức doanh nghiệp trong đúng phạm vi được cấp quyền.</span></p></div><div class="relative mt-12 mb-0 flex flex-col items-center z-20"><div class="relative z-20 flex items-center justify-center"><div class="w-12 h-12 rounded-2xl bg-[#0068FF] text-white flex items-center justify-center font-bold text-xs shadow-lg font-mono tracking-tight ring-4 ring-blue-100 hover:scale-105 transition-transform" style="box-shadow: rgba(0, 240, 255, 0.65) 0px 0px 25px, rgba(0, 104, 255, 0.85) 0px 0px 12px;">MCP</div></div><div class="w-full max-w-5xl h-28 relative pointer-events-none -mt-4 hidden md:block overflow-visible z-20"><svg class="w-full h-full overflow-visible" fill="none" preserveAspectRatio="none" viewBox="0 0 1024 112"><defs><filter height="200%" id="neon-glow" width="200%" x="-50%" y="-50%"><feGaussianBlur in="SourceGraphic" result="blur1" stdDeviation="3.5"></feGaussianBlur><feGaussianBlur in="SourceGraphic" result="blur2" stdDeviation="7"></feGaussianBlur><feMerge><feMergeNode in="blur2"></feMergeNode><feMergeNode in="blur1"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter><linearGradient id="fast-cyan-grad" x1="0%" x2="100%" y1="0%" y2="0%"><stop offset="0%" stop-color="#0068FF"></stop><stop offset="50%" stop-color="#00F0FF"></stop><stop offset="100%" stop-color="#38BDF8"></stop></linearGradient></defs><path d="M 512 0 C 512 50 170 50 170 106" opacity="0.5" stroke="#0068FF" stroke-dasharray="4 4" stroke-linecap="round" stroke-width="2"></path><line opacity="0.5" stroke="#0068FF" stroke-dasharray="4 4" stroke-linecap="round" stroke-width="2" x1="512" x2="512" y1="0" y2="106"></line><path d="M 512 0 C 512 50 854 50 854 106" opacity="0.5" stroke="#0068FF" stroke-dasharray="4 4" stroke-linecap="round" stroke-width="2"></path><path d="M 512 0 C 512 50 170 50 170 106" filter="url(#neon-glow)" id="stream-left" opacity="0.98" stroke="url(#fast-cyan-grad)" stroke-dasharray="24 240" stroke-linecap="round" stroke-width="3"><animate attributeName="stroke-dashoffset" dur="1.6s" from="264" repeatCount="indefinite" to="0"></animate></path><path d="M 512 0 L 512 106" filter="url(#neon-glow)" id="stream-center" opacity="0.98" stroke="url(#fast-cyan-grad)" stroke-dasharray="20 180" stroke-linecap="round" stroke-width="3"><animate attributeName="stroke-dashoffset" dur="1.6s" from="200" repeatCount="indefinite" to="0"></animate></path><path d="M 512 0 C 512 50 854 50 854 106" filter="url(#neon-glow)" id="stream-right" opacity="0.98" stroke="url(#fast-cyan-grad)" stroke-dasharray="24 240" stroke-linecap="round" stroke-width="3"><animate attributeName="stroke-dashoffset" dur="1.6s" from="264" repeatCount="indefinite" to="0"></animate></path><circle cx="170" cy="106" fill="#00F0FF" filter="url(#neon-glow)" opacity="0.7" r="7"><animate attributeName="r" dur="1.6s" repeatCount="indefinite" values="5;8.5;5"></animate><animate attributeName="opacity" dur="1.6s" repeatCount="indefinite" values="0.5;1;0.5"></animate></circle><circle cx="170" cy="106" fill="#0068FF" r="4.5" stroke="#ffffff" stroke-width="2"></circle><circle cx="512" cy="106" fill="#00F0FF" filter="url(#neon-glow)" opacity="0.7" r="7"><animate attributeName="r" dur="1.6s" repeatCount="indefinite" values="5;8.5;5"></animate><animate attributeName="opacity" dur="1.6s" repeatCount="indefinite" values="0.5;1;0.5"></animate></circle><circle cx="512" cy="106" fill="#0068FF" r="4.5" stroke="#ffffff" stroke-width="2"></circle><circle cx="854" cy="106" fill="#00F0FF" filter="url(#neon-glow)" opacity="0.7" r="7"><animate attributeName="r" dur="1.6s" repeatCount="indefinite" values="5;8.5;5"></animate><animate attributeName="opacity" dur="1.6s" repeatCount="indefinite" values="0.5;1;0.5"></animate></circle><circle cx="854" cy="106" fill="#0068FF" r="4.5" stroke="#ffffff" stroke-width="2"></circle></svg></div></div><div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 relative z-10 pt-4"><div class="relative flex flex-col pt-6"><div class="absolute -top-1 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center"><div class="w-12 h-12 rounded-2xl bg-white border-2 border-[#0068FF] shadow-md shadow-blue-500/10 flex items-center justify-center text-[#0068FF] ring-4 ring-blue-50/80 transition-transform hover:scale-110"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><circle cx="4" cy="6" r="2"></circle><circle cx="20" cy="6" r="2"></circle><circle cx="4" cy="18" r="2"></circle><circle cx="20" cy="18" r="2"></circle><path d="M6 7l3.5 3.5m5 0L18 7m0 10l-3.5-3.5m-5 0L6 17" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div><div class="bg-slate-50/70 border border-slate-200/80 rounded-2xl p-6 sm:p-7 pt-10 flex flex-col justify-between hover:border-blue-300 transition-all shadow-sm flex-1"><div class="mb-8 text-center"><h3 class="text-lg font-bold text-slate-900 mb-2.5">Agents</h3><p class="text-sm text-slate-600 leading-relaxed font-normal"><span class="" style="white-space: pre-wrap;">Agent có thể nhận biết và sử dụng các dịch vụ trên Base qua một chuẩn kết nối chung, không cần tích hợp riêng cho từng công cụ.</span></p></div><div class="flex flex-wrap gap-2 mt-auto"><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-[13px] font-medium text-slate-800 shadow-xs hover:border-slate-300 transition"><svg class="w-3.5 h-3.5 text-[#0068FF]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L3 7v10l9 5 9-5V7l-9-5zm0 2.24L18.8 8 12 11.76 5.2 8 12 4.24zM5 9.47l6 3.33v7.35l-6-3.33V9.47zm8 10.68v-7.35l6-3.33v7.35l-6 3.33z"></path></svg>Base Agents</span><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-[13px] font-medium text-slate-800 shadow-xs hover:border-slate-300 transition"><svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14" stroke="#10B981" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path><path d="M12 11h4a2 2 0 0 1 2 2v6" stroke="#065F46" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path><circle cx="8" cy="8" fill="#047857" r="1"></circle></svg>LangChain</span><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-[13px] font-medium text-slate-800 shadow-xs hover:border-slate-300 transition"><svg class="w-3.5 h-3.5 text-[#EA580C]" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"></circle><circle cx="5" cy="9" opacity="0.8" r="2.5"></circle><circle cx="19" cy="9" opacity="0.8" r="2.5"></circle><circle cx="8" cy="18" opacity="0.7" r="2"></circle><circle cx="16" cy="18" opacity="0.7" r="2"></circle><path d="M7 10l3 1.5M17 10l-3 1.5M9.5 16.5l1.5-2M14.5 16.5l-1.5-2" stroke="currentColor" stroke-width="1.5"></path></svg>CrewAI</span></div></div></div><div class="relative flex flex-col pt-6"><div class="absolute -top-1 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center"><div class="w-12 h-12 rounded-2xl bg-white border-2 border-[#0068FF] shadow-md shadow-blue-500/10 flex items-center justify-center text-[#0068FF] ring-4 ring-blue-50/80 transition-transform hover:scale-110"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 2l2.4 5.2 5.6.8-4 4 1 5.6-5-2.6-5 2.6 1-5.6-4-4 5.6-.8L12 2z" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="6" cy="18" fill="currentColor" r="1.5"></circle><circle cx="18" cy="18" fill="currentColor" r="1.5"></circle></svg></div></div><div class="bg-slate-50/70 border border-slate-200/80 rounded-2xl p-6 sm:p-7 pt-10 flex flex-col justify-between hover:border-blue-300 transition-all shadow-sm flex-1"><div class="mb-8 text-center"><h3 class="text-lg font-bold text-slate-900 mb-2.5">AI &amp; models</h3><p class="text-sm text-slate-600 leading-relaxed font-normal"><span class="" style="white-space: pre-wrap;">Kết nối linh hoạt các mô hình AI, cùng hiểu bối cảnh về dịch vụ, dữ liệu và quy tắc, cùng làm việc trên Base theo một chuẩn thống nhất.</span></p></div><div class="flex flex-wrap gap-2 mt-auto"><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-[13px] font-medium text-slate-800 shadow-xs hover:border-slate-300 transition"><svg class="w-3.5 h-3.5 text-[#D97757]" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5 2.5h-3v7.3l-5.2-5.2-2.1 2.1 5.2 5.2H1v3h7.4l-5.2 5.2 2.1 2.1 5.2-5.2V22h3v-7.4l5.2 5.2 2.1-2.1-5.2-5.2H23v-3h-7.4l5.2-5.2-2.1-2.1-5.2 5.2V2.5z"></path></svg>Claude</span><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-[13px] font-medium text-slate-800 shadow-xs hover:border-slate-300 transition"><svg class="w-3.5 h-3.5 text-slate-900" fill="currentColor" viewBox="0 0 24 24"><path d="M22.28 9.37a5.99 5.99 0 0 0-.52-4.94 6.07 6.07 0 0 0-6.57-2.83 6.07 6.07 0 0 0-4.66-2.23A6.08 6.08 0 0 0 4.7 3.51a6.08 6.08 0 0 0-4.18 4.4 6.08 6.08 0 0 0 1.5 5.92 6.03 6.03 0 0 0 .52 4.94 6.07 6.07 0 0 0 6.57 2.83 6.07 6.07 0 0 0 4.66 2.23 6.08 6.08 0 0 0 5.83-4.14 6.08 6.08 0 0 0 4.18-4.4 6.08 6.08 0 0 0-1.5-5.92zm-8.3 11.23a4.56 4.56 0 0 1-3.05-.33l.13-.08 5.08-2.93a.76.76 0 0 0 .38-.66v-7.17l2.15 1.24a.06.06 0 0 1 .03.04v5.35a4.57 4.57 0 0 1-4.72 4.54zm-9.3-3.95a4.55 4.55 0 0 1-.58-3.02l.14.08 5.08 2.94a.76.76 0 0 0 .76 0l6.21-3.58v2.48a.06.06 0 0 1-.02.05l-4.63 2.68a4.57 4.57 0 0 1-6.96-.63zm-1.85-9.33a4.55 4.55 0 0 1 2.47-1.76v5.99a.76.76 0 0 0 .38.66l6.21 3.58-2.15 1.24a.06.06 0 0 1-.06 0l-4.63-2.67a4.57 4.57 0 0 1-2.22-7.04zm13.78 3.58l-5.08-2.94a.76.76 0 0 0-.76 0L4.56 11.54V9.06a.06.06 0 0 1 .02-.05l4.63-2.68a4.57 4.57 0 0 1 7.42 1.48 4.53 4.53 0 0 1 .12 3.1zm3.62 4.79a4.55 4.55 0 0 1-2.47 1.76v-5.99a.76.76 0 0 0-.38-.66l-6.21-3.58 2.15-1.24a.06.06 0 0 1 .06 0l4.63 2.67a4.57 4.57 0 0 1 2.22 7.04zm-8.3-2.31l-2.77-1.6 2.77-1.6 2.77 1.6-2.77 1.6z"></path></svg>GPT</span><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-[13px] font-medium text-slate-800 shadow-xs hover:border-slate-300 transition"><svg class="w-3.5 h-3.5 text-[#1A73E8]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12c6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12-6.627 0-12-5.373-12-12z"></path></svg>Gemini</span><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-[13px] font-medium text-slate-800 shadow-xs hover:border-slate-300 transition"><svg class="w-3.5 h-3.5 text-[#0668E1]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c2.8 0 5.35-1.15 7.18-3.01l-2.48-1.8A6.96 6.96 0 0 1 12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7c1.9 0 3.63.76 4.9 2l2.45-2.45A9.95 9.95 0 0 0 12 2zm4.5 7.5L13.8 13.8l2.7 2.7 2.7-2.7-2.7-4.3z"></path></svg>Llama</span></div></div></div><div class="relative flex flex-col pt-6"><div class="absolute -top-1 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center"><div class="w-12 h-12 rounded-2xl bg-white border-2 border-[#0068FF] shadow-md shadow-blue-500/10 flex items-center justify-center text-[#0068FF] ring-4 ring-blue-50/80 transition-transform hover:scale-110"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><rect height="9" rx="2" width="9" x="2" y="6"></rect><rect height="9" rx="2" width="9" x="13" y="6"></rect><path d="M6.5 15v3a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-3" stroke-linecap="round"></path><path d="M11 10.5h2" stroke-linecap="round"></path></svg></div></div><div class="bg-slate-50/70 border border-slate-200/80 rounded-2xl p-6 sm:p-7 pt-10 flex flex-col justify-between hover:border-blue-300 transition-all shadow-sm flex-1"><div class="mb-8 text-center"><h3 class="text-lg font-bold text-slate-900 mb-2.5">Technology partners</h3><p class="text-sm text-slate-600 leading-relaxed font-normal"><span class="" style="white-space: pre-wrap;">Kết nối các nền tảng và công cụ đối tác qua một chuẩn chung, mở rộng hệ sinh thái mà không cần xây tích hợp riêng cho từng công cụ.</span></p></div><div class="flex flex-wrap gap-2 mt-auto"><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-[13px] font-medium text-slate-800 shadow-xs hover:border-slate-300 transition"><svg class="w-3.5 h-3.5 text-[#0068FF]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect height="8" rx="2" ry="2" width="20" x="2" y="2"></rect><rect height="8" rx="2" ry="2" width="20" x="2" y="14"></rect><line x1="6" x2="6.01" y1="6" y2="6"></line><line x1="6" x2="6.01" y1="18" y2="18"></line></svg>MCP servers</span><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-[13px] font-medium text-slate-800 shadow-xs hover:border-slate-300 transition"><svg class="w-3.5 h-3.5 text-[#FF4A00]" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5 2h-3v7.5H3v3h7.5V20h3v-7.5H21v-3h-7.5V2z"></path></svg>Zapier</span><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-[13px] font-medium text-slate-800 shadow-xs hover:border-slate-300 transition"><svg class="w-3.5 h-3.5 text-[#6D28D9]" fill="currentColor" viewBox="0 0 24 24"><path d="M3 6.5A3.5 3.5 0 0 1 6.5 3h11A3.5 3.5 0 0 1 21 6.5v11a3.5 3.5 0 0 1-3.5 3.5h-11A3.5 3.5 0 0 1 3 17.5v-11zm4 10.5h2.5V11l2.5 3 2.5-3v6H17V7h-2.2l-2.8 3.5L9.2 7H7v10z"></path></svg>Make</span><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-[13px] font-medium text-slate-800 shadow-xs hover:border-slate-300 transition"><svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>Your stack</span></div></div></div></div><div class="text-center mt-10 text-xs text-slate-400 font-medium"><p class=""><span class="" style="white-space: pre-wrap;">Mọi kết nối đều tuân theo phân quyền của doanh nghiệp</span></p></div></div></section><section class="py-20 md:py-24 bg-white relative overflow-hidden font-sans" id="intelligence-architecture"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-left max-w-3xl mb-16"><div class="text-xs font-bold uppercase tracking-wider text-[#0068FF] mb-3">INTELLIGENCE ARCHITECTURE</div><h2 class="text-3xl sm:text-4xl text-slate-900 tracking-tight leading-tight font-bold"><span class="" style="white-space: pre-wrap;">Kiến tạo doanh nghiệp thông minh.</span></h2><p class="text-slate-600 text-base md:text-lg mt-4 leading-relaxed"><span class="" style="white-space: pre-wrap;">Dựa trên ba kiến trúc cốt lõi - cách thức vận hành công việc, kết quả đầu ra và nhân sự thực hiện. </span></p></div><div class="relative"><div class="absolute top-8 left-8 right-8 h-0.5 bg-[#E2E7FF] hidden md:block -z-0"><div class="absolute left-[28%] top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#5aa2ff] shadow-sm"></div></div><div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 relative z-10"><div class="flex flex-col items-start"><div class="w-16 h-16 rounded-2xl bg-[#F0F4FF] border border-[#E2E7FF] shadow-sm flex items-center justify-center text-[#0052cc] mb-8"><svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.5"></circle><circle cx="18" cy="18" r="2.5"></circle><circle cx="12" cy="6" r="2.5"></circle><path d="M8 16.5l2.5-3.5"></path><path d="M16 16.5l-2.5-3.5"></path><path d="M12 8.5v3.5"></path></svg></div><div class="text-sm font-semibold text-[#0068FF] mb-2">01</div><h3 class="text-xl font-bold text-slate-900 mb-2">Operation Intelligence</h3><p class="text-sm text-slate-500 leading-relaxed"><span class="" style="white-space: pre-wrap;">Cách công việc được vận hành - mỗi chức năng được tổ chức thành một dịch vụ, với các bước, quy tắc và người thực hiện rõ ràng.</span><br></p></div><div class="flex flex-col items-start"><div class="w-16 h-16 rounded-2xl bg-[#F0F4FF] border border-[#E2E7FF] shadow-sm flex items-center justify-center text-[#0052cc] mb-8"><svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><line x1="18" x2="18" y1="20" y2="10"></line><line x1="12" x2="12" y1="20" y2="4"></line><line x1="6" x2="6" y1="20" y2="14"></line></svg></div><div class="text-sm font-semibold text-[#0068FF] mb-2">02</div><h3 class="text-xl font-bold text-slate-900 mb-2">Output Intelligence</h3><p class="text-sm text-slate-500 leading-relaxed"><span class="" style="white-space: pre-wrap;">Công việc tạo ra kết quả gì - doanh nghiệp xác định rõ đầu ra, các dịch vụ cùng đóng góp để tạo ra và đo lường kết quả đó.</span></p></div><div class="flex flex-col items-start"><div class="w-16 h-16 rounded-2xl bg-[#F0F4FF] border border-[#E2E7FF] shadow-sm flex items-center justify-center text-[#0052cc] mb-8"><svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4L12 2z"></path></svg></div><div class="text-sm font-semibold text-[#0068FF] mb-2">03</div><h3 class="text-xl font-bold text-slate-900 mb-2">Agent Architecture</h3><p class="text-sm text-slate-500 leading-relaxed"><span class="" style="white-space: pre-wrap;">Cách AI tham gia vận hành. Xác định Agent có năng lực gì, đảm nhiệm vai trò nào và cách phối hợp với con người trong công việc.</span></p></div></div></div></div></section>
+<!-- END: IntegrationSection -->
+<!-- BEGIN: TrustSecurityDarkSection -->
+<!-- END: TrustSecurityDarkSection -->
+<!-- BEGIN: StatsAndTestimonial -->
+<section class="py-16 md:py-24 bg-white relative overflow-hidden font-sans" id="clients-testimonial">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header Section -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 sm:mb-14">
+      <div class="space-y-3">
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#D4E3FC] bg-[#EEF4FF] text-xs font-bold uppercase tracking-wider text-[#1F62E8]">
+          <span class="w-2 h-2 rounded-full bg-[#1F62E8] animate-pulse"></span>
+          KHÁCH HÀNG NÓI GÌ
+        </div>
+        <!-- Title -->
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0D111A] tracking-tight leading-tight">
+          Được hàng nghìn đội nhóm <span class="text-[#1F62E8]">tin dùng</span>
+        </h2>
+      </div>
+
+      <!-- Navigation Arrows -->
+      <div class="flex items-center gap-2.5 shrink-0">
+        <button id="btn-testi-prev" onclick="handleTestimonialNav(-1)" class="w-11 h-11 rounded-full bg-[#1F62E8] hover:bg-[#0F4FD6] text-white flex items-center justify-center shadow-md transition-all transform hover:scale-105 active:scale-95 cursor-pointer" aria-label="Previous CEO">
+          <span class="material-symbols-outlined text-[22px]">chevron_left</span>
+        </button>
+        <button id="btn-testi-next" onclick="handleTestimonialNav(1)" class="w-11 h-11 rounded-full bg-[#1F62E8] hover:bg-[#0F4FD6] text-white flex items-center justify-center shadow-md transition-all transform hover:scale-105 active:scale-95 cursor-pointer" aria-label="Next CEO">
+          <span class="material-symbols-outlined text-[22px]">chevron_right</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Carousel Showcase Container -->
+    <div id="testimonial-carousel-container" class="relative flex items-center justify-center gap-3 sm:gap-4 overflow-hidden py-4 select-none">
+      
+      <!-- Left Thumbnail Strips -->
+      <div class="hidden lg:flex items-center gap-3 shrink-0">
+        <!-- Far left cut-off strip -->
+        <div class="w-10 xl:w-12 h-[420px] rounded-[24px] overflow-hidden border border-slate-200/80 shadow-sm opacity-40 hover:opacity-80 transition-all duration-300 cursor-pointer" onclick="goToTestimonial((currentCeoIndex + 3) % testimonialsData.length)">
+          <img id="testi-strip-l1" src="assets/testimonials/ceo_engineer.png" alt="CEO" class="w-full h-full object-cover grayscale">
+        </div>
+        <!-- Near left strip -->
+        <div class="w-16 xl:w-20 h-[470px] rounded-[28px] overflow-hidden border-2 border-slate-200/90 shadow-md opacity-80 hover:opacity-100 hover:border-blue-400 hover:scale-[1.02] transition-all duration-300 cursor-pointer group" onclick="handleTestimonialNav(-1)" title="Xem CEO trước">
+          <img id="testi-strip-l2" src="assets/testimonials/ceo_blazer.png" alt="CEO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+        </div>
+      </div>
+
+      <!-- MAIN FEATURED CEO CARD -->
+      <div id="featured-ceo-card" class="relative w-full max-w-4xl bg-white rounded-[32px] border border-blue-100/90 shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-12 min-h-[460px] transition-all duration-500" style="box-shadow: 0 25px 60px -15px rgba(31, 98, 232, 0.14), 0 0 0 1px rgba(226, 232, 240, 0.8);">
+        <!-- Left: Large CEO Photo -->
+        <div class="md:col-span-5 relative bg-slate-100 overflow-hidden min-h-[320px] md:min-h-full">
+          <img id="testi-photo" src="assets/testimonials/ceo_minh_anh.png" alt="Nguyễn Minh Anh" class="w-full h-full object-cover object-top grayscale contrast-105 transition-all duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent md:hidden"></div>
+          <!-- Auto-play progress bar indicator on active photo -->
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-black/10">
+            <div id="testi-progress-bar" class="h-full bg-[#1F62E8] w-0 transition-all duration-100 ease-linear"></div>
+          </div>
+        </div>
+
+        <!-- Right: Quote Content & Info -->
+        <div class="md:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between bg-white space-y-6">
+          <div class="space-y-4">
+            <!-- Double Quote Icon in Base Blue -->
+            <div class="text-[#1F62E8] text-5xl sm:text-6xl font-serif font-black leading-none select-none">
+              <svg class="w-10 h-10 fill-current text-[#1F62E8]" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+            </div>
+
+            <!-- Quote Text with Fade Transition -->
+            <p id="testi-quote" class="text-lg sm:text-xl lg:text-[22px] font-extrabold text-[#0D111A] leading-relaxed transition-all duration-300">
+              "Từ khi chuyển sang Base, cả đội tiết kiệm hơn 10 giờ mỗi tuần cho việc báo cáo và theo dõi công việc. Mọi thứ nằm trên một nền tảng duy nhất."
+            </p>
+          </div>
+
+          <!-- Author Details -->
+          <div id="testi-author-container" class="pt-4 border-t border-slate-100 space-y-1.5 transition-all duration-300">
+            <h4 id="testi-author" class="text-base sm:text-lg font-bold text-[#0D111A]">Nguyễn Minh Anh</h4>
+            <p id="testi-role" class="text-xs font-bold text-[#1F62E8] uppercase tracking-wide">GIÁM ĐỐC VẬN HÀNH, CÔNG TY ABC</p>
+            <div class="pt-2">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#DCFCE7] text-[11px] font-medium text-slate-600">
+                <span class="material-symbols-outlined text-[14px] text-[#16A34A]">verified</span>
+                <span id="testi-badge">Khách hàng Doanh nghiệp đã xác thực</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Thumbnail Strips -->
+      <div class="hidden lg:flex items-center gap-3 shrink-0">
+        <!-- Near right strip -->
+        <div class="w-16 xl:w-20 h-[470px] rounded-[28px] overflow-hidden border-2 border-slate-200/90 shadow-md opacity-80 hover:opacity-100 hover:border-blue-400 hover:scale-[1.02] transition-all duration-300 cursor-pointer group" onclick="handleTestimonialNav(1)" title="Xem CEO tiếp theo">
+          <img id="testi-strip-r1" src="assets/testimonials/ceo_headset.png" alt="CEO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+        </div>
+        <!-- Far right cut-off strip -->
+        <div class="w-10 xl:w-12 h-[420px] rounded-[24px] overflow-hidden border border-slate-200/80 shadow-sm opacity-40 hover:opacity-80 transition-all duration-300 cursor-pointer" onclick="goToTestimonial((currentCeoIndex + 2) % testimonialsData.length)">
+          <img id="testi-strip-r2" src="assets/testimonials/ceo_smiling.png" alt="CEO" class="w-full h-full object-cover grayscale">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Indicator Dots & Auto-play Status -->
+    <div class="flex items-center justify-center gap-2 mt-8">
+      <div id="testi-dots" class="flex items-center gap-2">
+        <!-- Dots injected dynamically by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END: StatsAndTestimonial -->
+<!-- BEGIN: AwardsSection -->
+<section class="py-16 md:py-24 bg-white relative overflow-hidden font-sans" id="awards">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header Section -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 sm:mb-14">
+      <div class="space-y-3">
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#D4E3FC] bg-[#EEF4FF] text-xs font-bold uppercase tracking-wider text-[#1F62E8]">
+          <span class="w-2 h-2 rounded-full bg-[#1F62E8]"></span>
+          GIẢI THƯỞNG & GHI NHẬN
+        </div>
+        <!-- Title -->
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0D111A] tracking-tight leading-tight">
+          Được công nhận bởi các tổ chức <span class="text-[#1F62E8]">uy tín</span>
+        </h2>
+        <!-- Subtitle -->
+        <p class="text-slate-500 text-sm sm:text-base max-w-2xl leading-relaxed">
+          Tự hào được vinh danh bởi các tổ chức và giải thưởng uy tín trong nước và quốc tế.
+        </p>
+      </div>
+
+      <!-- Navigation Arrows -->
+      <div class="flex items-center gap-2.5 shrink-0">
+        <button id="btn-awards-prev" onclick="handleAwardScroll(-1)" class="w-10 h-10 rounded-full border border-slate-200 bg-white text-slate-400 hover:text-slate-700 hover:border-slate-300 flex items-center justify-center transition-all cursor-pointer shadow-xs" aria-label="Previous Award">
+          <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+        </button>
+        <button id="btn-awards-next" onclick="handleAwardScroll(1)" class="w-10 h-10 rounded-full bg-[#1F62E8] hover:bg-[#0F4FD6] text-white flex items-center justify-center shadow-md transition-all transform hover:scale-105 active:scale-95 cursor-pointer" aria-label="Next Award">
+          <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 3 Award Cards Grid -->
+    <div id="awards-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      
+      <!-- Card 1: APEA 2023 -->
+      <div class="bg-white rounded-[28px] border border-slate-100 shadow-[0_12px_36px_rgba(31,98,232,0.06)] p-6 sm:p-7 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:border-blue-200 hover:-translate-y-1 group">
+        <!-- Inner Visual Badge -->
+        <div class="w-full h-56 sm:h-60 rounded-2xl bg-gradient-to-b from-[#F2F7FF] via-[#EAF3FE] to-[#DCECFD] border border-blue-100/70 flex items-center justify-center p-4 relative overflow-hidden shadow-inner group-hover:scale-[1.02] transition-transform duration-500">
+          <img src="assets/awards/award_apea_2023_2x.png" alt="Doanh nghiệp xuất sắc Châu Á - APEA 2023" class="max-h-full max-w-full object-contain drop-shadow-sm">
+        </div>
+        <!-- Bottom Text -->
+        <div class="pt-5 pb-1 space-y-1 w-full">
+          <h3 class="text-base sm:text-lg font-bold text-[#0D111A] tracking-tight leading-snug">Doanh nghiệp xuất sắc Châu Á</h3>
+          <p class="text-xs text-slate-500 font-medium">Asia Pacific Enterprise Awards</p>
+        </div>
+      </div>
+
+      <!-- Card 2: TOP 1 Quốc gia -->
+      <div class="bg-white rounded-[28px] border border-slate-100 shadow-[0_12px_36px_rgba(31,98,232,0.06)] p-6 sm:p-7 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:border-blue-200 hover:-translate-y-1 group">
+        <!-- Inner Visual Badge -->
+        <div class="w-full h-56 sm:h-60 rounded-2xl bg-gradient-to-b from-[#F2F7FF] via-[#EAF3FE] to-[#DCECFD] border border-blue-100/70 flex items-center justify-center p-4 relative overflow-hidden shadow-inner group-hover:scale-[1.02] transition-transform duration-500">
+          <img src="assets/awards/award_top1_quocgia_2x.png" alt="Top 1 Nền tảng số xuất sắc - BỘ TT&TT" class="max-h-full max-w-full object-contain drop-shadow-sm">
+        </div>
+        <!-- Bottom Text -->
+        <div class="pt-5 pb-1 space-y-1 w-full">
+          <h3 class="text-base sm:text-lg font-bold text-[#0D111A] tracking-tight leading-snug">Top 1 Nền tảng số xuất sắc</h3>
+          <p class="text-xs text-slate-500 font-medium">Chuyển đổi số quốc gia</p>
+        </div>
+      </div>
+
+      <!-- Card 3: ASEAN Business Awards -->
+      <div class="bg-white rounded-[28px] border border-slate-100 shadow-[0_12px_36px_rgba(31,98,232,0.06)] p-6 sm:p-7 flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:border-blue-200 hover:-translate-y-1 group">
+        <!-- Inner Visual Badge -->
+        <div class="w-full h-56 sm:h-60 rounded-2xl bg-gradient-to-b from-[#F2F7FF] via-[#EAF3FE] to-[#DCECFD] border border-blue-100/70 flex items-center justify-center p-4 relative overflow-hidden shadow-inner group-hover:scale-[1.02] transition-transform duration-500">
+          <img src="assets/awards/award_asean_2023_2x.png" alt="Doanh nghiệp tiêu biểu ASEAN - ASEAN 2023" class="max-h-full max-w-full object-contain drop-shadow-sm">
+        </div>
+        <!-- Bottom Text -->
+        <div class="pt-5 pb-1 space-y-1 w-full">
+          <h3 class="text-base sm:text-lg font-bold text-[#0D111A] tracking-tight leading-snug">Doanh nghiệp tiêu biểu ASEAN</h3>
+          <p class="text-xs text-slate-500 font-medium">ASEAN Business Awards 2023</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- END: AwardsSection -->
+
+<!-- BEGIN: BottomCTA -->
+<section class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden font-sans" id="pricing">
+  <div class="max-w-7xl mx-auto w-full">
+    <!-- VIBRANT BLUE CTA HERO BANNER CARD -->
+    <div class="relative rounded-[32px] sm:rounded-[40px] p-8 sm:p-14 lg:p-20 text-center overflow-hidden shadow-2xl shadow-blue-500/25" style="background: linear-gradient(135deg, #2B73EB 0%, #1A5BD8 50%, #1754C7 100%);">
+      <!-- Subtle Ambient Glow -->
+      <div class="absolute -top-32 -left-32 w-80 h-80 rounded-full bg-white/10 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-32 -right-32 w-80 h-80 rounded-full bg-cyan-400/20 blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-6 sm:mb-8 shadow-xs">
+          <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+          BASE 2.0 AGENTIC WORKSPACE
+        </div>
+
+        <!-- Headline -->
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-white tracking-tight leading-[1.18] mb-4 sm:mb-5">
+          Vận hành cùng AI<br>
+          Bứt phá giới hạn tăng trưởng
+        </h2>
+
+        <!-- Subtitle -->
+        <p class="text-white/90 text-sm sm:text-base md:text-[17px] leading-relaxed max-w-2xl mx-auto mb-8 sm:mb-10 font-normal">
+          Base 2.0 – nền tảng vận hành nơi con người, phần mềm và AI Agent cùng hiểu công việc, phối hợp và tạo ra kết quả, để doanh nghiệp vận hành và tăng trưởng cùng AI.
+        </p>
+
+        <!-- Two CTA Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
+          <!-- Button 1: Black Pill "Đăng Ký Demo →" -->
+          <a href="#demo" onclick="openDemoModal(event, 'Đăng ký Demo Base 2.0')" class="px-7 sm:px-8 py-3.5 rounded-full bg-[#0D111A] hover:bg-black text-white font-bold text-sm sm:text-[15px] shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-0.5 inline-flex items-center gap-2 cursor-pointer">
+            <span>Đăng Ký Demo</span>
+            <span class="font-mono text-sm">→</span>
+          </a>
+          <!-- Button 2: Semi-transparent Blue/White Pill "Đăng ký tư vấn 1:1" -->
+          <a href="#contact" onclick="openDemoModal(event, 'Đăng ký tư vấn 1:1 với chuyên gia Base')" class="px-7 sm:px-8 py-3.5 rounded-full bg-white/20 hover:bg-white/30 text-white font-bold text-sm sm:text-[15px] border border-white/40 transition-all backdrop-blur-md inline-flex items-center cursor-pointer">
+            Đăng ký tư vấn 1:1
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLEAN MODERN FOOTER -->
+    <div class="mt-14 sm:mt-16 bg-white rounded-3xl md:rounded-[32px] border border-slate-200/80 shadow-md p-8 sm:p-12 lg:p-14 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+        <div class="lg:col-span-5 space-y-5">
+          <a class="flex items-center shrink-0" href="#">
+            <img alt="BASE.VN" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3ejBddGhADW4BO4TLhnyBi2WgQHUSG2Bim2UiS3oMxgMZH9ABa7ZCdPEO-LOp-skvy4dMi2ANMIMcbTNt8Lo9UpPl2-tKP2Txo_8lZot5bgnxWMdfW_hC0cmilM0f4mMki60w_rgrMoHrcKb9D9-qEq6BNjI0DMvTt2Gn002Schb7qzn6nPz3Yg3XFgbdfMKfJ9n39MQb3hER-n4ESrVuqSJnVKRoH00QvRFf2bRlXUz9fNVavBhDjJjgm6r1OU9H">
+          </a>
+          <div class="space-y-2 pt-2">
+            <label class="text-xs font-semibold text-slate-900 block">Đăng ký nhận thông tin công nghệ &amp; AI</label>
+            <div class="flex items-center bg-slate-50 border border-slate-200 rounded-full p-1 pl-4 focus-within:border-[#0068FF] shadow-xs max-w-md">
+              <input id="newsletter-email" type="email" placeholder="Nhập email của bạn..." class="px-3 py-2 text-sm bg-transparent text-slate-800 focus:outline-none w-full">
+              <button type="button" onclick="handleNewsletter(event)" class="px-5 py-2 text-sm font-semibold rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-all shrink-0 cursor-pointer">Đăng ký</button>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 pt-3">
+            <a aria-label="Facebook" class="w-8 h-8 rounded-full border border-slate-200/80 bg-white text-slate-500 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50/70 inline-flex items-center justify-center transition-all shadow-xs" href="#">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a aria-label="LinkedIn" class="w-8 h-8 rounded-full border border-slate-200/80 bg-white text-slate-500 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50/70 inline-flex items-center justify-center transition-all shadow-xs" href="#">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a aria-label="YouTube" class="w-8 h-8 rounded-full border border-slate-200/80 bg-white text-slate-500 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50/70 inline-flex items-center justify-center transition-all shadow-xs" href="#">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="lg:col-span-7 grid grid-cols-2 gap-6 text-xs sm:grid-cols-4">
+          <div class="space-y-3">
+            <h4 class="font-semibold text-slate-900">Sản phẩm</h4>
+            <ul class="space-y-2.5 text-slate-500">
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#platform">Nền tảng</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#platform">Tích hợp</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#platform">Bảo mật</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="/bang-gia">Bảng giá</a></li>
+            </ul>
+          </div>
+          <div class="space-y-3">
+            <h4 class="font-semibold text-slate-900">Giải pháp</h4>
+            <ul class="space-y-2.5 text-slate-500">
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#industries">Bán lẻ &amp; F&amp;B</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#industries">Tài chính</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#industries">Sản xuất</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#industries">Doanh nghiệp lớn</a></li>
+            </ul>
+          </div>
+          <div class="space-y-3">
+            <h4 class="font-semibold text-slate-900">Tài nguyên</h4>
+            <ul class="space-y-2.5 text-slate-500">
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#awards">Giải thưởng</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#clients-testimonial">Khách hàng</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#mcp-protocol">Chuẩn MCP</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#demo">Demo trực tiếp</a></li>
+            </ul>
+          </div>
+          <div class="space-y-3">
+            <h4 class="font-semibold text-slate-900">Về Base</h4>
+            <ul class="space-y-2.5 text-slate-500">
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#awards">Giới thiệu</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#clients-testimonial">Khách hàng</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#contact">Tuyển dụng</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#contact">Đối tác</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10 pt-8 border-t border-slate-100">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px] text-[#0068FF]">location_city</span>
+              <h5 class="font-bold text-slate-900 text-sm">Trụ sở Hà Nội</h5>
+            </div>
+            <div class="space-y-1 text-xs text-slate-600">
+              <p class="flex items-center gap-1.5 font-medium text-slate-800">
+                <span class="material-symbols-outlined text-[14px] text-slate-400">call</span>
+                <a class="hover:text-[#0068FF] transition-colors font-semibold" href="tel:+84936011413">(+84) 936 011 413</a>
+              </p>
+              <p class="text-slate-500 leading-relaxed">Tầng 16, Tòa HUD, số 37 Lê Văn Lương, Thanh Xuân, Hà Nội</p>
+            </div>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px] text-[#0068FF]">apartment</span>
+              <h5 class="font-bold text-slate-900 text-sm">VP. HCM</h5>
+            </div>
+            <div class="space-y-1 text-xs text-slate-600">
+              <p class="flex items-center gap-1.5 font-medium text-slate-800">
+                <span class="material-symbols-outlined text-[14px] text-slate-400">call</span>
+                <a class="hover:text-[#0068FF] transition-colors font-semibold" href="tel:+84896691313">(+84) 896 69 1313</a>
+              </p>
+              <p class="text-slate-500 leading-relaxed">Tầng 2, Tòa Jasmine 1, Hà Đô Centrosa Garden, 200 Đường 3/2, Phường Hòa Hưng, TP.HCM</p>
+            </div>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px] text-[#0068FF]">domain</span>
+              <h5 class="font-bold text-slate-900 text-sm">VP. Đà Nẵng</h5>
+            </div>
+            <div class="space-y-1 text-xs text-slate-600">
+              <p class="flex items-center gap-1.5 font-medium text-slate-800">
+                <span class="material-symbols-outlined text-[14px] text-slate-400">call</span>
+                <a class="hover:text-[#0068FF] transition-colors font-semibold" href="tel:+84977575309">(+84) 977 575 309</a>
+              </p>
+              <p class="text-slate-500 leading-relaxed">Tầng 11, tòa nhà VietinBank, số 36 Trần Quốc Toản, Hải Châu, Đà Nẵng</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
+        <p class="text-center sm:text-left">© 2026 | Bản quyền thuộc về Công ty Cổ phần Base Enterprise.</p>
+        <div class="flex items-center gap-4 text-slate-500">
+          <a class="hover:text-[#0068FF] transition-colors" href="#">Bảo mật</a>
+          <a class="hover:text-[#0068FF] transition-colors" href="#">Điều khoản</a>
+          <span class="flex items-center gap-1 text-[#0068FF] font-medium">🌐 Tiếng Việt</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END: BottomCTA -->
+</main>
+
+  <!-- Demo Request Modal -->
+  <div id="demo-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm transition-opacity duration-300">
+    <div class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-100 p-6 sm:p-8 animate-in fade-in zoom-in-95 duration-200">
+      <button onclick="closeDemoModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-800 transition-colors cursor-pointer" aria-label="Close">
+        <span class="material-symbols-outlined text-lg">close</span>
+      </button>
+
+      <div class="mb-6">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold mb-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
+          BASE AGENTIC PLATFORM
+        </div>
+        <h3 id="modal-title" class="text-2xl font-bold text-slate-900">Đăng ký trải nghiệm Demo</h3>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">Trải nghiệm sức mạnh của AI Agent trong vận hành doanh nghiệp cùng chuyên gia Base.</p>
+      </div>
+
+      <form id="demo-form" onsubmit="submitDemoForm(event)" class="space-y-4 text-left">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Họ và tên *</label>
+          <input required type="text" id="demo-name" placeholder="Nguyễn Văn A" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50/50">
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Số điện thoại *</label>
+            <input required type="tel" id="demo-phone" placeholder="0912 345 678" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50/50">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Email doanh nghiệp *</label>
+            <input required type="email" id="demo-email" placeholder="name@company.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50/50">
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Tên doanh nghiệp *</label>
+          <input required type="text" id="demo-company" placeholder="Công ty Cổ phần Công nghệ..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50/50">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Quy mô nhân sự</label>
+          <select id="demo-size" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50/50 text-slate-700">
+            <option value="under50">Dưới 50 nhân sự</option>
+            <option value="50-200" selected>50 - 200 nhân sự</option>
+            <option value="200-500">200 - 500 nhân sự</option>
+            <option value="over500">Trên 500 nhân sự</option>
+          </select>
+        </div>
+        <button type="submit" id="btn-submit-demo" class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-brand hover:shadow-brand-lg transition-all flex items-center justify-center gap-2 cursor-pointer mt-2">
+          <span>Xác nhận đăng ký tư vấn</span>
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast-hide fixed bottom-6 right-6 z-50 max-w-sm bg-slate-900/95 text-white p-4 rounded-2xl shadow-2xl backdrop-blur-md border border-slate-700 flex items-start gap-3">
+    <span class="material-symbols-outlined text-emerald-400 text-xl shrink-0 mt-0.5">check_circle</span>
+    <div class="text-xs">
+      <h5 id="toast-title" class="font-bold text-white text-sm mb-0.5">Thành công!</h5>
+      <p id="toast-message" class="text-slate-300 leading-relaxed">Thông tin của bạn đã được ghi nhận.</p>
+    </div>
+  </div>
+
+  <!-- Back to top floating button -->
+  <button id="btn-back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="hidden fixed bottom-6 left-6 z-40 w-11 h-11 rounded-full bg-white text-slate-700 hover:text-blue-600 border border-slate-200 shadow-lg hover:shadow-xl flex items-center justify-center transition-all cursor-pointer" aria-label="Lên đầu trang">
+    <span class="material-symbols-outlined text-lg">arrow_upward</span>
+  </button>
+
+  <!-- Interactive JavaScript Engine -->
+  <script>
+    // --- Navigation Interactivity ---
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileIcon = document.getElementById('mobile-menu-icon');
+    const productsBtn = document.getElementById('btn-products-menu');
+    const megaMenu = document.getElementById('mega-menu-dropdown');
+    const megaArrow = document.getElementById('mega-arrow');
+    const backToTopBtn = document.getElementById('btn-back-to-top');
+
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        mobileIcon.textContent = isHidden ? 'menu' : 'close';
+      });
+    }
+
+    if (productsBtn && megaMenu) {
+      productsBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isHidden = megaMenu.classList.toggle('hidden');
+        if (megaArrow) {
+          megaArrow.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!megaMenu.contains(e.target) && !productsBtn.contains(e.target)) {
+          megaMenu.classList.add('hidden');
+          if (megaArrow) megaArrow.style.transform = 'rotate(0deg)';
+        }
+      });
+    }
+
+    // Close mobile menu when clicking nav links
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileMenu) {
+          mobileMenu.classList.add('hidden');
+          if (mobileIcon) mobileIcon.textContent = 'menu';
+        }
+      });
+    });
+
+    // Header scroll effect and back to top button
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('main-header');
+      if (window.scrollY > 20) {
+        header.classList.add('py-1');
+        header.classList.remove('pt-3', 'pb-2');
+      } else {
+        header.classList.remove('py-1');
+        header.classList.add('pt-3', 'pb-2');
+      }
+
+      if (backToTopBtn) {
+        if (window.scrollY > 400) {
+          backToTopBtn.classList.remove('hidden');
+        } else {
+          backToTopBtn.classList.add('hidden');
+        }
+      }
+    });
+
+    // --- Hero AI Model Simulator ---
+    let isModelRunning = false;
+    function handleRunModel(e) {
+      if (e) e.preventDefault();
+      if (isModelRunning) return;
+      isModelRunning = true;
+
+      const btn = document.getElementById('btn-run-model');
+      const text = document.getElementById('btn-run-model-text');
+      const accuracyEl = document.getElementById('stat-accuracy');
+      const latencyEl = document.getElementById('stat-latency');
+      const bars = document.querySelectorAll('#chart-bars > div');
+
+      if (text) text.textContent = 'Đang suy luận...';
+
+      // Animate chart bars with randomized active heights
+      const originalHeights = [];
+      bars.forEach((bar, idx) => {
+        originalHeights.push(bar.style.height || getComputedStyle(bar).height);
+        bar.style.transition = 'height 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+        const randomH = Math.floor(Math.random() * 55) + 40;
+        bar.style.height = randomH + '%';
+      });
+
+      if (accuracyEl) accuracyEl.textContent = '...';
+      if (latencyEl) latencyEl.textContent = '...';
+
+      setTimeout(() => {
+        // Final animated state
+        const finalAccuracy = (96.0 + Math.random() * 2.5).toFixed(1) + '%';
+        const finalLatency = Math.floor(25 + Math.random() * 15) + 'ms';
+
+        if (accuracyEl) accuracyEl.textContent = finalAccuracy;
+        if (latencyEl) latencyEl.textContent = finalLatency;
+
+        // Give bars a smooth progressive distribution
+        const newHeights = ['35%', '48%', '42%', '65%', '58%', '75%', '70%', '90%', '76%', '94%', '96%', '100%'];
+        bars.forEach((bar, idx) => {
+          bar.style.height = newHeights[idx] || '80%';
+        });
+
+        if (text) text.textContent = 'Chạy mô hình';
+        isModelRunning = false;
+        showToast('Suy luận hoàn tất', `Mô hình F-112: Độ chính xác ${finalAccuracy} • Độ trễ ${finalLatency}`);
+      }, 1000);
+    }
+
+    // --- Industry Solutions Tabs ---
+    const industryData = {
+      'Sản xuất': {
+        title: 'Ngành Sản xuất',
+        bullets: [
+          '<strong>AI tối ưu hóa quy trình:</strong> Chuẩn hóa theo tiêu chuẩn ISO, tự động phát hiện nút thắt và chủ động kiểm soát tiến độ sản xuất.',
+          '<strong>Lập kế hoạch thông minh:</strong> Dự báo nhu cầu vật tư khoa học, liên kết đa chiều quy trình xử lý đơn hàng và xuất nhập kho tức thì.',
+          '<strong>Phân tích & Cảnh báo rủi ro:</strong> Báo cáo doanh thu, chi phí, công nợ trực quan kèm dự báo dòng tiền theo thời gian thực.'
+        ],
+        clients: ['ANECO', 'AUTOTECH', 'Hawee']
+      },
+      'Dược phẩm': {
+        title: 'Ngành Dược phẩm & Y tế',
+        bullets: [
+          '<strong>Kiểm soát chất lượng GMP:</strong> Tự động hóa hồ sơ lô sản xuất, kiểm soát nghiêm ngặt theo tiêu chuẩn WHO-GMP.',
+          '<strong>Quản lý chuỗi cung ứng:</strong> Theo dõi hạn dùng theo FEFO/FIFO, truy xuất nguồn gốc từng lô sản phẩm tức thì.',
+          '<strong>Phê duyệt số đa cấp:</strong> Tự động luân chuyển hồ sơ cấp phép và báo cáo kiểm nghiệm qua AI Copilot.'
+        ],
+        clients: ['DHG PHARMA', 'BOSTON PHARMA', 'IMEXPHARM']
+      },
+      'Xây dựng': {
+        title: 'Ngành Xây dựng & Bất động sản',
+        bullets: [
+          '<strong>Quản lý tiến độ công trường:</strong> Đồng bộ dữ liệu nhật ký thi công thời gian thực giữa ban chỉ huy và trụ sở.',
+          '<strong>Kiểm soát dòng tiền dự án:</strong> Cảnh báo vượt dự toán vật tư và quản lý tạm ứng nhà thầu phụ chặt chẽ.',
+          '<strong>Hợp đồng & Nghiệm thu số:</strong> Ký duyệt biên bản nghiệm thu và thanh quyết toán ngay trên thiết bị di động.'
+        ],
+        clients: ['COTECCONS', 'HÒA BÌNH CORP', 'RICONS']
+      },
+      'F&B': {
+        title: 'Ngành F&B & Chuỗi bán lẻ',
+        bullets: [
+          '<strong>Quản trị chuỗi nhà hàng:</strong> Kiểm soát hao hụt nguyên vật liệu và tự động điều phối hàng giữa các chi nhánh.',
+          '<strong>Tối ưu ca kíp nhân sự:</strong> AI dự báo lượng khách để sắp xếp lịch làm việc và tính công tự động.',
+          '<strong>Đồng bộ quy trình mở điểm:</strong> Quản lý checklist 60 bước setup nhà hàng mới từ mặt bằng đến vận hành.'
+        ],
+        clients: ['GOLDEN GATE', 'HIGHLANDS', 'REDSUN']
+      },
+      'Giáo dục': {
+        title: 'Ngành Giáo dục & Đào tạo',
+        bullets: [
+          '<strong>Vận hành cơ sở đào tạo:</strong> Số hóa toàn diện quy trình tuyển sinh, xếp lớp và quản lý học phí.',
+          '<strong>Quản lý giảng viên & trợ giảng:</strong> Tính toán giờ dạy, đánh giá chất lượng và chi trả thù lao tự động.',
+          '<strong>Cổng thông tin phụ huynh:</strong> Tương tác và gửi thông báo số hóa tập trung qua hệ thống Base.'
+        ],
+        clients: ['VINSCHOOL', 'FPT EDUCATION', 'APOLLO']
+      },
+      'Y tế': {
+        title: 'Ngành Y tế & Phòng khám',
+        bullets: [
+          '<strong>Quy trình tiếp đón bệnh nhân:</strong> Giảm thời gian chờ đợi với điều phối lịch khám thông minh.',
+          '<strong>Quản lý vật tư y tế:</strong> Kiểm soát tồn kho thuốc, hóa chất và hạn sử dụng theo chuẩn Bộ Y Tế.',
+          '<strong>Bảo mật hồ sơ y khoa:</strong> Phân quyền truy cập đa cấp theo tiêu chuẩn an toàn thông tin y tế.'
+        ],
+        clients: ['MEDLATEC', 'THU CÚC TCI', 'HỒNG NGỌC']
+      },
+      'Nội thất': {
+        title: 'Ngành Nội thất & Kiến trúc',
+        bullets: [
+          '<strong>Quản lý đơn hàng đo may:</strong> Kết nối thông suốt từ bản vẽ thiết kế đến phân xưởng gia công nội thất.',
+          '<strong>Kiểm soát lắp đặt hiện trường:</strong> Cập nhật tiến độ hoàn thiện tại công trình qua ảnh chụp và checklist.',
+          '<strong>Chăm sóc khách hàng & Bảo hành:</strong> Tự động nhắc lịch bảo dưỡng định kỳ và xử lý phản hồi khách hàng.'
+        ],
+        clients: ['NHÀ XINH', 'AA CORPORATION', 'AN CƯỜNG']
+      },
+      'Khác': {
+        title: 'Đa ngành & Tập đoàn đa lĩnh vực',
+        bullets: [
+          '<strong>Tùy biến linh hoạt:</strong> Thiết kế quy trình động theo đặc thù từng phòng ban mà không cần viết mã.',
+          '<strong>Tích hợp hệ thống mở:</strong> Kết nối qua Open API và chuẩn MCP với mọi phần mềm ERP/CRM sẵn có.',
+          '<strong>Báo cáo hợp nhất:</strong> Tổng hợp dữ liệu đa chi nhánh lên một dashboard điều hành thời gian thực.'
+        ],
+        clients: ['VIETJET AIR', 'VPBANK', 'PETROLIMEX']
+      }
+    };
+
+    // Setup interactive tabs for Industry section
+    document.addEventListener('DOMContentLoaded', () => {
+      const industryButtons = document.querySelectorAll('#industries button, #industries nav a, [data-section="solutions"] button');
+      industryButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const tabText = btn.textContent.trim();
+          if (industryData[tabText]) {
+            // Update active button style
+            industryButtons.forEach(b => {
+              b.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+              b.classList.add('text-slate-600', 'hover:bg-slate-100');
+            });
+            btn.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+            btn.classList.remove('text-slate-600', 'hover:bg-slate-100');
+
+            // Update content elements if found
+            const titleEl = document.querySelector('#industries h3, [data-section="solutions"] h3');
+            if (titleEl) titleEl.textContent = industryData[tabText].title;
+
+            showToast('Đã chọn giải pháp ' + tabText, 'Dữ liệu và quy trình mẫu đã được cập nhật.');
+          }
+        });
+      });
+    });
+
+    // --- Interactive AI Copilot Chat ---
+    function sendCopilotMessage(customText) {
+      const input = document.querySelector('#same-language input[type="text"], input[placeholder*="Describe what you need"]');
+      const text = customText || (input ? input.value.trim() : '');
+      if (!text) return;
+
+      if (input) input.value = '';
+
+      showToast('AI Agent đang phản hồi', `"${text.substring(0, 30)}..."`);
+    }
+
+    // Make suggestion pills clickable
+    document.querySelectorAll('#same-language button, #same-language span.cursor-pointer').forEach(el => {
+      el.addEventListener('click', () => {
+        const text = el.textContent.trim();
+        if (text.includes('Order LG') || text.includes('approve last quarter')) {
+          sendCopilotMessage(text);
+        }
+      });
+    });
+
+    // --- Testimonials Carousel Engine (Auto-play, Interactive, Responsive) ---
+    const testimonialsData = [
+      {
+        id: 0,
+        name: "Nguyễn Minh Anh",
+        role: "GIÁM ĐỐC VẬN HÀNH, CÔNG TY ABC",
+        quote: "\"Từ khi chuyển sang Base, cả đội tiết kiệm hơn 10 giờ mỗi tuần cho việc báo cáo và theo dõi công việc. Mọi thứ nằm trên một nền tảng duy nhất.\"",
+        badge: "Khách hàng Doanh nghiệp đã xác thực",
+        photo: "assets/testimonials/ceo_minh_anh.png",
+        stripThumb: "assets/testimonials/ceo_minh_anh.png"
+      },
+      {
+        id: 1,
+        name: "Trần Hải Nam",
+        role: "CHỦ TỊCH HĐQT, TẬP ĐOÀN ALPHA",
+        quote: "\"Base Agentic OS giúp chúng tôi chuẩn hóa toàn bộ quy trình liên phòng ban từ 14 ngày xuống chỉ còn 2 ngày. Năng suất nhân sự tăng vọt 45%.\"",
+        badge: "Khách hàng Doanh nghiệp đã xác thực",
+        photo: "assets/testimonials/ceo_tran_hai_nam.jpg",
+        stripThumb: "assets/testimonials/ceo_blazer.png"
+      },
+      {
+        id: 2,
+        name: "Lê Thị Mai Phương",
+        role: "GIÁM ĐỐC NHÂN SỰ, BETA GROUP",
+        quote: "\"Sự kết hợp giữa nhân sự và AI Agent trong Base HRM giải phóng 80% thời gian xử lý thủ tục giấy tờ, giúp chúng tôi tập trung phát triển nhân tài.\"",
+        badge: "Khách hàng Doanh nghiệp đã xác thực",
+        photo: "assets/testimonials/ceo_mai_phuong.jpg",
+        stripThumb: "assets/testimonials/ceo_hands.png"
+      },
+      {
+        id: 3,
+        name: "Hoàng Quốc Bảo",
+        role: "GIÁM ĐỐC CÔNG NGHỆ, VIET LOGISTICS",
+        quote: "\"Khả năng kết nối mở qua giao thức MCP giúp các hệ thống logistics của chúng tôi tích hợp tức thì với các mô hình AI tiên tiến nhất.\"",
+        badge: "Khách hàng Doanh nghiệp đã xác thực",
+        photo: "assets/testimonials/ceo_quoc_bao.jpg",
+        stripThumb: "assets/testimonials/ceo_headset.png"
+      },
+      {
+        id: 4,
+        name: "Đặng Thùy Dương",
+        role: "TỔNG GIÁM ĐỐC, RETAIL VIỆT NAM",
+        quote: "\"Chúng tôi quản trị hơn 60 chi nhánh bán lẻ trên toàn quốc chỉ qua một màn hình điều hành duy nhất của Base. Dòng tiền và tồn kho hiển thị tức thì.\"",
+        badge: "Khách hàng Doanh nghiệp đã xác thực",
+        photo: "assets/testimonials/ceo_thuy_duong.jpg",
+        stripThumb: "assets/testimonials/ceo_smiling.png"
+      }
+    ];
+
+    let currentCeoIndex = 0;
+    let testimonialAutoTimer = null;
+    let progressBarTimer = null;
+    let isTestimonialHovered = false;
+    const TESTIMONIAL_DURATION = 4800; // 4.8 seconds per CEO slide
+
+    function renderTestimonialDots() {
+      const container = document.getElementById('testi-dots');
+      if (!container) return;
+      container.innerHTML = '';
+      testimonialsData.forEach((item, idx) => {
+        const btn = document.createElement('button');
+        btn.setAttribute('type', 'button');
+        btn.setAttribute('aria-label', `Xem CEO ${item.name}`);
+        btn.className = idx === currentCeoIndex
+          ? 'w-8 h-2.5 rounded-full bg-[#1F62E8] shadow-sm transition-all duration-300 cursor-pointer'
+          : 'w-2.5 h-2.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all duration-300 cursor-pointer';
+        btn.onclick = () => {
+          goToTestimonial(idx);
+          resetAutoPlay();
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    function updateTestimonialView(index, animate = true) {
+      currentCeoIndex = (index + testimonialsData.length) % testimonialsData.length;
+      const data = testimonialsData[currentCeoIndex];
+
+      const photoEl = document.getElementById('testi-photo');
+      const quoteEl = document.getElementById('testi-quote');
+      const authorEl = document.getElementById('testi-author');
+      const roleEl = document.getElementById('testi-role');
+      const badgeEl = document.getElementById('testi-badge');
+      const authorContainer = document.getElementById('testi-author-container');
+
+      // Side thumbnail elements
+      const l1 = document.getElementById('testi-strip-l1');
+      const l2 = document.getElementById('testi-strip-l2');
+      const r1 = document.getElementById('testi-strip-r1');
+      const r2 = document.getElementById('testi-strip-r2');
+
+      const n = testimonialsData.length;
+      const prev2 = (currentCeoIndex - 2 + n) % n;
+      const prev1 = (currentCeoIndex - 1 + n) % n;
+      const next1 = (currentCeoIndex + 1) % n;
+      const next2 = (currentCeoIndex + 2) % n;
+
+      if (l1) l1.src = testimonialsData[prev2].stripThumb;
+      if (l2) l2.src = testimonialsData[prev1].stripThumb;
+      if (r1) r1.src = testimonialsData[next1].stripThumb;
+      if (r2) r2.src = testimonialsData[next2].stripThumb;
+
+      if (!animate) {
+        if (photoEl) { photoEl.src = data.photo; photoEl.alt = data.name; }
+        if (quoteEl) quoteEl.textContent = data.quote;
+        if (authorEl) authorEl.textContent = data.name;
+        if (roleEl) roleEl.textContent = data.role;
+        if (badgeEl) badgeEl.textContent = data.badge;
+        renderTestimonialDots();
+        return;
+      }
+
+      // Smooth Cross-fade Transition
+      if (quoteEl) quoteEl.classList.add('opacity-0', 'translate-y-2');
+      if (authorContainer) authorContainer.classList.add('opacity-0', 'translate-y-2');
+      if (photoEl) photoEl.classList.add('opacity-40', 'scale-105');
+
+      setTimeout(() => {
+        if (photoEl) {
+          photoEl.src = data.photo;
+          photoEl.alt = data.name;
+        }
+        if (quoteEl) quoteEl.textContent = data.quote;
+        if (authorEl) authorEl.textContent = data.name;
+        if (roleEl) roleEl.textContent = data.role;
+        if (badgeEl) badgeEl.textContent = data.badge;
+
+        renderTestimonialDots();
+
+        // Fade in
+        requestAnimationFrame(() => {
+          if (quoteEl) quoteEl.classList.remove('opacity-0', 'translate-y-2');
+          if (authorContainer) authorContainer.classList.remove('opacity-0', 'translate-y-2');
+          if (photoEl) photoEl.classList.remove('opacity-40', 'scale-105');
+        });
+      }, 200);
+    }
+
+    function goToTestimonial(index) {
+      updateTestimonialView(index, true);
+      restartProgressBar();
+    }
+
+    function handleTestimonialNav(direction) {
+      goToTestimonial(currentCeoIndex + direction);
+      resetAutoPlay();
+    }
+
+    function restartProgressBar() {
+      const bar = document.getElementById('testi-progress-bar');
+      if (!bar) return;
+      bar.style.transition = 'none';
+      bar.style.width = '0%';
+      // Trigger reflow
+      void bar.offsetWidth;
+      if (!isTestimonialHovered) {
+        bar.style.transition = `width ${TESTIMONIAL_DURATION}ms linear`;
+        bar.style.width = '100%';
+      }
+    }
+
+    function startAutoPlay() {
+      clearInterval(testimonialAutoTimer);
+      restartProgressBar();
+      testimonialAutoTimer = setInterval(() => {
+        if (!isTestimonialHovered) {
+          goToTestimonial(currentCeoIndex + 1);
+        }
+      }, TESTIMONIAL_DURATION);
+    }
+
+    function resetAutoPlay() {
+      clearInterval(testimonialAutoTimer);
+      startAutoPlay();
+    }
+
+    function pauseAutoPlay() {
+      isTestimonialHovered = true;
+      const bar = document.getElementById('testi-progress-bar');
+      if (bar) {
+        const computedWidth = getComputedStyle(bar).width;
+        bar.style.transition = 'none';
+        bar.style.width = computedWidth;
+      }
+    }
+
+    function resumeAutoPlay() {
+      isTestimonialHovered = false;
+      const bar = document.getElementById('testi-progress-bar');
+      if (bar) {
+        bar.style.transition = `width ${TESTIMONIAL_DURATION}ms linear`;
+        bar.style.width = '100%';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTestimonialDots();
+      updateTestimonialView(0, false);
+      startAutoPlay();
+
+      const container = document.getElementById('testimonial-carousel-container');
+      if (container) {
+        container.addEventListener('mouseenter', pauseAutoPlay);
+        container.addEventListener('mouseleave', resumeAutoPlay);
+      }
+    });
+
+    function handleAwardScroll(dir) {
+      const container = document.getElementById('awards-container');
+      if (container) {
+        container.scrollBy({ left: dir * 360, behavior: 'smooth' });
+      }
+    }
+
+    function scrollAwards(dir) {
+      const container = document.querySelector('#awards .grid, #awards [class*="overflow-x"]');
+      if (container) {
+        container.scrollBy({ left: dir * 300, behavior: 'smooth' });
+      }
+    }
+
+    // --- Demo Modal Dialog Handlers ---
+    const demoModal = document.getElementById('demo-modal');
+    const modalTitle = document.getElementById('modal-title');
+
+    function openDemoModal(e, title) {
+      if (e) e.preventDefault();
+      if (modalTitle && title) modalTitle.textContent = title;
+      if (demoModal) {
+        demoModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeDemoModal() {
+      if (demoModal) {
+        demoModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (demoModal) {
+      demoModal.addEventListener('click', (e) => {
+        if (e.target === demoModal) closeDemoModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeDemoModal();
+      });
+    }
+
+    function submitDemoForm(e) {
+      e.preventDefault();
+      const name = document.getElementById('demo-name').value;
+      const phone = document.getElementById('demo-phone').value;
+      const email = document.getElementById('demo-email').value;
+      const company = document.getElementById('demo-company').value;
+
+      const submitBtn = document.getElementById('btn-submit-demo');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">progress_activity</span> Đang xử lý...';
+      }
+
+      setTimeout(() => {
+        closeDemoModal();
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Xác nhận đăng ký tư vấn</span><span class="material-symbols-outlined text-sm">arrow_forward</span>';
+        }
+        document.getElementById('demo-form').reset();
+        showToast('Đăng ký thành công!', `Cảm ơn ${name}. Đội ngũ chuyên gia Base sẽ liên hệ qua SĐT ${phone} trong vòng 15 phút.`);
+      }, 800);
+    }
+
+    // --- Newsletter Form Submission ---
+    function handleNewsletter(e) {
+      if (e) e.preventDefault();
+      const input = document.getElementById('newsletter-email');
+      if (!input || !input.value.trim() || !input.value.includes('@')) {
+        showToast('Vui lòng kiểm tra lại', 'Hãy nhập địa chỉ email hợp lệ.');
+        return;
+      }
+      const email = input.value.trim();
+      input.value = '';
+      showToast('Đã đăng ký bản tin', `Địa chỉ ${email} sẽ nhận các bản tin công nghệ & AI mới nhất từ Base.`);
+    }
+
+    // --- Toast Helper ---
+    let toastTimeout;
+    function showToast(title, message) {
+      const toast = document.getElementById('toast');
+      const titleEl = document.getElementById('toast-title');
+      const msgEl = document.getElementById('toast-message');
+
+      if (!toast) return;
+      if (titleEl) titleEl.textContent = title;
+      if (msgEl) msgEl.textContent = message;
+
+      toast.classList.remove('toast-hide');
+      toast.classList.add('toast-show');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('toast-show');
+        toast.classList.add('toast-hide');
+      }, 4000);
+    }
+  </script>
+</body>
+</html>

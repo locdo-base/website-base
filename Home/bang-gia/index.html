@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng giá Base.vn - Hệ điều hành Doanh nghiệp trong kỷ nguyên AI</title>
+  <meta name="description" content="Bảng giá phần mềm Base.vn 2.0 minh bạch, linh hoạt theo quy mô doanh nghiệp. Các gói Base Work+, Base HRM+, Base Info+ và Base Agentic OS.">
+
+  <!-- Google Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#F0F5FE',
+              100: '#E2ECFD',
+              500: '#1F62E8',
+              600: '#0052CC',
+              900: '#0D111A'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .slider-thumb::-webkit-slider-thumb {
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #1F62E8;
+      border: 3px solid #ffffff;
+      box-shadow: 0 4px 10px rgba(31, 98, 232, 0.4);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    .slider-thumb::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+    .slider-thumb::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #1F62E8;
+      border: 3px solid #ffffff;
+      box-shadow: 0 4px 10px rgba(31, 98, 232, 0.4);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="font-sans text-slate-800 bg-white selection:bg-[#1F62E8] selection:text-white min-h-screen relative">
+
+  <!-- BEGIN: Navigation Header -->
+  <header class="sticky top-0 z-50 pt-3 pb-2 px-4 sm:px-6 lg:px-8 transition-all duration-300" id="main-header">
+    <div class="mx-auto flex items-center justify-between bg-white/95 backdrop-blur-md rounded-full border border-slate-200/80 shadow-md hover:shadow-lg py-2.5 max-w-5xl px-5 transition-all">
+      <!-- Logo -->
+      <div class="flex items-center shrink-0">
+        <a class="flex items-center focus:outline-none group" href="/">
+          <img alt="BASE.VN" class="h-7 w-auto object-contain transition-transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWccaJMdjviWQoBAYm5n8f8duzlpjW_9zgnBkxd_ius0PKxAzhZLmANstlQ0gbX7uYHFnQZnoFIXxu0vJDN72SeX9jYc5Qc_vdWqBEYS9mih-XArsEGVveBkoShPpI3s7fcn4m_7ik3peBapZLqhYfXapQYbFKBMfycAnLCc0U-8LPvdFi_Pg5ZMHYLIZV6d4ZYiqOGOD_A1_MakivqEi_L27M93orj6LRWGHidporG0O3G9Mn6iNNNmjCfJ3Bzsfq">
+        </a>
+      </div>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center justify-center text-sm font-medium text-slate-700 space-x-1">
+        <a class="px-3.5 py-1.5 rounded-full text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" href="/#platform">Nền tảng</a>
+        <a class="px-3.5 py-1.5 rounded-full text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" href="/#industries">Giải pháp</a>
+        <div class="relative">
+          <button id="btn-products-menu" type="button" class="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors focus:outline-none cursor-pointer">
+            <span>Sản phẩm</span>
+            <span class="material-symbols-outlined text-[16px] transition-transform duration-200" id="mega-arrow">expand_more</span>
+          </button>
+        </div>
+        <a class="px-3.5 py-1.5 rounded-full text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" href="/bang-gia" class="px-3.5 py-1.5 rounded-full text-blue-600 bg-blue-50/80 font-bold transition-colors">Bảng giá</a>
+        <a class="px-3.5 py-1.5 rounded-full text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors" href="/#awards">Tài nguyên</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center space-x-2.5 shrink-0">
+        <a class="hidden sm:inline-flex text-xs md:text-sm font-semibold text-slate-700 hover:text-blue-600 hover:border-slate-300 border border-slate-200 bg-white px-4 md:px-5 py-2 rounded-full transition-all shadow-xs cursor-pointer" href="#login" onclick="openDemoModal(event, 'Đăng nhập')">Đăng nhập</a>
+        <button class="inline-flex items-center justify-center text-xs md:text-sm font-semibold text-white px-4 sm:px-6 py-2 rounded-full shadow-sm hover:opacity-95 transition-all transform hover:-translate-y-0.5 cursor-pointer" onclick="openDemoModal(event, 'Đăng ký Demo')" style="background-color: rgb(31, 98, 232); box-shadow: rgba(31, 98, 232, 0.28) 0px 8px 20px;">
+          Đăng ký Demo
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none cursor-pointer" aria-label="Menu">
+          <span class="material-symbols-outlined text-[24px]" id="mobile-menu-icon">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mega Menu Dropdown -->
+    <div id="mega-menu-dropdown" class="hidden absolute left-1/2 -translate-x-1/2 top-full mt-2 w-full max-w-4xl bg-white/95 backdrop-blur-xl border border-slate-200 rounded-2xl shadow-2xl p-6 z-50 transition-all duration-200 animate-in fade-in slide-in-from-top-2">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-left">
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+            <h4 class="font-bold text-slate-900 text-sm">Base Work+</h4>
+          </div>
+          <p class="text-xs text-slate-500 mb-3">Quản trị công việc & quy trình số</p>
+          <ul class="space-y-2 text-xs text-slate-700">
+            <li><a href="/#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Wework</span> - Quản lý dự án</a></li>
+            <li><a href="/#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Workflow</span> - Quy trình tự động</a></li>
+            <li><a href="/#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Request</span> - Xử lý phê duyệt</a></li>
+            <li><a href="/#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Office</span> - Quản lý văn bản</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span>
+            <h4 class="font-bold text-slate-900 text-sm">Base HRM+</h4>
+          </div>
+          <p class="text-xs text-slate-500 mb-3">Quản trị nhân sự toàn diện</p>
+          <ul class="space-y-2 text-xs text-slate-700">
+            <li><a href="/#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base HRM</span> - Hồ sơ nhân sự</a></li>
+            <li><a href="/#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Timeoff</span> - Quản lý nghỉ phép</a></li>
+            <li><a href="/#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Checkin</span> - Chấm công thông minh</a></li>
+            <li><a href="/#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Payroll</span> - Tính lương tự động</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
+            <h4 class="font-bold text-slate-900 text-sm">Base Info+</h4>
+          </div>
+          <p class="text-xs text-slate-500 mb-3">Thông tin & Giao tiếp nội bộ</p>
+          <ul class="space-y-2 text-xs text-slate-700">
+            <li><a href="/#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Inside</span> - Mạng xã hội nội bộ</a></li>
+            <li><a href="/#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Message</span> - Chat doanh nghiệp</a></li>
+            <li><a href="/#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Notice</span> - Thông báo điều hành</a></li>
+            <li><a href="/#platform" class="hover:text-blue-600 flex items-center gap-1.5"><span class="font-medium">Base Meeting</span> - Quản lý phòng họp</a></li>
+          </ul>
+        </div>
+        <div class="bg-blue-50/70 p-4 rounded-xl border border-blue-100">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="material-symbols-outlined text-blue-600 text-lg">smart_toy</span>
+            <h4 class="font-bold text-blue-900 text-sm">Base AI & Agents</h4>
+          </div>
+          <p class="text-xs text-blue-700/80 mb-3">Thế hệ Agentic OS mới giúp tự động hóa quy trình với AI đa tác nhân.</p>
+          <a href="#features" class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-800">
+            Tìm hiểu Agentic OS <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden mt-2 mx-auto max-w-md bg-white/98 backdrop-blur-xl border border-slate-200 rounded-2xl shadow-xl p-5 transition-all">
+      <nav class="flex flex-col space-y-3 text-sm font-medium text-slate-700">
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100 text-slate-800 flex items-center justify-between" href="/#platform">
+          <span>Nền tảng</span><span class="material-symbols-outlined text-[18px] text-slate-400">chevron_right</span>
+        </a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100 text-slate-800 flex items-center justify-between" href="/#industries">
+          <span>Giải pháp (60+ Lĩnh vực)</span><span class="material-symbols-outlined text-[18px] text-slate-400">chevron_right</span>
+        </a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100 text-slate-800 flex items-center justify-between" href="#same-language">
+          <span>AI & Con người</span><span class="material-symbols-outlined text-[18px] text-slate-400">chevron_right</span>
+        </a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100 text-slate-800 flex items-center justify-between" href="#features">
+          <span>Kiến trúc Agent đa tầng</span><span class="material-symbols-outlined text-[18px] text-slate-400">chevron_right</span>
+        </a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100 text-slate-800 flex items-center justify-between" href="#mcp-protocol">
+          <span>Chuẩn kết nối MCP</span><span class="material-symbols-outlined text-[18px] text-slate-400">chevron_right</span>
+        </a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100 text-slate-800 flex items-center justify-between" href="/bang-gia" class="px-3.5 py-1.5 rounded-full text-blue-600 bg-blue-50/80 font-bold transition-colors">
+          <span>Bảng giá & Chi phí</span><span class="material-symbols-outlined text-[18px] text-slate-400">chevron_right</span>
+        </a>
+        <a class="px-3 py-2 rounded-lg hover:bg-slate-100 text-slate-800 flex items-center justify-between" href="/#awards">
+          <span>Tài nguyên</span><span class="material-symbols-outlined text-[18px] text-slate-400">chevron_right</span>
+        </a>
+        <div class="pt-3 border-t border-slate-200 flex flex-col gap-2">
+          <button onclick="openDemoModal(event, 'Đăng nhập')" class="w-full text-center py-2.5 rounded-full border border-slate-200 text-slate-700 font-semibold text-sm hover:bg-slate-50 cursor-pointer">
+            Đăng nhập
+          </button>
+          <button onclick="openDemoModal(event, 'Đăng ký Demo')" class="w-full text-center py-2.5 rounded-full bg-blue-600 text-white font-semibold text-sm shadow-brand hover:bg-blue-700 cursor-pointer">
+            Đăng ký Demo ngay
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- END: Navigation Header -->
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="pt-12 pb-16 md:pt-16 md:pb-20 bg-gradient-to-b from-blue-50/50 via-white to-white relative overflow-hidden text-center">
+      <!-- Glow background -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-tr from-blue-200/30 via-cyan-200/20 to-purple-200/20 blur-3xl pointer-events-none rounded-full"></div>
+
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-5">
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#D4E3FC] bg-[#EEF4FF] text-xs font-bold uppercase tracking-wider text-[#1F62E8]">
+          <span class="w-2 h-2 rounded-full bg-[#1F62E8] animate-pulse"></span>
+          BẢNG GIÁ DỊCH VỤ BASE 2.0
+        </div>
+
+        <!-- Main Title with Gradient -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-[#0D111A] tracking-tight leading-[1.15]">
+          Hệ điều hành doanh nghiệp toàn diện<br>
+          <span class="bg-gradient-to-r from-[#0053F2] via-[#0068FF] to-[#00F0FF] bg-clip-text text-transparent font-extrabold">trong kỷ nguyên AI</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-slate-500 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
+          Bảng giá minh bạch, linh hoạt theo quy mô và nhu cầu tăng trưởng của từng giai đoạn doanh nghiệp.
+        </p>
+
+        <!-- Category Selector Pills -->
+        <div class="flex flex-wrap items-center justify-center gap-2.5 pt-4">
+          <button onclick="switchCategory('all')" id="tab-cat-all" class="cat-pill px-5 py-2.5 rounded-full bg-[#1F62E8] text-white text-xs sm:text-sm font-bold shadow-md shadow-blue-500/20 transition-all cursor-pointer">
+            Tất cả gói
+          </button>
+          <button onclick="switchCategory('work')" id="tab-cat-work" class="cat-pill px-5 py-2.5 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs sm:text-sm font-semibold transition-all cursor-pointer">
+            Base Work+
+          </button>
+          <button onclick="switchCategory('hrm')" id="tab-cat-hrm" class="cat-pill px-5 py-2.5 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs sm:text-sm font-semibold transition-all cursor-pointer">
+            Base HRM+
+          </button>
+          <button onclick="switchCategory('info')" id="tab-cat-info" class="cat-pill px-5 py-2.5 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs sm:text-sm font-semibold transition-all cursor-pointer">
+            Base Info+
+          </button>
+          <button onclick="switchCategory('ai')" id="tab-cat-ai" class="cat-pill px-5 py-2.5 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs sm:text-sm font-semibold transition-all cursor-pointer">
+            Base Agentic OS
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: HEADCOUNT SLIDER & 5 PRICING TIERS -->
+    <section class="pb-20 bg-white relative font-sans" id="pricing-tiers">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Subtitle & Headcount Slider -->
+        <div class="mb-10 max-w-4xl mx-auto">
+          <div class="text-left mb-4">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0D111A] tracking-tight">Môi trường làm việc số cho doanh nghiệp</h2>
+            <p class="text-slate-500 text-xs sm:text-sm mt-1">Kéo thanh trượt để chọn quy mô nhân sự áp dụng cho doanh nghiệp của bạn</p>
+          </div>
+
+          <!-- Slider Card -->
+          <div class="bg-slate-50/90 rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-[#1F62E8] text-xl">group</span>
+                <span class="text-xs sm:text-sm font-bold text-slate-900">Quy mô nhân sự áp dụng:</span>
+              </div>
+              <div class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#1F62E8] text-white text-xs sm:text-sm font-bold shadow-xs">
+                <span id="slider-user-val">30</span>
+                <span>nhân sự</span>
+              </div>
+            </div>
+
+            <!-- Range Input -->
+            <input id="headcount-range" type="range" min="0" max="4" step="1" value="1" oninput="handleSliderChange(this.value)" class="slider-thumb w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+
+            <!-- Range Markers -->
+            <div class="flex justify-between text-[11px] sm:text-xs font-semibold text-slate-500 pt-2.5 px-1 select-none">
+              <span class="cursor-pointer hover:text-blue-600" onclick="setSliderStep(0)">15 người</span>
+              <span class="cursor-pointer hover:text-blue-600 font-bold text-blue-600" onclick="setSliderStep(1)">30 người</span>
+              <span class="cursor-pointer hover:text-blue-600" onclick="setSliderStep(2)">60 người</span>
+              <span class="cursor-pointer hover:text-blue-600" onclick="setSliderStep(3)">100 người</span>
+              <span class="cursor-pointer hover:text-blue-600" onclick="setSliderStep(4)">200+ người</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 PRICING CARDS GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-4 items-stretch">
+          
+          <!-- TIER 1: STARTER -->
+          <div class="bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between hover:border-blue-300 hover:shadow-md transition-all">
+            <div class="space-y-4">
+              <div>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">GÓI CƠ BẢN</span>
+                <h3 class="text-xl font-extrabold text-[#0D111A] mt-0.5">Starter</h3>
+              </div>
+              <div class="space-y-0.5">
+                <div id="price-starter" class="text-2xl font-black text-[#0D111A] tracking-tight">37.440.000 đ</div>
+                <div class="text-[11px] text-slate-400 font-medium">thanh toán hàng năm (~<span id="monthly-starter">3.120.000</span> đ/tháng)</div>
+              </div>
+              <p class="text-xs text-slate-500 leading-relaxed border-t border-slate-100 pt-3">
+                Khởi đầu số hóa quy trình cốt lõi và quản lý công việc cho đội nhóm nhỏ.
+              </p>
+              <div class="space-y-2.5 pt-2 text-xs text-slate-600">
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Tối đa <strong class="text-slate-800" id="feat-users-starter">30</strong> người dùng</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>4 ứng dụng cốt lõi Base Work+</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Dung lượng lưu trữ 50GB</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Hỗ trợ kỹ thuật qua Ticket</span>
+                </div>
+              </div>
+            </div>
+            <div class="pt-6">
+              <button onclick="openDemoModal(event, 'Đăng ký tư vấn gói Starter')" class="w-full py-2.5 rounded-full border border-slate-300 hover:border-blue-500 hover:text-blue-600 bg-white text-slate-700 text-xs font-bold transition-all cursor-pointer">
+                Chọn gói này
+              </button>
+            </div>
+          </div>
+
+          <!-- TIER 2: GROWTH -->
+          <div class="bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between hover:border-blue-300 hover:shadow-md transition-all">
+            <div class="space-y-4">
+              <div>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">TĂNG TRƯỞNG</span>
+                <h3 class="text-xl font-extrabold text-[#0D111A] mt-0.5">Growth</h3>
+              </div>
+              <div class="space-y-0.5">
+                <div id="price-growth" class="text-2xl font-black text-[#0D111A] tracking-tight">51.840.000 đ</div>
+                <div class="text-[11px] text-slate-400 font-medium">thanh toán hàng năm (~<span id="monthly-growth">4.320.000</span> đ/tháng)</div>
+              </div>
+              <p class="text-xs text-slate-500 leading-relaxed border-t border-slate-100 pt-3">
+                Chuẩn hóa liên kết quy trình liên phòng ban cho doanh nghiệp đang mở rộng.
+              </p>
+              <div class="space-y-2.5 pt-2 text-xs text-slate-600">
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Tối đa <strong class="text-slate-800" id="feat-users-growth">30</strong> người dùng</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Mọi tính năng Work+ nâng cao</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Quy trình liên kết đa tầng</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Dung lượng lưu trữ 100GB</span>
+                </div>
+              </div>
+            </div>
+            <div class="pt-6">
+              <button onclick="openDemoModal(event, 'Đăng ký tư vấn gói Growth')" class="w-full py-2.5 rounded-full border border-slate-300 hover:border-blue-500 hover:text-blue-600 bg-white text-slate-700 text-xs font-bold transition-all cursor-pointer">
+                Chọn gói này
+              </button>
+            </div>
+          </div>
+
+          <!-- TIER 3: BUSINESS (HIGHLIGHTED BESTSELLER) -->
+          <div class="bg-white rounded-[24px] border-2 border-[#1F62E8] shadow-xl shadow-blue-500/10 p-5 sm:p-6 flex flex-col justify-between relative transform lg:-translate-y-1">
+            <!-- Top Floating Pill -->
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#1F62E8] text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-sm tracking-wide">
+              PHỔ BIẾN NHẤT
+            </div>
+            <div class="space-y-4 pt-1">
+              <div>
+                <span class="text-xs font-bold text-[#1F62E8] uppercase tracking-wider">DOANH NGHIỆP</span>
+                <h3 class="text-xl font-extrabold text-[#0D111A] mt-0.5">Business</h3>
+              </div>
+              <div class="space-y-0.5">
+                <div id="price-business" class="text-2xl font-black text-[#1F62E8] tracking-tight">60.480.000 đ</div>
+                <div class="text-[11px] text-slate-400 font-medium">thanh toán hàng năm (~<span id="monthly-business">5.040.000</span> đ/tháng)</div>
+              </div>
+              <p class="text-xs text-slate-500 leading-relaxed border-t border-slate-100 pt-3">
+                Giải pháp toàn diện tối ưu hiệu suất, phê duyệt đa cấp và tự động hóa toàn diện.
+              </p>
+              <div class="space-y-2.5 pt-2 text-xs text-slate-700">
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-[#1F62E8] shrink-0 font-bold">check_circle</span>
+                  <span>Tối đa <strong class="text-slate-900" id="feat-users-business">30</strong> người dùng</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-[#1F62E8] shrink-0 font-bold">check_circle</span>
+                  <span>Không giới hạn quy trình & dự án</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-[#1F62E8] shrink-0 font-bold">check_circle</span>
+                  <span>Tích hợp Open API & Webhooks</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-[#1F62E8] shrink-0 font-bold">check_circle</span>
+                  <span>Dung lượng 250GB • SLA 4h</span>
+                </div>
+              </div>
+            </div>
+            <div class="pt-6">
+              <button onclick="openDemoModal(event, 'Đăng ký tư vấn gói Business')" class="w-full py-2.5 rounded-full bg-[#1F62E8] hover:bg-[#0F4FD6] text-white text-xs font-bold transition-all shadow-md shadow-blue-500/20 cursor-pointer">
+                Chọn gói này
+              </button>
+            </div>
+          </div>
+
+          <!-- TIER 4: ENTERPRISE -->
+          <div class="bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-5 sm:p-6 flex flex-col justify-between hover:border-blue-300 hover:shadow-md transition-all">
+            <div class="space-y-4">
+              <div>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">TẬP ĐOÀN</span>
+                <h3 class="text-xl font-extrabold text-[#0D111A] mt-0.5">Enterprise</h3>
+              </div>
+              <div class="space-y-0.5">
+                <div id="price-enterprise" class="text-2xl font-black text-[#0D111A] tracking-tight">83.520.000 đ</div>
+                <div class="text-[11px] text-slate-400 font-medium">thanh toán hàng năm (~<span id="monthly-enterprise">6.960.000</span> đ/tháng)</div>
+              </div>
+              <p class="text-xs text-slate-500 leading-relaxed border-t border-slate-100 pt-3">
+                Bảo mật cấp ngân hàng, tùy biến theo phân cấp và quản lý đa chi nhánh.
+              </p>
+              <div class="space-y-2.5 pt-2 text-xs text-slate-600">
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Tối đa <strong class="text-slate-800" id="feat-users-enterprise">30</strong> người dùng</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Báo cáo BI phân tích Real-time</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Đăng nhập SSO & IP Whitelist</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Dung lượng 500GB • CSM riêng</span>
+                </div>
+              </div>
+            </div>
+            <div class="pt-6">
+              <button onclick="openDemoModal(event, 'Đăng ký tư vấn gói Enterprise')" class="w-full py-2.5 rounded-full border border-slate-300 hover:border-blue-500 hover:text-blue-600 bg-white text-slate-700 text-xs font-bold transition-all cursor-pointer">
+                Chọn gói này
+              </button>
+            </div>
+          </div>
+
+          <!-- TIER 5: AGENTIC OS (AI FUTURE) -->
+          <div class="bg-gradient-to-b from-purple-50/50 via-white to-white rounded-[24px] border-2 border-purple-400 shadow-xl shadow-purple-500/10 p-5 sm:p-6 flex flex-col justify-between relative transform lg:-translate-y-1">
+            <!-- Top Floating Pill -->
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow-sm tracking-wide">
+              ĐỀ XUẤT AI 2.0
+            </div>
+            <div class="space-y-4 pt-1">
+              <div>
+                <span class="text-xs font-bold text-purple-600 uppercase tracking-wider">HỆ ĐIỀU HÀNH AI</span>
+                <h3 class="text-xl font-extrabold text-[#0D111A] mt-0.5">Agentic OS</h3>
+              </div>
+              <div class="space-y-0.5">
+                <div id="price-agentic" class="text-2xl font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent tracking-tight">105.840.000 đ</div>
+                <div class="text-[11px] text-slate-400 font-medium">thanh toán hàng năm (~<span id="monthly-agentic">8.820.000</span> đ/tháng)</div>
+              </div>
+              <p class="text-xs text-slate-500 leading-relaxed border-t border-slate-100 pt-3">
+                Thế hệ điều hành đa tác nhân AI Agent tự động thực thi và kết nối chuẩn MCP.
+              </p>
+              <div class="space-y-2.5 pt-2 text-xs text-slate-700">
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-purple-600 shrink-0 font-bold">auto_awesome</span>
+                  <span>Tối đa <strong class="text-slate-900" id="feat-users-agentic">30</strong> người dùng</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-purple-600 shrink-0 font-bold">auto_awesome</span>
+                  <span>Base AI Copilot & Autonomous Agent</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-purple-600 shrink-0 font-bold">auto_awesome</span>
+                  <span>Kết nối chuẩn Model Context Protocol</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-purple-600 shrink-0 font-bold">auto_awesome</span>
+                  <span>Dung lượng 1TB • SLA 99.9%</span>
+                </div>
+              </div>
+            </div>
+            <div class="pt-6">
+              <button onclick="openDemoModal(event, 'Đăng ký trải nghiệm Base Agentic OS')" class="w-full py-2.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:opacity-95 text-white text-xs font-bold transition-all shadow-md shadow-purple-500/20 cursor-pointer">
+                Chọn gói này
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Annual Discount Banner -->
+        <div class="mt-8 p-4 sm:p-5 rounded-2xl bg-blue-50/80 border border-blue-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+              <span class="material-symbols-outlined text-xl">savings</span>
+            </div>
+            <div class="text-left">
+              <h4 class="text-xs sm:text-sm font-bold text-slate-900">Tiết kiệm hơn 30% chi phí khi thanh toán theo hợp đồng 1 năm</h4>
+              <p class="text-[11px] sm:text-xs text-slate-600">Miễn phí tư vấn lộ trình chuyển đổi số, thiết lập hệ thống và chuyển giao dữ liệu 1:1.</p>
+            </div>
+          </div>
+          <button onclick="openDemoModal(event, 'Nhận tư vấn ưu đãi thanh toán năm')" class="px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shrink-0 transition-all shadow-sm cursor-pointer">
+            Nhận tư vấn ngay →
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: DETAILED FEATURE COMPARISON TABLE -->
+    <section class="py-16 bg-[#F8FAFD] border-y border-slate-200/70 font-sans" id="compare-features">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold uppercase tracking-wider text-slate-600 mb-3 shadow-xs">
+            SO SÁNH MINH BẠCH
+          </div>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0D111A] tracking-tight">
+            So sánh chi tiết tính năng theo gói giải pháp Base Work+
+          </h2>
+          <p class="text-slate-500 text-xs sm:text-sm mt-2">Xem chi tiết năng lực vận hành của từng gói để lựa chọn giải pháp phù hợp nhất</p>
+        </div>
+
+        <!-- Table Container -->
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse min-w-[760px]">
+              <thead>
+                <tr class="bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-700">
+                  <th class="p-4 sm:p-5 w-2/5">TÍNH NĂNG & DỊCH VỤ</th>
+                  <th class="p-4 text-center">Starter</th>
+                  <th class="p-4 text-center">Growth</th>
+                  <th class="p-4 text-center bg-blue-50/60 text-blue-600 border-x border-blue-100">Business</th>
+                  <th class="p-4 text-center">Enterprise</th>
+                  <th class="p-4 text-center text-purple-600">Agentic OS</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-xs text-slate-700">
+                
+                <!-- Category 1 -->
+                <tr class="bg-slate-50/50 font-bold text-slate-900">
+                  <td colspan="6" class="p-3.5 sm:px-5 text-[#1F62E8] uppercase tracking-wider text-[11px]">
+                    1. Quản lý công việc & Quy trình (Base Work+)
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 sm:px-5">Quản lý công việc theo Kanban, List, Gantt Chart</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold">✓</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold">✓</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold bg-blue-50/30 border-x border-blue-100">✓</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold">✓</td>
+                  <td class="p-3.5 text-center text-purple-600 font-bold">✓</td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 sm:px-5">Thiết kế quy trình không cần viết mã (Workflow No-code)</td>
+                  <td class="p-3.5 text-center text-slate-400">Tối đa 10</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold">Không giới hạn</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold bg-blue-50/30 border-x border-blue-100">Không giới hạn</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold">Không giới hạn</td>
+                  <td class="p-3.5 text-center text-purple-600 font-bold">Không giới hạn</td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 sm:px-5">Tự động liên kết luồng công việc liên phòng ban</td>
+                  <td class="p-3.5 text-center text-slate-300">—</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold">✓</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold bg-blue-50/30 border-x border-blue-100">✓</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold">✓</td>
+                  <td class="p-3.5 text-center text-purple-600 font-bold">✓</td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 sm:px-5">Xử lý đề xuất & Phê duyệt số đa cấp (Base Request)</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold">Cơ bản</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold">Nâng cao</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold bg-blue-50/30 border-x border-blue-100">Đầy đủ</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold">Đầy đủ</td>
+                  <td class="p-3.5 text-center text-purple-600 font-bold">Đầy đủ + AI Auto-check</td>
+                </tr>
+
+                <!-- Category 2 -->
+                <tr class="bg-slate-50/50 font-bold text-slate-900">
+                  <td colspan="6" class="p-3.5 sm:px-5 text-[#1F62E8] uppercase tracking-wider text-[11px]">
+                    2. Trí tuệ nhân tạo & AI Agents (Agentic Layer)
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 sm:px-5">Trợ lý AI Copilot trả lời dữ liệu doanh nghiệp</td>
+                  <td class="p-3.5 text-center text-slate-300">—</td>
+                  <td class="p-3.5 text-center text-slate-300">—</td>
+                  <td class="p-3.5 text-center text-slate-400 bg-blue-50/30 border-x border-blue-100">Thêm phí</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold">Tùy chọn</td>
+                  <td class="p-3.5 text-center text-purple-600 font-bold">Tích hợp sẵn</td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 sm:px-5">Autonomous AI Agent tự động thực thi nhiệm vụ</td>
+                  <td class="p-3.5 text-center text-slate-300">—</td>
+                  <td class="p-3.5 text-center text-slate-300">—</td>
+                  <td class="p-3.5 text-center text-slate-300 bg-blue-50/30 border-x border-blue-100">—</td>
+                  <td class="p-3.5 text-center text-slate-400">Thêm phí</td>
+                  <td class="p-3.5 text-center text-purple-600 font-bold">Không giới hạn Agent</td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 sm:px-5">Chuẩn kết nối Model Context Protocol (MCP)</td>
+                  <td class="p-3.5 text-center text-slate-300">—</td>
+                  <td class="p-3.5 text-center text-slate-300">—</td>
+                  <td class="p-3.5 text-center text-slate-300 bg-blue-50/30 border-x border-blue-100">—</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold">✓</td>
+                  <td class="p-3.5 text-center text-purple-600 font-bold">✓ MCP Ready</td>
+                </tr>
+
+                <!-- Category 3 -->
+                <tr class="bg-slate-50/50 font-bold text-slate-900">
+                  <td colspan="6" class="p-3.5 sm:px-5 text-[#1F62E8] uppercase tracking-wider text-[11px]">
+                    3. Bảo mật, Tích hợp & Hạ tầng
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 sm:px-5">Dung lượng lưu trữ đám mây</td>
+                  <td class="p-3.5 text-center font-medium">50 GB</td>
+                  <td class="p-3.5 text-center font-medium">100 GB</td>
+                  <td class="p-3.5 text-center font-medium bg-blue-50/30 border-x border-blue-100 font-bold text-blue-600">250 GB</td>
+                  <td class="p-3.5 text-center font-medium">500 GB</td>
+                  <td class="p-3.5 text-center font-medium text-purple-600 font-bold">1 TB</td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 sm:px-5">Open API & Tích hợp hệ thống thứ ba</td>
+                  <td class="p-3.5 text-center text-slate-300">—</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold">✓</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold bg-blue-50/30 border-x border-blue-100">✓</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold">✓</td>
+                  <td class="p-3.5 text-center text-purple-600 font-bold">✓</td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 sm:px-5">Bảo mật SSO, SAML 2.0 & IP Whitelist</td>
+                  <td class="p-3.5 text-center text-slate-300">—</td>
+                  <td class="p-3.5 text-center text-slate-300">—</td>
+                  <td class="p-3.5 text-center text-slate-400 bg-blue-50/30 border-x border-blue-100">Thêm phí</td>
+                  <td class="p-3.5 text-center text-emerald-600 font-bold">✓</td>
+                  <td class="p-3.5 text-center text-purple-600 font-bold">✓</td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 sm:px-5">Cam kết hỗ trợ & SLA phản hồi</td>
+                  <td class="p-3.5 text-center">24 giờ</td>
+                  <td class="p-3.5 text-center">12 giờ</td>
+                  <td class="p-3.5 text-center bg-blue-50/30 border-x border-blue-100 font-bold text-blue-600">4 giờ</td>
+                  <td class="p-3.5 text-center">1 giờ</td>
+                  <td class="p-3.5 text-center text-purple-600 font-bold">15 phút (Ưu tiên)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: BASE COMBO PACKAGES -->
+    <section class="py-20 bg-white font-sans" id="combo-packages">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-blue-200 bg-blue-50 text-xs font-bold uppercase tracking-wider text-[#1F62E8] mb-3">
+            TIẾT KIỆM ĐẾN 40%
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#0D111A] tracking-tight">
+            Base Combo – Hệ sinh thái Vận hành Doanh nghiệp
+          </h2>
+          <p class="text-slate-500 text-sm sm:text-base mt-2">
+            Đồng bộ thông suốt công việc, nhân sự và truyền thông trên một nền tảng duy nhất với mức giá tối ưu nhất.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          
+          <!-- COMBO 1: Work + Info -->
+          <div class="bg-white rounded-3xl border border-slate-200 p-8 sm:p-10 shadow-lg flex flex-col justify-between hover:border-blue-300 transition-all">
+            <div class="space-y-6">
+              <div class="flex items-center justify-between">
+                <span class="px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider">COMBO VẬN HÀNH</span>
+                <span class="text-xs text-emerald-600 font-bold bg-emerald-50 px-2.5 py-1 rounded-full">Tiết kiệm 25%</span>
+              </div>
+              <div>
+                <h3 class="text-2xl font-extrabold text-[#0D111A]">Base Work + Base Info</h3>
+                <p class="text-xs text-slate-500 mt-1">Kết nối quản trị công việc và truyền thông nội bộ doanh nghiệp.</p>
+              </div>
+              <div class="space-y-1">
+                <div class="text-4xl font-black text-[#0D111A]">54.440.000 đ<span class="text-base text-slate-400 font-normal">/năm</span></div>
+                <div class="text-xs text-slate-400 line-through">Giá mua lẻ: 72.000.000 đ/năm</div>
+              </div>
+              <div class="border-t border-slate-100 pt-6 space-y-3 text-xs sm:text-sm text-slate-700">
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-blue-600 text-lg">task_alt</span>
+                  <span>Trọn bộ 4 ứng dụng Base Work+ (Wework, Workflow, Request, Office)</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-blue-600 text-lg">task_alt</span>
+                  <span>Trọn bộ 4 ứng dụng Base Info+ (Inside, Message, Notice, Meeting)</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-blue-600 text-lg">task_alt</span>
+                  <span>Đồng bộ tài khoản, phân quyền và sơ đồ tổ chức tự động</span>
+                </div>
+              </div>
+            </div>
+            <div class="pt-8">
+              <button onclick="openDemoModal(event, 'Đăng ký Combo Base Work + Base Info')" class="w-full py-3.5 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-50 font-bold text-sm transition-all cursor-pointer">
+                Đăng ký gói Combo này →
+              </button>
+            </div>
+          </div>
+
+          <!-- COMBO 2: Work + HRM + Info (FEATURED TOÀN DIỆN) -->
+          <div class="bg-gradient-to-b from-blue-50/60 via-white to-white rounded-3xl border-2 border-[#1F62E8] p-8 sm:p-10 shadow-2xl shadow-blue-500/15 flex flex-col justify-between relative">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white text-xs font-extrabold uppercase px-4 py-1 rounded-full shadow-md tracking-wider">
+              GÓI TOÀN DIỆN TIẾT KIỆM NHẤT
+            </div>
+            <div class="space-y-6 pt-2">
+              <div class="flex items-center justify-between">
+                <span class="px-3.5 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-wider">HỆ ĐIỀU HÀNH TOÀN DIỆN</span>
+                <span class="text-xs text-emerald-700 font-bold bg-emerald-100 px-2.5 py-1 rounded-full">Tiết kiệm 35%</span>
+              </div>
+              <div>
+                <h3 class="text-2xl font-extrabold text-[#0D111A]">Base Work + Base HRM + Base Info</h3>
+                <p class="text-xs text-slate-500 mt-1">Nền tảng vận hành hợp nhất số 1 tại Việt Nam cho mọi quy trình.</p>
+              </div>
+              <div class="space-y-1">
+                <div class="text-4xl font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">71.640.000 đ<span class="text-base text-slate-400 font-normal">/năm</span></div>
+                <div class="text-xs text-slate-400 line-through">Giá mua lẻ: 110.000.000 đ/năm</div>
+              </div>
+              <div class="border-t border-slate-100 pt-6 space-y-3 text-xs sm:text-sm text-slate-700">
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-[#1F62E8] text-lg font-bold">verified</span>
+                  <span>Toàn bộ ứng dụng Base Work+ (Quản trị công việc & quy trình số)</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-[#1F62E8] text-lg font-bold">verified</span>
+                  <span>Toàn bộ ứng dụng Base HRM+ (Hồ sơ, Chấm công, Tính lương, Nghỉ phép)</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-[#1F62E8] text-lg font-bold">verified</span>
+                  <span>Toàn bộ ứng dụng Base Info+ (Mạng xã hội nội bộ, Chat, Họp)</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-[#1F62E8] text-lg font-bold">verified</span>
+                  <span>Tự động đối soát công - lương - quy trình tự động qua AI</span>
+                </div>
+              </div>
+            </div>
+            <div class="pt-8">
+              <button onclick="openDemoModal(event, 'Đăng ký trọn gói toàn diện Base Work + HRM + Info')" class="w-full py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:opacity-95 text-white font-bold text-sm shadow-lg shadow-blue-500/25 transition-all transform hover:-translate-y-0.5 cursor-pointer">
+                Đăng ký trọn gói toàn diện →
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: A LA CARTE PRICING (MUA LẺ TỪNG ỨNG DỤNG) -->
+    <section class="py-16 bg-[#F8FAFD] border-t border-slate-200/80 font-sans" id="a-la-carte">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
+              LỰA CHỌN LINH HOẠT
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0D111A]">Giá mua lẻ từng ứng dụng</h2>
+            <p class="text-slate-500 text-xs sm:text-sm mt-1">Tự do lựa chọn từng giải pháp riêng biệt theo nhu cầu cụ thể của từng phòng ban</p>
+          </div>
+          <!-- Filter search box -->
+          <div class="w-full sm:w-72">
+            <input id="app-search-input" oninput="filterAppList(this.value)" type="text" placeholder="Tìm ứng dụng (vd: Wework, HRM)..." class="w-full px-4 py-2.5 rounded-full border border-slate-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-xs">
+          </div>
+        </div>
+
+        <!-- Apps List Grid -->
+        <div id="apps-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          
+          <!-- App 1 -->
+          <div class="app-card bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex items-center justify-between hover:border-blue-300 transition">
+            <div class="space-y-1">
+              <h4 class="font-bold text-slate-900 text-sm">Base Wework</h4>
+              <p class="text-[11px] text-slate-500">Quản lý công việc & tiến độ dự án</p>
+            </div>
+            <div class="text-right shrink-0">
+              <div class="text-sm font-extrabold text-[#1F62E8]">30.000 đ</div>
+              <div class="text-[10px] text-slate-400">/người/tháng</div>
+            </div>
+          </div>
+
+          <!-- App 2 -->
+          <div class="app-card bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex items-center justify-between hover:border-blue-300 transition">
+            <div class="space-y-1">
+              <h4 class="font-bold text-slate-900 text-sm">Base Workflow</h4>
+              <p class="text-[11px] text-slate-500">Tự động hóa luồng quy trình liên phòng ban</p>
+            </div>
+            <div class="text-right shrink-0">
+              <div class="text-sm font-extrabold text-[#1F62E8]">30.000 đ</div>
+              <div class="text-[10px] text-slate-400">/người/tháng</div>
+            </div>
+          </div>
+
+          <!-- App 3 -->
+          <div class="app-card bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex items-center justify-between hover:border-blue-300 transition">
+            <div class="space-y-1">
+              <h4 class="font-bold text-slate-900 text-sm">Base Request</h4>
+              <p class="text-[11px] text-slate-500">Xử lý đề xuất & phê duyệt điện tử</p>
+            </div>
+            <div class="text-right shrink-0">
+              <div class="text-sm font-extrabold text-[#1F62E8]">30.000 đ</div>
+              <div class="text-[10px] text-slate-400">/người/tháng</div>
+            </div>
+          </div>
+
+          <!-- App 4 -->
+          <div class="app-card bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex items-center justify-between hover:border-blue-300 transition">
+            <div class="space-y-1">
+              <h4 class="font-bold text-slate-900 text-sm">Base HRM</h4>
+              <p class="text-[11px] text-slate-500">Quản trị hồ sơ và vòng đời nhân sự</p>
+            </div>
+            <div class="text-right shrink-0">
+              <div class="text-sm font-extrabold text-[#1F62E8]">30.000 đ</div>
+              <div class="text-[10px] text-slate-400">/người/tháng</div>
+            </div>
+          </div>
+
+          <!-- App 5 -->
+          <div class="app-card bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex items-center justify-between hover:border-blue-300 transition">
+            <div class="space-y-1">
+              <h4 class="font-bold text-slate-900 text-sm">Base Checkin</h4>
+              <p class="text-[11px] text-slate-500">Chấm công thông minh đa chi nhánh</p>
+            </div>
+            <div class="text-right shrink-0">
+              <div class="text-sm font-extrabold text-[#1F62E8]">20.000 đ</div>
+              <div class="text-[10px] text-slate-400">/người/tháng</div>
+            </div>
+          </div>
+
+          <!-- App 6 -->
+          <div class="app-card bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex items-center justify-between hover:border-blue-300 transition">
+            <div class="space-y-1">
+              <h4 class="font-bold text-slate-900 text-sm">Base Payroll</h4>
+              <p class="text-[11px] text-slate-500">Tính lương tự động & phiếu lương điện tử</p>
+            </div>
+            <div class="text-right shrink-0">
+              <div class="text-sm font-extrabold text-[#1F62E8]">35.000 đ</div>
+              <div class="text-[10px] text-slate-400">/người/tháng</div>
+            </div>
+          </div>
+
+          <!-- App 7 -->
+          <div class="app-card bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex items-center justify-between hover:border-blue-300 transition">
+            <div class="space-y-1">
+              <h4 class="font-bold text-slate-900 text-sm">Base Inside</h4>
+              <p class="text-[11px] text-slate-500">Mạng xã hội truyền thông nội bộ</p>
+            </div>
+            <div class="text-right shrink-0">
+              <div class="text-sm font-extrabold text-[#1F62E8]">20.000 đ</div>
+              <div class="text-[10px] text-slate-400">/người/tháng</div>
+            </div>
+          </div>
+
+          <!-- App 8 -->
+          <div class="app-card bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex items-center justify-between hover:border-blue-300 transition">
+            <div class="space-y-1">
+              <h4 class="font-bold text-slate-900 text-sm">Base Office</h4>
+              <p class="text-[11px] text-slate-500">Quản lý văn bản, công văn & tài liệu</p>
+            </div>
+            <div class="text-right shrink-0">
+              <div class="text-sm font-extrabold text-[#1F62E8]">25.000 đ</div>
+              <div class="text-[10px] text-slate-400">/người/tháng</div>
+            </div>
+          </div>
+
+          <!-- App 9 -->
+          <div class="app-card bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex items-center justify-between hover:border-blue-300 transition">
+            <div class="space-y-1">
+              <h4 class="font-bold text-slate-900 text-sm">Base Message</h4>
+              <p class="text-[11px] text-slate-500">Ứng dụng nhắn tin nội bộ doanh nghiệp</p>
+            </div>
+            <div class="text-right shrink-0">
+              <div class="text-sm font-extrabold text-[#1F62E8]">15.000 đ</div>
+              <div class="text-[10px] text-slate-400">/người/tháng</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: BASE AI CREDITS -->
+    <section class="py-16 bg-white font-sans" id="ai-credits">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-xs font-bold uppercase tracking-wider text-purple-700 mb-3">
+            TÀI NGUYÊN AI MỞ RỘNG
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0D111A]">Base AI Credit</h2>
+          <p class="text-slate-500 text-xs sm:text-sm mt-1">Các gói tài nguyên suy luận mở rộng cho AI Copilot và Agentic OS tự động hóa</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 space-y-4 hover:border-purple-300 transition shadow-xs">
+            <span class="text-xs font-bold text-slate-400 uppercase">GÓI CƠ BẢN</span>
+            <h4 class="text-lg font-bold text-slate-900">Starter AI Pack</h4>
+            <div class="text-2xl font-black text-slate-900">3.200.000 đ<span class="text-xs text-slate-400 font-normal">/năm</span></div>
+            <ul class="text-xs text-slate-600 space-y-2 pt-2 border-t border-slate-100">
+              <li>• 50.000 lượt suy luận AI / tháng</li>
+              <li>• Tích hợp mô hình GPT-4o & Claude 3.5</li>
+              <li>• Hỗ trợ tóm tắt văn bản và trả lời dữ liệu</li>
+            </ul>
+          </div>
+
+          <div class="bg-purple-50/60 rounded-2xl border-2 border-purple-500 p-6 space-y-4 shadow-md">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-purple-700 uppercase">KHUYÊN DÙNG</span>
+              <span class="text-[10px] font-bold bg-purple-200 text-purple-800 px-2 py-0.5 rounded-full">Phổ biến</span>
+            </div>
+            <h4 class="text-lg font-bold text-slate-900">Business AI Pack</h4>
+            <div class="text-2xl font-black text-purple-700">7.600.000 đ<span class="text-xs text-slate-400 font-normal">/năm</span></div>
+            <ul class="text-xs text-slate-700 space-y-2 pt-2 border-t border-purple-100">
+              <li>• 150.000 lượt suy luận AI / tháng</li>
+              <li>• Hỗ trợ kết nối MCP Protocol Servers</li>
+              <li>• Tự động đối soát dữ liệu & phát hiện điểm nghẽn</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 space-y-4 hover:border-purple-300 transition shadow-xs">
+            <span class="text-xs font-bold text-slate-400 uppercase">TẬP ĐOÀN</span>
+            <h4 class="text-lg font-bold text-slate-900">Enterprise AI Pack</h4>
+            <div class="text-2xl font-black text-slate-900">15.000.000 đ<span class="text-xs text-slate-400 font-normal">/năm</span></div>
+            <ul class="text-xs text-slate-600 space-y-2 pt-2 border-t border-slate-100">
+              <li>• 500.000 lượt suy luận AI / tháng</li>
+              <li>• Triển khai Agent đa tác nhân chuyên sâu</li>
+              <li>• Hạ tầng tính toán AI chuyên biệt (Dedicated GPU)</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 6: PRICING FAQ -->
+    <section class="py-16 bg-[#F8FAFD] border-t border-slate-200/80 font-sans" id="pricing-faq">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
+            HỎI ĐÁP
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0D111A]">Những thắc mắc thường gặp về bảng giá</h2>
+        </div>
+
+        <div class="space-y-3">
+          
+          <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs cursor-pointer" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between font-bold text-sm text-slate-900">
+              <span>Chi phí trên đã bao gồm thuế Giá trị gia tăng (VAT) chưa?</span>
+              <span class="material-symbols-outlined text-slate-400 transition-transform">expand_more</span>
+            </div>
+            <div class="faq-ans hidden text-xs text-slate-600 pt-3 leading-relaxed border-t border-slate-100 mt-3">
+              Các mức giá được niêm yết trên website là giá chưa bao gồm 10% thuế Giá trị gia tăng (VAT). Base sẽ xuất hóa đơn GTGT điện tử hợp pháp đầy đủ theo quy định của Bộ Tài chính ngay sau khi quý doanh nghiệp hoàn tất thủ tục thanh toán.
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs cursor-pointer" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between font-bold text-sm text-slate-900">
+              <span>Doanh nghiệp có thể tăng thêm số lượng người dùng trong quá trình sử dụng không?</span>
+              <span class="material-symbols-outlined text-slate-400 transition-transform">expand_more</span>
+            </div>
+            <div class="faq-ans hidden text-xs text-slate-600 pt-3 leading-relaxed border-t border-slate-100 mt-3">
+              Hoàn toàn được. Doanh nghiệp có thể mua bổ sung tài khoản người dùng bất kỳ lúc nào với chi phí tính theo tỉ lệ thời gian còn lại của hợp đồng hiện hành. Việc cấp phép bổ sung diễn ra tự động trong vòng 5 phút.
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs cursor-pointer" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between font-bold text-sm text-slate-900">
+              <span>Có phát sinh thêm chi phí cài đặt, bảo trì hoặc phí nâng cấp hàng năm không?</span>
+              <span class="material-symbols-outlined text-slate-400 transition-transform">expand_more</span>
+            </div>
+            <div class="faq-ans hidden text-xs text-slate-600 pt-3 leading-relaxed border-t border-slate-100 mt-3">
+              Không. Base là nền tảng SaaS điện toán đám mây trọn gói. Mọi chi phí nâng cấp tính năng mới hàng tuần, bảo trì hạ tầng máy chủ và sao lưu dữ liệu đều hoàn toàn miễn phí trong suốt thời hạn hợp đồng.
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs cursor-pointer" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between font-bold text-sm text-slate-900">
+              <span>Base có chính sách dùng thử hoặc chuyển đổi dữ liệu ban đầu không?</span>
+              <span class="material-symbols-outlined text-slate-400 transition-transform">expand_more</span>
+            </div>
+            <div class="faq-ans hidden text-xs text-slate-600 pt-3 leading-relaxed border-t border-slate-100 mt-3">
+              Chuyên gia của Base sẽ thiết lập một hệ thống Demo thực tế theo đúng mô hình và sơ đồ phòng ban của doanh nghiệp để lãnh đạo trải nghiệm thử trước khi ký hợp đồng. Đội ngũ kỹ thuật hỗ trợ nhập liệu ban đầu từ file Excel miễn phí.
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-xs cursor-pointer" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between font-bold text-sm text-slate-900">
+              <span>Dữ liệu của doanh nghiệp được lưu trữ và bảo mật ở đâu?</span>
+              <span class="material-symbols-outlined text-slate-400 transition-transform">expand_more</span>
+            </div>
+            <div class="faq-ans hidden text-xs text-slate-600 pt-3 leading-relaxed border-t border-slate-100 mt-3">
+              Dữ liệu được lưu trữ trên hệ thống máy chủ Tier 3+ đạt chuẩn an toàn thông tin quốc tế ISO/IEC 27001:2013, mã hóa toàn diện dữ liệu truyền tải theo chuẩn SSL 256-bit và sao lưu định kỳ hàng ngày tại các trung tâm dữ liệu độc lập.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 7: VIBRANT BLUE CTA BANNER & CLEAN FOOTER (MATCHING HOME) -->
+    <section class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden font-sans">
+      <div class="max-w-7xl mx-auto w-full">
+        <!-- VIBRANT BLUE CTA HERO BANNER CARD -->
+        <div class="relative rounded-[32px] sm:rounded-[40px] p-8 sm:p-14 lg:p-20 text-center overflow-hidden shadow-2xl shadow-blue-500/25" style="background: linear-gradient(135deg, #2B73EB 0%, #1A5BD8 50%, #1754C7 100%);">
+          <!-- Subtle Ambient Glow -->
+          <div class="absolute -top-32 -left-32 w-80 h-80 rounded-full bg-white/10 blur-3xl pointer-events-none"></div>
+          <div class="absolute -bottom-32 -right-32 w-80 h-80 rounded-full bg-cyan-400/20 blur-3xl pointer-events-none"></div>
+
+          <div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
+            <!-- Eyebrow Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-6 sm:mb-8 shadow-xs">
+              <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+              SẴN SÀNG TĂNG TRƯỞNG
+            </div>
+
+            <!-- Headline -->
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-white tracking-tight leading-[1.18] mb-4 sm:mb-5">
+              Sẵn sàng bứt phá hiệu suất<br>
+              vận hành cùng Base Agentic OS?
+            </h2>
+
+            <!-- Subtitle -->
+            <p class="text-white/90 text-sm sm:text-base md:text-[17px] leading-relaxed max-w-2xl mx-auto mb-8 sm:mb-10 font-normal">
+              Hơn 12.000 doanh nghiệp hàng đầu đã tin dùng Base.vn để tối ưu vận hành và tăng trưởng. Đăng ký nhận tư vấn và báo giá chi tiết ngay hôm nay.
+            </p>
+
+            <!-- Two CTA Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
+              <!-- Button 1: Black Pill "Đăng Ký Demo →" -->
+              <a href="#demo" onclick="openDemoModal(event, 'Đăng ký Demo Base 2.0')" class="px-7 sm:px-8 py-3.5 rounded-full bg-[#0D111A] hover:bg-black text-white font-bold text-sm sm:text-[15px] shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-0.5 inline-flex items-center gap-2 cursor-pointer">
+                <span>Đăng Ký Demo</span>
+                <span class="font-mono text-sm">→</span>
+              </a>
+              <!-- Button 2: Semi-transparent Blue/White Pill "Đăng ký tư vấn 1:1" -->
+              <a href="#contact" onclick="openDemoModal(event, 'Đăng ký tư vấn 1:1 với chuyên gia Base')" class="px-7 sm:px-8 py-3.5 rounded-full bg-white/20 hover:bg-white/30 text-white font-bold text-sm sm:text-[15px] border border-white/40 transition-all backdrop-blur-md inline-flex items-center cursor-pointer">
+                Đăng ký tư vấn 1:1
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CLEAN MODERN FOOTER -->
+    <div class="mt-14 sm:mt-16 bg-white rounded-3xl md:rounded-[32px] border border-slate-200/80 shadow-md p-8 sm:p-12 lg:p-14 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+        <div class="lg:col-span-5 space-y-5">
+          <a class="flex items-center shrink-0" href="#">
+            <img alt="BASE.VN" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3ejBddGhADW4BO4TLhnyBi2WgQHUSG2Bim2UiS3oMxgMZH9ABa7ZCdPEO-LOp-skvy4dMi2ANMIMcbTNt8Lo9UpPl2-tKP2Txo_8lZot5bgnxWMdfW_hC0cmilM0f4mMki60w_rgrMoHrcKb9D9-qEq6BNjI0DMvTt2Gn002Schb7qzn6nPz3Yg3XFgbdfMKfJ9n39MQb3hER-n4ESrVuqSJnVKRoH00QvRFf2bRlXUz9fNVavBhDjJjgm6r1OU9H">
+          </a>
+          <div class="space-y-2 pt-2">
+            <label class="text-xs font-semibold text-slate-900 block">Đăng ký nhận thông tin công nghệ &amp; AI</label>
+            <div class="flex items-center bg-slate-50 border border-slate-200 rounded-full p-1 pl-4 focus-within:border-[#0068FF] shadow-xs max-w-md">
+              <input id="newsletter-email" type="email" placeholder="Nhập email của bạn..." class="px-3 py-2 text-sm bg-transparent text-slate-800 focus:outline-none w-full">
+              <button type="button" onclick="handleNewsletter(event)" class="px-5 py-2 text-sm font-semibold rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-all shrink-0 cursor-pointer">Đăng ký</button>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 pt-3">
+            <a aria-label="Facebook" class="w-8 h-8 rounded-full border border-slate-200/80 bg-white text-slate-500 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50/70 inline-flex items-center justify-center transition-all shadow-xs" href="#">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a aria-label="LinkedIn" class="w-8 h-8 rounded-full border border-slate-200/80 bg-white text-slate-500 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50/70 inline-flex items-center justify-center transition-all shadow-xs" href="#">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a aria-label="YouTube" class="w-8 h-8 rounded-full border border-slate-200/80 bg-white text-slate-500 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50/70 inline-flex items-center justify-center transition-all shadow-xs" href="#">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="lg:col-span-7 grid grid-cols-2 gap-6 text-xs sm:grid-cols-4">
+          <div class="space-y-3">
+            <h4 class="font-semibold text-slate-900">Sản phẩm</h4>
+            <ul class="space-y-2.5 text-slate-500">
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#platform">Nền tảng</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#platform">Tích hợp</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#platform">Bảo mật</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#pricing">Bảng giá</a></li>
+            </ul>
+          </div>
+          <div class="space-y-3">
+            <h4 class="font-semibold text-slate-900">Giải pháp</h4>
+            <ul class="space-y-2.5 text-slate-500">
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#industries">Bán lẻ &amp; F&amp;B</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#industries">Tài chính</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#industries">Sản xuất</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#industries">Doanh nghiệp lớn</a></li>
+            </ul>
+          </div>
+          <div class="space-y-3">
+            <h4 class="font-semibold text-slate-900">Tài nguyên</h4>
+            <ul class="space-y-2.5 text-slate-500">
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#awards">Giải thưởng</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#clients-testimonial">Khách hàng</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#mcp-protocol">Chuẩn MCP</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#demo">Demo trực tiếp</a></li>
+            </ul>
+          </div>
+          <div class="space-y-3">
+            <h4 class="font-semibold text-slate-900">Về Base</h4>
+            <ul class="space-y-2.5 text-slate-500">
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#awards">Giới thiệu</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#clients-testimonial">Khách hàng</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#contact">Tuyển dụng</a></li>
+              <li><a class="hover:text-[#0068FF] transition-colors" href="#contact">Đối tác</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10 pt-8 border-t border-slate-100">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px] text-[#0068FF]">location_city</span>
+              <h5 class="font-bold text-slate-900 text-sm">Trụ sở Hà Nội</h5>
+            </div>
+            <div class="space-y-1 text-xs text-slate-600">
+              <p class="flex items-center gap-1.5 font-medium text-slate-800">
+                <span class="material-symbols-outlined text-[14px] text-slate-400">call</span>
+                <a class="hover:text-[#0068FF] transition-colors font-semibold" href="tel:+84936011413">(+84) 936 011 413</a>
+              </p>
+              <p class="text-slate-500 leading-relaxed">Tầng 16, Tòa HUD, số 37 Lê Văn Lương, Thanh Xuân, Hà Nội</p>
+            </div>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px] text-[#0068FF]">apartment</span>
+              <h5 class="font-bold text-slate-900 text-sm">VP. HCM</h5>
+            </div>
+            <div class="space-y-1 text-xs text-slate-600">
+              <p class="flex items-center gap-1.5 font-medium text-slate-800">
+                <span class="material-symbols-outlined text-[14px] text-slate-400">call</span>
+                <a class="hover:text-[#0068FF] transition-colors font-semibold" href="tel:+84896691313">(+84) 896 69 1313</a>
+              </p>
+              <p class="text-slate-500 leading-relaxed">Tầng 2, Tòa Jasmine 1, Hà Đô Centrosa Garden, 200 Đường 3/2, Phường Hòa Hưng, TP.HCM</p>
+            </div>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px] text-[#0068FF]">domain</span>
+              <h5 class="font-bold text-slate-900 text-sm">VP. Đà Nẵng</h5>
+            </div>
+            <div class="space-y-1 text-xs text-slate-600">
+              <p class="flex items-center gap-1.5 font-medium text-slate-800">
+                <span class="material-symbols-outlined text-[14px] text-slate-400">call</span>
+                <a class="hover:text-[#0068FF] transition-colors font-semibold" href="tel:+84977575309">(+84) 977 575 309</a>
+              </p>
+              <p class="text-slate-500 leading-relaxed">Tầng 11, tòa nhà VietinBank, số 36 Trần Quốc Toản, Hải Châu, Đà Nẵng</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
+        <p class="text-center sm:text-left">© 2026 | Bản quyền thuộc về Công ty Cổ phần Base Enterprise.</p>
+        <div class="flex items-center gap-4 text-slate-500">
+          <a class="hover:text-[#0068FF] transition-colors" href="#">Bảo mật</a>
+          <a class="hover:text-[#0068FF] transition-colors" href="#">Điều khoản</a>
+          <span class="flex items-center gap-1 text-[#0068FF] font-medium">🌐 Tiếng Việt</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END: BottomCTA -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Demo Request Modal -->
+  <div id="demo-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm transition-opacity duration-300">
+    <div class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-100 p-6 sm:p-8 animate-in fade-in zoom-in-95 duration-200">
+      <button onclick="closeDemoModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-800 transition-colors cursor-pointer" aria-label="Close">
+        <span class="material-symbols-outlined text-lg">close</span>
+      </button>
+
+      <div class="mb-6">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold mb-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
+          BASE AGENTIC PLATFORM
+        </div>
+        <h3 id="modal-title" class="text-2xl font-bold text-slate-900">Đăng ký trải nghiệm Demo</h3>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">Trải nghiệm sức mạnh của AI Agent trong vận hành doanh nghiệp cùng chuyên gia Base.</p>
+      </div>
+
+      <form id="demo-form" onsubmit="submitDemoForm(event)" class="space-y-4 text-left">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Họ và tên *</label>
+          <input required type="text" id="demo-name" placeholder="Nguyễn Văn A" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50/50">
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Số điện thoại *</label>
+            <input required type="tel" id="demo-phone" placeholder="0912 345 678" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50/50">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Email doanh nghiệp *</label>
+            <input required type="email" id="demo-email" placeholder="name@company.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50/50">
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Tên doanh nghiệp *</label>
+          <input required type="text" id="demo-company" placeholder="Công ty Cổ phần Công nghệ..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50/50">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Quy mô nhân sự</label>
+          <select id="demo-size" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50/50 text-slate-700">
+            <option value="under50">Dưới 50 nhân sự</option>
+            <option value="50-200" selected>50 - 200 nhân sự</option>
+            <option value="200-500">200 - 500 nhân sự</option>
+            <option value="over500">Trên 500 nhân sự</option>
+          </select>
+        </div>
+        <button type="submit" id="btn-submit-demo" class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-brand hover:shadow-brand-lg transition-all flex items-center justify-center gap-2 cursor-pointer mt-2">
+          <span>Xác nhận đăng ký tư vấn</span>
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast-hide fixed bottom-6 right-6 z-50 max-w-sm bg-slate-900/95 text-white p-4 rounded-2xl shadow-2xl backdrop-blur-md border border-slate-700 flex items-start gap-3">
+    <span class="material-symbols-outlined text-emerald-400 text-xl shrink-0 mt-0.5">check_circle</span>
+    <div class="text-xs">
+      <h5 id="toast-title" class="font-bold text-white text-sm mb-0.5">Thành công!</h5>
+      <p id="toast-message" class="text-slate-300 leading-relaxed">Thông tin của bạn đã được ghi nhận.</p>
+    </div>
+  </div>
+
+  <!-- Back to top floating button -->
+  <button id="btn-back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="hidden fixed bottom-6 left-6 z-40 w-11 h-11 rounded-full bg-white text-slate-700 hover:text-blue-600 border border-slate-200 shadow-lg hover:shadow-xl flex items-center justify-center transition-all cursor-pointer" aria-label="Lên đầu trang">
+    <span class="material-symbols-outlined text-lg">arrow_upward</span>
+  </button>
+
+  <!-- Interactive Logic Script -->
+  <script>
+    // --- Headcount Pricing Calculation Engine ---
+    const scaleFactors = [
+      { users: 15, mult: 0.6 },
+      { users: 30, mult: 1.0 },
+      { users: 60, mult: 1.7 },
+      { users: 100, mult: 2.6 },
+      { users: 200, mult: 4.5 }
+    ];
+
+    const basePrices = {
+      starter: 37440000,
+      growth: 51840000,
+      business: 60480000,
+      enterprise: 83520000,
+      agentic: 105840000
+    };
+
+    function formatVND(val) {
+      return val.toLocaleString('vi-VN') + ' đ';
+    }
+
+    function handleSliderChange(valIndex) {
+      const step = parseInt(valIndex);
+      const factor = scaleFactors[step];
+      if (!factor) return;
+
+      document.getElementById('slider-user-val').textContent = factor.users === 200 ? '200+' : factor.users;
+
+      // Update feature text in cards
+      ['starter', 'growth', 'business', 'enterprise', 'agentic'].forEach(t => {
+        const el = document.getElementById(`feat-users-${t}`);
+        if (el) el.textContent = factor.users === 200 ? '200+' : factor.users;
+      });
+
+      // Recalculate tier prices
+      for (const [tier, base] of Object.entries(basePrices)) {
+        const annual = Math.round(base * factor.mult);
+        const monthly = Math.round(annual / 12);
+        
+        const priceEl = document.getElementById(`price-${tier}`);
+        const monthEl = document.getElementById(`monthly-${tier}`);
+        if (priceEl) priceEl.textContent = formatVND(annual);
+        if (monthEl) monthEl.textContent = monthly.toLocaleString('vi-VN');
+      }
+    }
+
+    function setSliderStep(step) {
+      const slider = document.getElementById('headcount-range');
+      if (slider) {
+        slider.value = step;
+        handleSliderChange(step);
+      }
+    }
+
+    // --- Category Tab Switching ---
+    function switchCategory(cat) {
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        btn.classList.remove('bg-[#1F62E8]', 'text-white', 'shadow-md');
+        btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+      });
+      const activeBtn = document.getElementById(`tab-cat-${cat}`);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-[#1F62E8]', 'text-white', 'shadow-md');
+        activeBtn.classList.remove('bg-white', 'text-slate-700', 'border-slate-200');
+      }
+    }
+
+    // --- Search A la carte Apps ---
+    function filterAppList(term) {
+      const q = term.toLowerCase().trim();
+      document.querySelectorAll('.app-card').forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(q) ? 'flex' : 'none';
+      });
+    }
+
+    // --- Toggle FAQ Accordion ---
+    function toggleFaq(el) {
+      const ans = el.querySelector('.faq-ans');
+      const icon = el.querySelector('.material-symbols-outlined');
+      if (ans) {
+        const isHidden = ans.classList.toggle('hidden');
+        if (icon) icon.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
+      }
+    }
+
+    // --- Header & Modal Logic ---
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileIcon = document.getElementById('mobile-menu-icon');
+    const productsBtn = document.getElementById('btn-products-menu');
+    const megaMenu = document.getElementById('mega-menu-dropdown');
+    const megaArrow = document.getElementById('mega-arrow');
+    const backToTopBtn = document.getElementById('btn-back-to-top');
+
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        mobileIcon.textContent = isHidden ? 'menu' : 'close';
+      });
+    }
+
+    if (productsBtn && megaMenu) {
+      productsBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isHidden = megaMenu.classList.toggle('hidden');
+        if (megaArrow) megaArrow.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+      document.addEventListener('click', (e) => {
+        if (!megaMenu.contains(e.target) && !productsBtn.contains(e.target)) {
+          megaMenu.classList.add('hidden');
+          if (megaArrow) megaArrow.style.transform = 'rotate(0deg)';
+        }
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      if (backToTopBtn) {
+        if (window.scrollY > 400) {
+          backToTopBtn.classList.remove('hidden');
+        } else {
+          backToTopBtn.classList.add('hidden');
+        }
+      }
+    });
+
+    const demoModal = document.getElementById('demo-modal');
+    const modalTitle = document.getElementById('modal-title');
+
+    function openDemoModal(e, title) {
+      if (e) e.preventDefault();
+      if (modalTitle && title) modalTitle.textContent = title;
+      if (demoModal) {
+        demoModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeDemoModal() {
+      if (demoModal) {
+        demoModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (demoModal) {
+      demoModal.addEventListener('click', (e) => {
+        if (e.target === demoModal) closeDemoModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeDemoModal();
+      });
+    }
+
+    function submitDemoForm(e) {
+      e.preventDefault();
+      const name = document.getElementById('demo-name').value;
+      const phone = document.getElementById('demo-phone').value;
+      closeDemoModal();
+      showToast('Đăng ký tư vấn thành công!', `Cảm ơn ${name}. Chuyên gia Base sẽ liên hệ qua SĐT ${phone} trong vòng 15 phút.`);
+    }
+
+    function handleNewsletter(e) {
+      if (e) e.preventDefault();
+      const input = document.getElementById('newsletter-email');
+      if (input && input.value.includes('@')) {
+        showToast('Đã đăng ký bản tin', `Cảm ơn bạn! Thông tin công nghệ mới nhất sẽ được gửi qua ${input.value}.`);
+        input.value = '';
+      } else {
+        showToast('Vui lòng kiểm tra email', 'Hãy nhập địa chỉ email hợp lệ.');
+      }
+    }
+
+    let toastTimeout;
+    function showToast(title, message) {
+      const toast = document.getElementById('toast');
+      const titleEl = document.getElementById('toast-title');
+      const msgEl = document.getElementById('toast-message');
+      if (!toast) return;
+      if (titleEl) titleEl.textContent = title;
+      if (msgEl) msgEl.textContent = message;
+      toast.classList.remove('hidden');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
